@@ -1,7 +1,3 @@
-pipeinu
-=======
-
-pipeinuサイト
 # pipeinu
 pipeinuサイト作成用リポジトリ
 
