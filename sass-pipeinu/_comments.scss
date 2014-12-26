@@ -1,0 +1,191 @@
+/* コメント一覧 */
+
+#comments{
+  background: url(img/line2.png) repeat-x bottom;
+  width: 100%;
+}
+
+#comments h1{
+  margin-bottom: 10px;
+  margin-bottom: 10px;
+  font-size: 1.7rem;
+  text-align: center;
+  color: #fabe00;
+  border-top: 1px solid #fabe00;
+  border-bottom: 3px double #fabe00;
+  padding: 0.2rem 0 0.5rem;
+  background: url(img/bg_paisley2.png) repeat;
+}
+
+#comments h1 small {
+  font-size: 1rem;
+}
+
+#comments li{
+  margin-bottom: 30px;
+}
+
+#comments ul{
+  padding-bottom: 20px;
+}
+
+#comments .avatar{
+  float: left;
+  margin-right: 2.8%;
+}
+
+#comments div.comment{
+  width: 86.1%; //620px
+  float: left;
+}
+
+#comments .author{
+  padding-bottom: 10px;
+  background: url(img/line2.png) repeat-x bottom;
+}
+
+#comments .author cite{
+  float: left;
+}
+
+#comments .author p{
+  float: right;
+}
+
+#comments p.reply{
+  text-align: right;
+}
+
+#comments .children{
+  padding-left: 50px;
+}
+
+#comments .children div.comment{ width: 77.8%; } //560px
+#comments .children .children div.comment{ width: 69.4%; } //500px
+#comments .children .children .children div.comment{ width: 61.1%; } //440px
+#comments .children .children .children .children div.comment{ width: 52.8; } //380px
+
+#comments cite,
+#comments cite a{
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #444;
+}
+
+#comments .meta a{
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: #444;
+}
+
+#comments p.reply a{
+  text-decoration: none;
+  color: #fabe00;
+}
+
+#comments cite a:hover,
+#comments .meta a:hover,
+#comments p.reply a:hover{
+  text-decoration: underline;
+}
+
+
+/* コメントフォーム と　トラックバックURL */
+
+#respond,
+#trackback{
+  position: relative;
+  margin-top: 50px;
+  padding: 30px;
+  background: url(img/line2.png) repeat-x top;
+}
+
+#comments h3{
+  font: 700 1.2rem 'Noto Sans', sans-serif;
+  margin-bottom: 10px;
+}
+
+#comments h3:before{
+  font: normal 1.3rem 'designek';
+  content: attr(data-icon);
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  content: "\28 \00A0";
+}
+
+#comments h3 a{
+  font: 1.2rem  Arial, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+  color: #444;
+  text-decoration: none;
+}
+
+#comments h3 small a{
+  font-size: 0.9rem;
+}
+
+#comments h3 a:hover{
+  text-decoration: underline;
+}
+
+#respond .logged_in_as{
+  margin-bottom: 10px;
+}
+
+#respond .logged_in_as a{
+  color: #fabe00;
+}
+
+#respond form label{
+  float: left;
+  display: block;
+  margin-bottom: 20px;
+  font: 700 1.1rem 'Noto Sans', sans-serif;
+}
+
+span.required{
+  font: 700 1.1rem 'Noto Sans', sans-serif;
+  color: #fabe00;
+}
+
+#respond form input#author,
+#respond form input#email,
+#respond form input#url,
+#respond form textarea#comment{
+  float: right;
+  display: block;
+  margin: 0 0 20px 20px;
+  padding: 5px;
+  border: none;
+  width: 430px;
+  font: 1rem "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+#submit{
+  width: 230px;
+  height: 50px;
+  background: url(img/comment_btn.png);
+  text-indent: 100%;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+}
+
+#submit:hover{
+  background: url(img/comment_btn_hov.png);
+}
+
+p.notes{
+  position: absolute;
+  bottom: 35px;
+  right: 30px;
+  text-align: right;
+  font-size: 0.8rem;
+}
+
+#trackback input{
+  width: 100%;
+  border: none;
+  padding: 5px;
+}

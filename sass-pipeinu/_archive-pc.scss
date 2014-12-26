@@ -1,0 +1,56 @@
+@charset "utf-8";
+/*=================================================================
+   archive_pc
+=================================================================*/
+
+.archive article{
+	margin-bottom: 40px;
+	padding-bottom: 20px;
+	background: url(img/line3.gif) repeat-x bottom;
+}
+
+.archive article .title{
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+}
+
+.archive article header{
+	float: right;
+	width: 54.2%; //390px
+	margin-bottom: 20px;
+}
+
+.archive article p.thumb_bg{
+	display: block;
+	float: left;
+	margin-right: 4.133334%; //30px
+	width: 41.666666%; //300px
+	height: auto; //300px
+	overflow: hidden;
+	border-radius: 50%; //150px
+	background-size: cover;
+}
+
+.archive article .excerpt{
+	width: 54.2%; //390px
+	float: right;
+}
+
+.readmore{
+	display: block;
+	margin-top: 30px;
+	margin-left: auto;
+	padding: 5px 0;
+	width: 75%;
+	height: 15px;
+	background: url(img/bg_black.png) repeat;
+	text-align: center;
+	color: #fff;
+	font-size: 0.9rem;
+	text-decoration: none;
+	line-height: 15px;
+}
+
+.readmore:hover{
+	color: #fabe00;
+}

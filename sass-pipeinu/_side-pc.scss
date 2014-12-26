@@ -1,0 +1,215 @@
+@charset "utf-8";
+/*=================================================================
+   side_pc
+=================================================================*/
+
+/*searchform
+--------------------------------------------*/
+#searchform{
+	position: relative;
+	width: 300px;
+	height: 30px;
+	@include media(tablet) {
+		display: none;
+	}
+}
+
+#s{
+	padding-left: 5px;
+	width: 255px;
+	height: 30px;
+	border: none;
+	outline: none;
+}
+
+#searchsubmit{
+	position: absolute;
+	top: 0;
+	_top: 1px;
+	left: 270px;
+	padding: 0;
+	width: 30px;
+	height: 30px;
+	border: none;
+	background: url(img/search.png) no-repeat top center;
+}
+
+*:first-child + html #searchsubmit{
+	top: 1px;
+}
+
+#searchsubmit:hover{
+	background: url(img/search.png) no-repeat bottom center;
+}
+
+
+/*category
+--------------------------------------------*/
+#cat {
+	@include media(tablet) {
+		display: none;
+	}
+}
+
+#cat >ul > li{
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	width: 100%;
+	background: url(img/dotline.png) repeat-x bottom;
+}
+
+#cat li{
+	font: 400 1rem 'Noto Sans', sans-serif;
+	color: #444;
+	text-indent: 0.5rem;
+}
+
+#cat li:before{
+	font-family: 'designek';
+	font-size: 0.8rem;
+	content: attr(data-icon);
+	speak: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	content: "\23 \00A0";
+	color: #fabe00;
+}
+
+#cat li a{
+	color: #444;
+	text-decoration: none;
+}
+
+#cat li a:hover{
+	color: #fabe00;
+}
+
+#cat .children li{
+	margin-top: 5px;
+	text-indent: 1.5rem;
+}
+
+#cat .children li:before{
+	content: "\2a \00A0";
+}
+
+
+/*archive
+--------------------------------------------*/
+
+#archive > ul > li{
+	margin-bottom: 5px;
+}
+
+#archive h2{
+	font: 400 1rem 'Noto Sans', sans-serif;
+	position: relative;
+	margin-bottom: 5px;
+	width: 100%;
+	background: url(img/bg_black.png) repeat;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+}
+
+#archive h2.active{
+	color: #fabe00;
+}
+
+#archive span.icon_r,
+#archive span.icon_b{
+	position: absolute;
+	left: 3%;
+	top: 18%;
+}
+
+.month li{
+	padding: 5px 0;
+	text-align: left;
+	text-indent: 0.5rem;
+	@include media(tablet) {
+		text-align: center;
+	}
+}
+
+.month li a{
+	font: 400 1rem 'Noto Sans', Arial, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+	text-decoration: none;
+	color: #444;
+	@include media(tablet) {
+		font-size: 1.2rem;
+	}
+}
+
+.month li span{
+	font-size: 0.8rem;
+	color: #fabe00;
+	@include media(tablet) {
+		font-size: 1rem;
+	}
+}
+
+.month li a:hover{
+	color: #fabe00;
+}
+
+
+/*about
+--------------------------------------------*/
+#about{
+	width: 300px;
+	padding-bottom: 30px;
+	@include media(tablet) {
+		display: none;
+	}
+}
+
+#about a img{
+	display: block;
+	width: 250px;
+	margin: 0 auto 10px;
+}
+
+#about hgroup{
+	margin-bottom: 10px;
+}
+
+#about h2, #about h3{
+	font-size: 0.8rem;
+	text-indent: 1.5rem;
+}
+
+#about p{
+	display: block;
+	margin: 0 auto;
+	width: 260px;
+	font-size: 0.7rem;
+}
+
+#about p a{
+	color: #00acee;
+}
+
+#about p a:hover{
+	color: #fabe00;
+	text-decoration: none;
+}
+
+.more_s{
+	display: block;
+	margin-top: 5px;
+	margin-left: auto;
+	padding: 3px 0;
+	width: 130px;
+	height: 15px;
+	background: url(img/bg_black.png) repeat;
+	text-align: center;
+	color: #fff;
+	font-size: 0.8rem;
+	text-decoration: none;
+	line-height: 15px;
+}
+
+.more_s:hover{
+	color: #fabe00;
+}

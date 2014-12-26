@@ -1,0 +1,65 @@
+@charset "utf-8";
+/*=================================================================
+   common
+=================================================================*/
+
+html {
+	font-family: "Trebuchet MS", Roboto, "Droid Sans", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+	color: #3e3f40;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+body {
+	background: url(img/bg.png) repeat;
+}
+
+#contentswrap {
+	position: relative;
+	width: 95%;
+	margin: 20px auto 80px;
+	@include media(tablet) {
+		width: 90%;
+	}
+	@include media(pc) {
+		width: 1070px;
+	}
+}
+
+textarea {
+	resize: vertical;
+	-webkit-transition: height 0.2s;
+	-moz-transition: height 0.2s;
+	transition: height 0.2s;
+	font: 0.9rem "Trebuchet MS", Roboto, "Droid Sans", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+}
+
+/* フルードイメージへの対応 */
+img {
+	max-width :100%;
+	height: auto;
+	width: auto\9;
+	vertical-align: middle;
+	border: 0;
+}
+
+/* 禁則処理の追加 */
+p,li,dt,dd,th,td,pre {
+	-ms-line-break: strict;
+	line-break: strict;
+	-ms-word-break: break-strict;
+	word-break: break-strict;
+}
+
+/* adsense */
+.adsense {
+	width: 100%;
+	margin-bottom: 1.25rem;
+	text-align: center;
+	}
+.adsense > p {
+	font-size: 0.7rem;
+	color: #999;
+}

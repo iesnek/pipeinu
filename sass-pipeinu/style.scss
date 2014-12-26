@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+/*
+ * Theme Name: designek
+ * Description: designek theme by <a href="http://design.iesnek.com/">designek</a>. 作った。俺がんばった。早起きもした。もちろん戦争にも反対だ。
+ * Theme URI: http://design.iesnek.com
+ * Author: kensei okamoto
+ * Author URI: http://design.iesnek.com
+ * Version: 2.1
+*/
+
+@import "setting";
+@import "reset";
+@import "webfont";
+@import "common";
+@import "header";
+@import "main";
+@import "archive-pc";
+@import "archive";
+@import "contact";
+@import "404";
+@import "article";
+@import "side";
+@import "side-pc";
+@import "footer";

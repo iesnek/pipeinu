@@ -1,0 +1,337 @@
+@charset "utf-8";
+/*=================================================================
+   main
+=================================================================*/
+
+#main{
+	float: left;
+	width: 100%; // 720px
+	margin-right: -350px;
+	@include media(tablet) {
+		float: none;
+		margin: 0 auto 1rem;
+	}
+
+	.main_inner {
+		margin-right: 350px;
+		@include media(tablet) {
+			margin-right: 0;
+		}
+	}
+}
+
+
+/*single
+--------------------------------------------*/
+
+article{
+	margin-bottom: 3.75rem;
+	word-wrap: break-word;
+}
+
+article .title{
+	margin-bottom: 0.3rem;
+	padding-bottom: 8px;
+	width: 100%;
+	height: auto;
+	border-bottom: 1px solid #fabe00;
+}
+
+article .title:after {
+	content: '';
+	position: relative;
+	bottom: -6px;
+	display: block;
+	width: 100%;
+	height: 2px;
+	background-color: #fabe00;
+}
+
+article .title a{
+	font-weight: bold;
+	font-size: 1.6rem;
+	color: #333 !important;
+	text-decoration: none;
+	@include media(tablet) {
+		font-size: 1.4rem;
+	}
+	@include media(sp) {
+		font-size: 1.2rem;
+	}
+}
+
+article .title a:hover{
+	color: #777 !important
+}
+
+.post_meta{
+	padding: 0 !important;
+}
+
+.post_meta li{
+	display: inline;
+	margin-right: 20px;
+	font: 400 0.8rem 'Noto Sans', sans-serif;
+	color: #444;
+		@include media(sp) {
+	display: block;
+	margin-right: 0;
+	}
+}
+
+.post_meta span{
+	font-size: 0.9rem;
+	color: #fabe00;
+}
+
+.post_meta li a{
+	color: #444 !important;
+	text-decoration: none;
+}
+
+.post_meta li a:hover{
+	color: #fabe00 !important;
+	text-decoration: none;
+}
+
+article header{
+	margin-bottom: 1.25rem;
+}
+
+
+/* シェアボタン */
+
+aside.share {
+	width: 100%;
+	margin-bottom: 1.25rem;
+	text-align: center;
+}
+
+aside.share ul {
+	width: 48%;
+}
+
+aside.share ul.fbshare { float: left; }
+aside.share ul.twitshare { float: right; }
+
+aside.share li:first-child a {
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	padding: 1rem 0;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 5px;
+}
+
+aside.share ul.fbshare li:first-child a { background: #305097; }
+aside.share ul.twitshare li:first-child a { background: #00aced; }
+aside.share ul.fbshare li:first-child a:hover { background: rgba(#305097, 0.7); }
+aside.share ul.twitshare li:first-child a:hover { background: rgba(#00aced, 0.7); }
+
+aside.share ul.fbshare li:first-child a:before {
+	font-family: 'designek';
+	font-size: 1.5rem;
+	content: attr(data-icon);
+	speak: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	content: "\2f";
+	color: rgba(#fff, 0.5);
+}
+
+aside.share ul.twitshare li:first-child a:before {
+	font-family: 'designek';
+	font-size: 1.5rem;
+	content: attr(data-icon);
+	speak: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	content: "\30";
+	color: rgba(#fff, 0.5);
+}
+
+aside.share li:last-child a {
+	font-size: 0.8rem;
+	color: #00acee;
+}
+
+aside.share li:last-child a:hover {
+	text-decoration: none;
+	color: #fabe00;
+}
+
+
+/* SNSボタン */
+
+aside.sns{
+	width: 100%;
+	margin-bottom: 2rem;
+	position: relative;
+	overflow: hidden;
+}
+
+aside.sns ul{
+	position: relative;
+	left: 50%;
+	float: left;
+}
+
+aside.sns li{
+	position: relative;
+	left: -50%;
+	float: left;
+	margin-right: 20px;
+	@include media(sp) {
+		margin-right: 5px;
+	}
+}
+
+aside.sns li:last-child{
+	margin-right: 0;
+}
+
+
+/* ページャー */
+aside.pagenav {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+aside.pagenav:before {
+	position: relative;
+	top: -1rem;
+	display: block;
+	margin: 0 auto;
+	width: 95%;
+	height: 5px;
+	background-image: linear-gradient(90deg, #fff 50%, #999 50%, #999);
+	background-size: 2px 5px;
+}
+
+.pagenav .prev{
+	float: left;
+	width: 45%;
+}
+
+.pagenav .next{
+	float: right;
+	width: 45%;
+}
+
+.pagenav a{
+	display: block;
+	height: 60px;
+	overflow: hidden;
+	font-size: 0.8rem;
+	color: #444;
+	text-decoration: none;
+	@include media(sp) {
+		line-height: 1.28;
+	}
+}
+
+.pagenav .prev a{
+	padding-left: 40px;
+	background: url(img/prev.png) no-repeat left top;
+	text-align: left;
+}
+
+.pagenav .next a{
+	padding-right: 40px;
+	background: url(img/next.png) no-repeat right top;
+	text-align: right;
+}
+
+.pagenav .prev a:hover{
+	color: #fabe00;
+	background-position: left bottom;
+}
+
+.pagenav .next a:hover{
+	color: #fabe00;
+	background-position: right bottom;
+}
+
+
+/* 関連記事 */
+
+#related{
+	margin: 30px 0;
+	word-wrap: break-word;
+}
+
+#related h1,
+#related h2{
+	margin-bottom: 10px;
+}
+
+#related h1 {
+	margin-bottom: 10px;
+	font-size: 1.5rem;
+	text-align: center;
+	color: #fabe00;
+	border-top: 1px solid #fabe00;
+	border-bottom: 3px double #fabe00;
+	padding: 0.2rem 0 0.5rem;
+	background: url(img/bg_paisley2.png) repeat;
+}
+
+#related h1 small {
+	font-size: 1rem;
+}
+
+#related li{
+	float: left;
+	margin-right: 4.16666667%; //30px
+	width: 30.5555556%; //220px
+}
+
+#related li:last-child{
+	margin-right: 0;
+}
+
+#related h2{
+	width: 100%; //220px
+	height: auto;
+	overflow: hidden;
+	border-radius: 50%; //110px
+}
+
+#related .thumb_bg {
+	display: block;
+	width: 100%;
+	background-size: cover;
+}
+
+#related h3 a{
+	text-decoration: none;
+	color: #444;
+}
+
+#related h3 a:hover{
+	color: #fabe00;
+}
+
+
+/* コメント */
+
+#comments h1,
+#comments h2{
+	margin-bottom: 10px;
+}
+
+#comments h1 {
+	margin-bottom: 10px;
+	font-size: 1.5rem;
+	text-align: center;
+	color: #fabe00;
+	border-top: 1px solid #fabe00;
+	border-bottom: 3px double #fabe00;
+	padding: 0.2rem 0 0.5rem;
+	background: url(img/bg_paisley2.png) repeat;
+}
+
+#comments h1 small {
+	font-size: 1rem;
+}
