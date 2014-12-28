@@ -17,8 +17,10 @@
 @import "layout/base";
 @import "layout/header";
 @import "layout/main";
-@import "layout/sub";
+@import "layout/side";
 @import "layout/footer";
 
-@import "module/modules";
-@import "module/article";
+@import "archive-pc";
+@import "archive";
+@import "404";
+@import "article";

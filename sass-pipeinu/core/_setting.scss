@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+
+////////// メディアクエリ用のミックスイン //////////
+
+// ブレイクポイントを設定
+$bp-pc: 1024px;
+$bp-tablet: 768px;
+$bp-sp: 480px;
+
+// ミックスイン
+@mixin media($media-width) {
+  @if $media-width == sp {
+    @media only screen and (min-width: $bp-sp) {
+      @content;
+    }
+  }
+  @else if $media-width == tablet {
+    @media only screen and (min-width: $bp-tablet) {
+      @content;
+    }
+  }
+  @else if $media-width == pc {
+    @media only screen and (min-width: $bp-pc) {
+      @content;
+    }
+  }
+}
+
+
+////////// カラー設定 //////////
+$color1: #3e3f40; //黒
+$color2: #fabe00; //黄色
+$color3: #ee7700; //オレンジ
+$color4: #61c1bd; //水色
+$color5: #c04d97; //むらさき
+
+$fb: #305097; //facebook
+$tw: #00aced; //twitter
+$gplus: #db4a39; //google plus
+$line: #39ae36; //line

@@ -1,0 +1,260 @@
+@charset "utf-8";
+/*=================================================================
+   article
+=================================================================*/
+
+// 記事タイトル
+.m-articleHead{
+  margin-bottom: 20px;
+  h1{
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+}
+
+// カテゴリーとかタグとか
+.m-articleMeta{
+  li{
+    font-size: 0.8rem;
+    color: $color3;
+    &:first-child{
+      float: left;
+    }
+    &:nth-child(2){
+      float: right;
+    }
+    &:nth-child(3){
+      clear: both;
+    }
+    a{
+      text-decoration: none;
+      color: inherit;
+      &:hover{
+        text-decoration: underline;
+      }
+      img{
+        fill: $color3;
+        width: 0.8rem;
+        height: auto;
+        margin-right: 0.4rem;
+      }
+    }
+  }
+}
+
+// 記事本文
+.m-articleBody{
+  font-size: 1rem;
+}
+.m-articleBody p{
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 1.5rem 0;
+  @include media(tablet) {
+    line-height: 1.8;
+  }
+  @include media(pc) {
+    line-height: 2;
+  }
+}
+
+// 見出しH2
+.m-articleBody h2 {
+  margin: 3rem 0 1rem;
+  padding-left: 0.3rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  &:before {
+    content: '';
+    position: relative;
+    left: -0.3rem;
+    display: inline-block;
+    vertical-align: middle;
+    width: 0.7rem;
+    height: 1.5rem;
+    background: url(img/bg-polygon.png) right center;
+  }
+}
+
+// 見出しH3
+.m-articleBody h3{
+  margin: 2rem 0 0.7rem;
+  padding-left: 0.3rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  &:before{
+    content: '';
+    position: relative;
+    left: -0.3rem;
+    display: inline-block;
+    vertical-align: middle;
+    width: 1rem;
+    height: 1rem;
+    background: $color1;
+  }
+}
+
+// 見出しH4
+.m-articleBody h4{
+  margin: 0.7rem 0;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+// ストロング
+.m-articleBody strong{
+  font-weight: bold;
+  background: #fbb;
+}
+
+// em強調
+.m-articleBody em{
+  background: #ffe677;
+}
+
+// 太字-黒
+.m-articleBody .boldn {
+  font-weight: bold;
+}
+
+// 太字-赤
+.m-articleBody .boldred {
+  font-weight: bold;
+  color: #f66;
+}
+
+// 超太字
+.m-articleBody .boldz {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+// 小文字
+.m-articleBody small{
+  font-size: 0.7rem;
+}
+
+// 記事内リンク
+.m-articleBody a{
+  color: $color5;
+  &:hover{
+    color: $color4;
+    text-decoration: none;
+  }
+}
+
+// 記事内リスト
+.m-articleBody ul{
+  padding: 1.5rem 1rem;
+  li{
+    padding-left: 1.3rem;
+    background: url(svg/check.svg) no-repeat left center;
+    background-size: 1rem 1rem;
+  }
+}
+.m-articleBody ol{
+  list-style: decimal;
+  padding: 1.5rem 2rem;
+}
+
+// 引用
+.m-articleBody blockquote{
+  padding: 1.5rem 1rem;
+  text-align: center;
+  &:before{
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: url(svg/quo2.svg) no-repeat top left;
+    background-size: 1.5rem 1.5rem;
+  }
+  &:after{
+    content: '';
+    margin-left: auto;
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: url(svg/quo1.svg) no-repeat bottom right;
+    background-size: 1.5rem 1.5rem;
+  }
+}
+
+// テキスト中央寄せ
+.m-articleBody .aligncenter{
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+// フロート左
+.m-articleBody .left{
+  float: left;
+}
+
+// フロート右
+.m-articleBody .right{
+  float: right;
+}
+
+// 画像
+.m-articleBody  img {
+  max-width: 100%;
+  padding: 0.9rem 0;
+}
+
+// 動画埋め込み
+.m-articleBody .umekomi{
+  position: relative;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding-bottom: 50%;
+  padding-top: 69px;
+  overflow: hidden;
+    iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+
+/////////////////未修正　アイコンフォント////////////////////////
+
+article.article p a:before,
+article.article p a:after {
+  font-family: 'designek';
+  font-size: 0.8rem;
+  content: attr(data-icon);
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 内部リンク - Internal Link */
+article.article p a[href^="/"]:before,
+article.article p a[href^=".."] :before {
+  content: "\37 \00A0";
+}
+
+/* 外部リンク - External Link */
+article.article p a[href^="http://"]:after {
+  content: "\00A0 \38";
+}
+
+/* URL指定 - URL Specified Link */
+article.article p a[href="http://design.iesnek.com/feed"]:before {
+  content: "\32 \00A0";
+  color: #f93;
+}
+
+/* ダウンロードファイル - Downloadable File */
+article.article p a[href$=".zip"]:before {
+  content: "\39 \00A0";
+}
+
+/////////////////未修正　アイコンフォント////////////////////////

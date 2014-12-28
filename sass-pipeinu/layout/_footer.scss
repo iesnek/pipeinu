@@ -1,0 +1,28 @@
+@charset "utf-8";
+/*=================================================================
+   footer
+=================================================================*/
+
+.l-footerInner{
+  position: relative;
+  width: 85%;
+  margin: 0 auto;
+  padding: 1rem 5%;
+  background: rgba(#fff, 0.9);
+  @include media(tablet) {
+    width: 90%;
+  }
+  @include media(pc) {
+    width: 1070px;
+  }
+}
+
+.l-footNav{
+	float: left;
+	width: 60%;
+}
+
+.l-footLogo{
+	float: right;
+	width: 35%;
+}

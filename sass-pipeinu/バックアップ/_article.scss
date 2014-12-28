@@ -1,0 +1,306 @@
+@charset "utf-8";
+/*=================================================================
+   article
+=================================================================*/
+
+article.article p {
+  line-height: 2;
+  margin: 1.5rem 0;
+  @include media(tablet) {
+    line-height: 1.8;
+  }
+  @include media(sp) {
+    line-height: 1.6;
+  }
+}
+
+article.article h2 {
+  margin: 3rem 0 1rem;
+  padding: 0.5rem 0.3rem 0.3rem;
+  border-bottom: 3px solid #fabe00;
+  background-color: rgba(#999,0.1);
+  span {
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+}
+
+article.article h2 span:before {
+  font-size: 1.5rem;
+  color: #fabe00;
+}
+
+article.article h3{
+  margin: 2rem 0 0.7rem;
+  border-left: 0.7rem solid #fabe00;
+  padding-left: 0.5rem;
+  span{
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+}
+
+article.article h4{
+  margin: 0.7rem 0;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+article.article strong{
+  font-weight: bold;
+  background: linear-gradient(transparent 40%, #fbb 40%);
+}
+
+article.article em{
+  background: linear-gradient(transparent 40%, #ffe677 40%);
+}
+
+article.article .boldn {
+  font-weight: bold;
+}
+
+article.article .boldred {
+  font-weight: bold;
+  color: #f66;
+}
+
+article.article .boldz {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+article.article small{
+  font-size: 0.7rem;
+}
+
+article.article a{
+  color: #00acee;
+}
+
+article.article a:hover{
+  color: #fabe00;
+  text-decoration: none;
+}
+
+article.article p a:before,
+article.article p a:after {
+  font-family: 'designek';
+  font-size: 0.8rem;
+  content: attr(data-icon);
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 内部リンク - Internal Link */
+article.article p a[href^="/"]:before,
+article.article p a[href^=".."] :before {
+  content: "\37 \00A0";
+}
+
+/* 外部リンク - External Link */
+article.article p a[href^="http://"]:after {
+  content: "\00A0 \38";
+}
+
+/* URL指定 - URL Specified Link */
+article.article p a[href="http://design.iesnek.com/feed"]:before {
+  content: "\32 \00A0";
+  color: #f93;
+}
+
+/* ダウンロードファイル - Downloadable File */
+article.article p a[href$=".zip"]:before {
+  content: "\39 \00A0";
+}
+
+article.article code{
+  color: #ee4156;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+article.article ul{
+  list-style: disc;
+  padding: 1.5rem 2rem;
+}
+
+article.article ol{
+  list-style: lower-roman;
+  padding: 1.5rem 2rem;
+}
+
+article.article dl {
+  margin: 2rem 0;
+  padding: 0 3%;
+}
+
+article.article dt{
+  font-weight: bold;
+  padding-bottom: 0.1rem;
+  border-bottom: 1px solid #999;
+}
+
+article.article dt:before {
+  font-family: 'designek';
+  font-size: 1rem;
+  content: attr(data-icon);
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  content: "\2a \00A0";
+  color: #fabe00;
+}
+
+article.article dd {
+  margin: 0.2rem 0 1rem;
+  padding-left: 1rem;
+  font-size: 0.9rem;
+}
+
+article.article blockquote{
+  margin: 2rem 2%;
+  padding: 0.2rem 1% 0 0;
+  border-left: 3px solid #aaa;
+  border-right: 3px solid #aaa;
+  text-align: right;
+}
+
+article.article blockquote p{
+  margin-bottom: 1.5rem;
+  padding: 0 0 0 2%;
+  text-align: left;
+}
+
+article.article blockquote p:last-child{
+  margin-bottom: 0;
+  padding: 0 0 0 2%;
+  text-align: left;
+}
+
+article.article blockquote p:first-child:before{
+  font-family: 'designek';
+  font-size: 2.5rem;
+  content: attr(data-icon);
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  content: "\35 \00A0";
+}
+
+article.article blockquote:after{
+  font-family: 'designek';
+  font-size: 2.5rem;
+  content: attr(data-icon);
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  content: "\00A0 \36";
+}
+
+article.article q:before{
+  font-family: 'designek';
+  font-size: 0.8rem;
+  content: attr(data-icon);
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  content: "\35 \00A0";
+}
+
+article.article q:after{
+  font-family: 'designek';
+  font-size: 0.8rem;
+  content: attr(data-icon);
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  content: "\00A0 \36";
+}
+
+article.article .crayon-theme-familiar{
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid #bbb;
+}
+
+article.article .aligncenter{
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+article.article .left{
+  float: left;
+}
+
+article.article .right{
+  float: right;
+}
+
+article.article img {
+  max-width: 96%;
+  padding: 0.9rem 2%;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  background-color: rgba(#aaa,0.1);
+}
+
+article.article .umekomi{
+position: relative;
+margin-top: 2em;
+margin-bottom: 2em;
+padding-bottom: 50%;
+padding-top: 69px;
+overflow: hidden;
+}
+
+article.article .umekomi iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+
+
+/*目次
+--------------------------------------------*/
+#toc_container {
+  margin: 0 auto;
+}
+
+#toc_container ul.toc_list {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#toc_container > ul > li {
+  margin-bottom: 0.3rem;
+  @include media(sp) {
+    margin-bottom: 0.6rem;
+  }
+}
+
+#toc_container > ul > li > ul > li {
+  margin-top: 0.1rem;
+  @include media(sp) {
+    margin-top: 0.3rem;
+  }
+}
+
+#toc_container > ul > li > a:before {
+  font-family: 'designek';
+  content: attr(data-icon);
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  content: "\34";
+}
+
+#toc_container > ul > li > ul > li > a:before {
+  font-family: 'designek';
+  content: attr(data-icon);
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  content: "\2a";
+}

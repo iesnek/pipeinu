@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+textarea {
+  resize: vertical;
+  transition: height 0.2s;
+  font: 0.9rem "Trebuchet MS", Roboto, "Droid Sans", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+}
+
+/* フルードイメージへの対応 */
+// （レスポンシブで画像がウインドウ幅に合わせて拡大縮小するようにしてる）
+img,svg {
+  max-width :100%;
+  height: auto;
+  width: auto\9; //これはIE9対策
+  vertical-align: middle;
+  border: 0;
+}
+
+/* 禁則処理の追加 */
+p,li,dt,dd,th,td,pre {
+  -ms-line-break: strict;
+  line-break: strict;
+  -ms-word-break: break-strict;
+  word-break: break-strict;
+}
+
+/*Clearfix*/
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
