@@ -17,7 +17,7 @@
 .m-articleMeta{
   li{
     font-size: 0.8rem;
-    color: $color3;
+    color: $color4;
     &:first-child{
       float: left;
     }
@@ -33,12 +33,12 @@
       &:hover{
         text-decoration: underline;
       }
-      img{
-        fill: $color3;
-        width: 0.8rem;
-        height: auto;
-        margin-right: 0.4rem;
-      }
+    }
+    svg{
+      fill: $color4;
+      width: 0.8rem;
+      height: 0.8rem;
+      margin-right: 0.4rem;
     }
   }
 }
