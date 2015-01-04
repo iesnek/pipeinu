@@ -24,10 +24,21 @@ p,li,dt,dd,th,td,pre {
   word-break: break-strict;
 }
 
-/*Clearfix*/
+/* Clearfix */
 .clearfix:before, .clearfix:after {
   content: " ";
   display: table;
 }
 .clearfix:after { clear: both; }
 .clearfix { *zoom: 1; }
+
+
+/* アイコンのカラーリング */
+.home svg{fill: $color2;}
+.cat svg{fill: $color5;}
+.dogs svg{fill: $color3;}
+.about svg{fill: $color6;}
+.contact svg{fill: $color7;}
+.fb svg{fill: $fb;}
+.tw svg{fill: $tw;}
+.gp svg{fill: $gplus;}

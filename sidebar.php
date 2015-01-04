@@ -2,7 +2,7 @@
 
   <div id="sub">
 
-      <!-- adsense -->
+      <!-- ad -->
     <aside class="m-ad">
       <p>Sponsords Link</p>
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -15,7 +15,7 @@
       (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
     </aside><!-- /.m-ad -->
-      <!-- /adsense -->
+      <!-- /ad -->
 
     <?php // ここから関連記事の表示
     // カテゴリーIDの取得
@@ -38,33 +38,47 @@
       <h1 class="m-subHead-A"><span>pick up</span>-オススメ記事-</h1><!-- /.m-subHead-A -->
       <?php
       if( $my_query -> have_posts() ): // サブループ ?>
-      <ul class="m-subArchives">
+      <ul class="m-archives">
         <?php
         while ($my_query -> have_posts()) : $my_query -> the_post(); // 繰り返し処理 ?>
-        <li>
-          <h2 class="clearfix">
-            <a href="<?php the_permalink() ?>" title = "「<?php the_title(); ?>」を読む">
-            <?php
-            if ( has_post_thumbnail() ):
-              the_post_thumbnail( array(300,200) );
-            else:
-            ?>
-              <img src = "<?php echo get_template_directory_uri(); ?>/img/noimages_s.jpg" width = "300" height="200" alt="この記事を読む" />
-            <?php
-            endif;
-            ?>
-            <span><?php the_title(); ?></span>
-            </a>
-          </h2>
-        </li>
+        <li class="m-archiveList">
+          <a href="<?php the_permalink() ?>" title = "「<?php the_title(); ?>」を読む" class="clearfix">
+            <div class="m-archiveTxt">
+              <h2><?php the_title(); ?></h2>
+              <ul class="m-archiveMeta">
+                <li>
+                  <svg><title>カテゴリー</title><desc>カテゴリーのアイコン</desc><use xlink:href="#cat"/></svg>
+                  <?php $cat = get_the_category(); $cat = $cat[0]; { echo $cat->cat_name; } ?>
+                </li>
+                <li>
+                  <svg><title>日付</title><desc>日付のアイコン</desc><use xlink:href="#date"/></svg>
+                  <?php echo get_the_date(); ?>
+                </li>
+              </ul><!-- /.m-archiveMeta -->
+            </div><!-- /.m-archiveTxt -->
+            <div class="m-archiveImg">
+              <h3>
+                <?php
+                if ( has_post_thumbnail() ):
+                  the_post_thumbnail( array(300,200) );
+                else:
+                ?>
+                  <img src = "<?php echo get_template_directory_uri(); ?>/img/noimages_s.jpg" width = "300" height="200" alt="この記事を読む" />
+                <?php
+                endif;
+                ?>
+              </h3>
+            </div><!-- /.m-archiveImg -->
+          </a>
+        </li><!-- /.m-archiveList -->
         <?php
         endwhile; // サブループの繰り返し処理終了
         ?>
-      </ul><!-- /.m-subArchives -->
+      </ul><!-- /.m-archives -->
       <?php 
       else:
       ?>
-        <p>関連する記事はありませんでした ...</p>
+        <p>オススメ記事はありませんでした ...</p>
       <?php
       endif; // サブループ終了
       wp_reset_postdata();
@@ -72,7 +86,5 @@
     </section><!-- /.l-subBlocks -->
 
   </div><!-- /#sub -->
-
-</div><!-- /#contentswrap -->
 
 <!-- /sidebar.php -->

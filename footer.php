@@ -1,5 +1,7 @@
 <!-- /footer.php -->
 
+</div><!-- /#contentswrap -->
+
 <footer id="footer">
   <div class="m-pagetop"><a href="#header">
     <svg><title>ページトップ</title><desc>ページ最上部へのリンク</desc><use xlink:href="#pagetop"/></svg>
@@ -59,25 +61,49 @@
 
   <nav id="gnav">
     <ul>
-      <li class="mmProf">
+
+      <li class="mmProf clearfix">
           <svg><title>pipeinu</title><desc>pipeinuのロゴ</desc><use xlink:href="#logo-v"/></svg>
           <p>pipeinu（ピペイヌ）<br>犬好きの私から犬好きの皆さんへ贈る、心揺さぶるいぬメディア</p>
       </li>
+
       <li class="mm-search"><?php get_search_form(); ?><!-- /searchform.php --></li>
-      <li><a href="<?php echo home_url('/'); ?>">top<span class="jp">トップ</span></a></li>
-      <li class="label"><p><span class="icon_cat">&#160;</span>category<span class="jp">&#160;カテゴリー</span></p></li>
+
+      <li class="mmNav home"><a href="<?php echo home_url('/'); ?>">
+        <svg><title>ホーム</title><desc>ホームアイコン</desc><use xlink:href="#home"/></svg>
+      <span>home</span>&#160;ホーム</a></li>
+
+      <li class="mmNav mmLabel cat">
+        <p>
+          <svg><title>カテゴリー</title><desc>カテゴリーアイコン</desc><use xlink:href="#cat"/></svg>
+        <span>category</span>&#160;カテゴリー</p>
+      </li>
       <?php //カテゴリー
         $cats = wp_list_categories('echo=0&orderby=ID&order=DESC&title_li=');
         $cats = preg_replace('/ title=\"(.*?)\"/','',$cats);
-        $cats = preg_replace('/ class=\"(.*?)\"/','',$cats);
         echo $cats;
       ?>
-      <li><a href="<?php echo home_url('/'); ?>about-designek/"><span class="icon_designek">&#160;</span>about designek<span class="jp"><br />designekについて</span></a></li>
-      <li class="contact"><a href="<?php echo home_url('/'); ?>contact/"><span class="icon_contact">&#160;</span>contact<span class="jp"><br />コンタクト</span></a></li>
-      <li><a href=""><span class="icon_fb">&#160;&#160;</span>Facebook</a></li>
-      <li><a href=""><span class="icon_twitter">&#160;&#160;</span>Twitter</a></li>
-      <li><a href=""><span class="icon_gplus">&#160;&#160;</span>Google +</a></li>
-      <li><a href=""><span class="icon_rss">&#160;&#160;</span>RSS</a></li>
+
+      <li class="mmNav about"><a href="<?php echo home_url('/'); ?>about-pipeinu/">
+        <svg><title>pipeinuとは</title><desc>pipeinuアイコン</desc><use xlink:href="#pipeinu"/></svg>
+      <span>about pipeinu</span>&#160;pipeinuとは</a></li>
+
+      <li class="mmNav contact"><a href="<?php echo home_url('/'); ?>contact/">
+        <svg><title>問合せ</title><desc>問合せアイコン</desc><use xlink:href="#mail"/></svg>
+      <span>contact</span>コンタクト</a></li>
+
+      <li class="mmNav fb"><a href="">
+        <svg><title>Facebook</title><desc>Facebookアイコン</desc><use xlink:href="#fb1"/></svg>
+      <span>Facebook</span></a></li>
+
+      <li class="mmNav tw"><a href="">
+        <svg><title>Twitter</title><desc>Twitterアイコン</desc><use xlink:href="#tw1"/></svg>
+      <span>Twitter</span></a></li>
+
+      <li class="mmNav gp"><a href="">
+        <svg><title>Google +</title><desc>Google +アイコン</desc><use xlink:href="#gplus1"/></svg>
+      <span>Google +</span></a></li>
+
     </ul>
   </nav><!-- /#gnav -->
 

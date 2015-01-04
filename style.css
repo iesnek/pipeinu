@@ -76,7 +76,7 @@ p, li, dt, dd, th, td, pre {
   -ms-word-break: break-strict;
   word-break: break-strict; }
 
-/*Clearfix*/
+/* Clearfix */
 .clearfix:before, .clearfix:after {
   content: " ";
   display: table; }
@@ -86,6 +86,31 @@ p, li, dt, dd, th, td, pre {
 
 .clearfix {
   *zoom: 1; }
+
+/* アイコンのカラーリング */
+.home svg {
+  fill: #fabe00; }
+
+.cat svg {
+  fill: #c04d97; }
+
+.dogs svg {
+  fill: #ee7700; }
+
+.about svg {
+  fill: #78c235; }
+
+.contact svg {
+  fill: #2bcbde; }
+
+.fb svg {
+  fill: #305097; }
+
+.tw svg {
+  fill: #00aced; }
+
+.gp svg {
+  fill: #db4a39; }
 
 /*=================================================================
    base
@@ -178,6 +203,11 @@ body {
 .l-mainBlocks {
   margin-bottom: 1rem;
   word-wrap: break-word; }
+
+/*archives
+--------------------------------------------*/
+.l-archives {
+  margin-bottom: 2rem; }
 
 /*=================================================================
    side
@@ -884,6 +914,95 @@ html.mm-opened.mm-black .mm-page {
 .mm-menu.mm-black input.mm-toggle:checked ~ label.mm-toggle {
   background: #4bd963; }
 
+.m-archives {
+  margin-bottom: 1rem; }
+
+.m-archiveList {
+  margin-bottom: 0.8rem;
+  padding: 0.3rem 0;
+  position: relative;
+  border: 2px solid  #ddd;
+  border-radius: 5px;
+  background-color: #fff; }
+  .m-archiveList:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: -4px 0 0 0;
+    border-top: solid 2px #c04d97;
+    border-right: solid 2px #c04d97;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); }
+  .m-archiveList a {
+    display: block;
+    padding: 0 5% 0 2%;
+    line-height: 1.3;
+    color: #3e3f40;
+    text-decoration: none; }
+    .m-archiveList a:hover {
+      color: #c04d97; }
+    .m-archiveList a:hover:after {
+      border-color: #c04d97; }
+
+.m-archiveTxt {
+  float: right;
+  width: 60%; }
+  .m-archiveTxt h1, .m-archiveTxt h2 {
+    font-size: 1.1rem;
+    font-weight: bold; }
+
+.m-archiveMeta li {
+  display: inline-block;
+  margin-right: 0.3rem;
+  font-size: 0.7rem;
+  color: #888; }
+  .m-archiveMeta li svg {
+    width: 0.7rem;
+    height: 0.7rem;
+    fill: #888; }
+
+.m-archiveImg {
+  float: left;
+  width: 37%; }
+
+.m-pager {
+  position: relative;
+  text-align: center;
+  width: 100%; }
+
+.page-numbers {
+  display: inline-block;
+  margin: 0 2px;
+  width: 2rem;
+  height: 2rem;
+  overflow: hidden;
+  font-size: 0.8rem;
+  color: #222;
+  text-decoration: none;
+  line-height: 2rem;
+  background: #78c235;
+  color: #fff;
+  border-radius: 50%; }
+
+.dots {
+  background: none;
+  color: #78c235; }
+
+.next {
+  margin: 0.5rem auto;
+  display: block;
+  border-radius: 3px;
+  width: 90%;
+  font-size: 1rem;
+  font-weight: bold; }
+
+.prev {
+  display: none; }
+
 .m-articleSns-A {
   width: 100%;
   margin: 0.5rem 0 0.5rem -1%;
@@ -928,34 +1047,35 @@ html.mm-opened.mm-black .mm-page {
         width: 1.3rem;
         height: 1.3rem; }
 
-.like a {
+.m-like a {
   background-color: #305097;
   box-shadow: 0 3px 0 #123279; }
 
-.share a {
+.m-share a {
   background-color: #305097;
   box-shadow: 0 3px 0 #123279; }
 
-.tweet a {
+.m-tweet a {
   background-color: #00aced;
   box-shadow: 0 3px 0 #008ecf; }
 
-.line a {
+.m-line a {
   background-color: #39ae36;
   box-shadow: 0 3px 0 #1b9018; }
 
-.gplus a {
+.m-gplus a {
   background-color: #db4a39;
   box-shadow: 0 3px 0 #bd2c1b; }
 
-.ad {
+.m-ad {
   width: 100%;
   margin-bottom: 1.25rem;
   text-align: center; }
 
-.ad > p {
-  font-size: 0.7rem;
-  color: #999; }
+.m-ad > p {
+  font-size: 0.7rem !important;
+  color: #999;
+  margin: 0 !important; }
 
 .m-subHead-A {
   text-align: center;
@@ -972,47 +1092,6 @@ html.mm-opened.mm-black .mm-page {
     width: 100%;
     height: 3px;
     background: url(img/bg-polygon.png) repeat-x bottom; }
-
-.m-subArchives {
-  margin-bottom: 1rem; }
-  .m-subArchives li {
-    margin-bottom: 0.7rem;
-    padding: 0.3rem 0;
-    position: relative;
-    border: 2px solid  #ddd;
-    border-radius: 5px;
-    background-color: #fff; }
-    .m-subArchives li:after {
-      display: block;
-      content: "";
-      position: absolute;
-      top: 50%;
-      right: 2%;
-      width: 0.5rem;
-      height: 0.5rem;
-      margin: -4px 0 0 0;
-      border-top: solid 2px #c04d97;
-      border-right: solid 2px #c04d97;
-      -webkit-transform: rotate(45deg);
-      transform: rotate(45deg); }
-    .m-subArchives li a {
-      display: block;
-      padding: 0 5% 0 2%;
-      line-height: 1.3;
-      color: #3e3f40; }
-      .m-subArchives li a:hover {
-        text-decoration: none;
-        color: #c04d97; }
-      .m-subArchives li a img {
-        display: block;
-        float: left;
-        width: 37%; }
-      .m-subArchives li a span {
-        font-size: 0.9rem;
-        font-weight: bold;
-        display: block;
-        float: right;
-        width: 60%; }
 
 .m-fbBox {
   width: 100%;
@@ -1033,18 +1112,6 @@ html.mm-opened.mm-black .mm-page {
 .m-footNav svg {
   width: 1rem;
   height: 1rem; }
-
-.home svg {
-  fill: #fabe00; }
-
-.dogs svg {
-  fill: #ee7700; }
-
-.about svg {
-  fill: #78c235; }
-
-.contact svg {
-  fill: #2bcbde; }
 
 .m-pagetop {
   position: absolute;
@@ -1085,6 +1152,17 @@ html.mm-opened.mm-black .mm-page {
   .m-fixedBtn .m-fixedFollow svg {
     fill: rgba(192, 77, 151, 0.5); }
 
+.mmNav {
+  font-size: 0.8rem; }
+  .mmNav span {
+    font: 700 1rem 'Noto Sans';
+    margin-right: 0.5rem; }
+  .mmNav svg {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 5px; }
+
 .mmProf {
   background-color: #2b2b2b;
   padding: 20px 10px 10px 20px !important;
@@ -1099,14 +1177,16 @@ html.mm-opened.mm-black .mm-page {
     font-size: 0.8rem;
     line-height: 1.5; }
 
-#gnav li.label {
+.mmLabel {
   background-color: #2b2b2b; }
-  #gnav li.label p {
-    line-height: 20px;
-    padding: 20px 10px 10px 20px; }
+  .mmLabel p {
+    line-height: 15px;
+    padding: 15px 10px 15px 20px; }
+
+#mm-0 .cat-item {
+  padding-left: 30px; }
 
 #gnav form {
-  padding: 10px 10px 10px 20px;
   background-color: #333; }
 
 #searchsubmit {
@@ -1117,8 +1197,6 @@ html.mm-opened.mm-black .mm-page {
   text-align: center;
   font-size: 0.7em; }
 
-/*PC Switcher
---------------------------------------------*/
 .pc-switcher {
   position: absolute;
   bottom: 5px;

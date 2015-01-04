@@ -1,7 +1,115 @@
 @charset "utf-8";
 
 
-// シェアボタン //
+////////// アーカイブ //////////
+.m-archives{
+  margin-bottom: 1rem;
+}
+
+.m-archiveList{
+  margin-bottom: 0.8rem;
+  padding: 0.3rem 0;
+  position: relative;
+  border: 2px solid  #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  &:after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: -4px 0 0 0;
+  border-top: solid 2px $color5;
+  border-right: solid 2px $color5;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  }
+  a{
+    display: block;
+    padding: 0 5% 0 2%;
+    line-height: 1.3;
+    color: $color1;
+    text-decoration: none;
+    &:hover{
+      color: $color5;
+    }
+    &:hover:after{
+      border-color: $color5;
+    }
+  }
+}
+
+.m-archiveTxt{
+  float: right;
+  width: 60%;
+  h1,h2{
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+}
+
+.m-archiveMeta{
+  li{
+    display: inline-block;
+    margin-right: 0.3rem;
+    font-size: 0.7rem;
+    color: #888;
+    svg{
+      width: 0.7rem;
+      height: 0.7rem;
+      fill: #888;
+    }
+  }
+}
+
+.m-archiveImg{
+  float: left;
+  width: 37%;
+}
+
+
+////////// ページャー //////////
+.m-pager{
+  position: relative;
+  text-align:center;
+  width: 100%;
+}
+
+.page-numbers{
+  display: inline-block;
+  margin: 0 2px;
+  width: 2rem;
+  height: 2rem;
+  overflow: hidden;
+  font-size: 0.8rem;
+  color: #222;
+  text-decoration: none;
+  line-height: 2rem;
+  background: $color6;
+  color: #fff;
+  border-radius: 50%;
+}
+.dots{
+  background: none;
+  color: $color6;
+}
+.next{
+  margin: 0.5rem auto;
+  display: block;
+  border-radius: 3px;
+  width: 90%;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.prev{
+  display: none;
+}
+
+
+////////// シェアボタン //////////
 // 5列
 .m-articleSns-A{
   width: 100%;
@@ -57,43 +165,43 @@
   }
 }
 
-
 // 各SNS配色
-.like a{
+.m-like a{
   background-color: $fb;
   box-shadow: 0 3px 0 $fb - 30;
 }
-.share a{
+.m-share a{
   background-color: $fb;
   box-shadow: 0 3px 0 $fb - 30;
 }
-.tweet a{
+.m-tweet a{
   background-color: $tw;
   box-shadow: 0 3px 0 $tw - 30;
 }
-.line a{
+.m-line a{
   background-color: $line;
   box-shadow: 0 3px 0 $line - 30;
 }
-.gplus a{
+.m-gplus a{
   background-color: $gplus;
   box-shadow: 0 3px 0 $gplus - 30;
 }
 
 
-// 広告 //
-.ad {
+////////// 広告 //////////
+.m-ad {
   width: 100%;
   margin-bottom: 1.25rem;
   text-align: center;
   }
-.ad > p {
-  font-size: 0.7rem;
+.m-ad > p {
+  font-size: 0.7rem !important;
   color: #999;
+  margin: 0 !important;
 }
 
 
-// サブコンテンツの見出し //
+////////// サブコンテンツの見出し //////////
 .m-subHead-A{
   text-align: center;
   font-size: 0.8rem;
@@ -114,57 +222,7 @@
 }
 
 
-// サブアーカイブ //
-.m-subArchives{
-  margin-bottom: 1rem;
-  li{
-    margin-bottom: 0.7rem;
-    padding: 0.3rem 0;
-    position: relative;
-    border: 2px solid  #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-    &:after {
-    display: block;
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 2%;
-    width: 0.5rem;
-    height: 0.5rem;
-    margin: -4px 0 0 0;
-    border-top: solid 2px $color5;
-    border-right: solid 2px $color5;
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-    }
-    a{
-      display: block;
-      padding: 0 5% 0 2%;
-      line-height: 1.3;
-      color: $color1;
-      &:hover{
-        text-decoration: none;
-        color: $color5;
-      }
-      img{
-        display: block;
-        float: left;
-        width: 37%;
-      }
-      span{
-        font-size: 0.9rem;
-        font-weight: bold;
-        display: block;
-        float: right;
-        width: 60%;
-      }
-    }
-  }
-}
-
-
-// facebook likeボックス //
+////////// facebook likeボックス //////////
 .m-fbBox{
   width: 100%;
   margin-bottom: 1rem;
@@ -173,14 +231,14 @@
   }
 }
 
-// twitter followボックス //
+////////// twitter followボックス //////////
 .m-twBox{
   width: 100%;
   margin-bottom: 1rem;
 }
 
 
-// footerのナビゲーション //
+////////// footerのナビゲーション //////////
 .m-footNav{
   a{
     color: $color1;
@@ -196,13 +254,7 @@
   }
 }
 
-.home svg{fill: $color2;}
-.dogs svg{fill: $color3;}
-.about svg{fill: $color6;}
-.contact svg{fill: $color7;}
-
-
-// ページトップボタン //
+////////// ページトップボタン //////////
 .m-pagetop{
   position: absolute;
   top: -1.5rem;
@@ -221,7 +273,7 @@
 }
 
 
-// 固定メニューボタン //
+////////// 固定メニューボタン //////////
 .m-fixedBtn li {
   position: fixed;
   top: 5px;
@@ -252,7 +304,22 @@
   }
 }
 
-// MMENUの中 //
+
+////////// MMENUの中 //////////
+.mmNav{
+  font-size: 0.8rem;
+  span{
+    font: 700 1rem 'Noto Sans';
+    margin-right: 0.5rem;
+  }
+  svg{
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 5px;
+  }
+}
+
 .mmProf {
   background-color: #2b2b2b;
   padding: 20px 10px 10px 20px !important;
@@ -270,33 +337,36 @@
   }
 }
 
-#gnav li.label {
+.mmLabel {
   background-color: #2b2b2b;
   p{
-    line-height: 20px;
-    padding: 20px 10px 10px 20px;
+    line-height: 15px;
+    padding: 15px 10px 15px 20px;
   }
 }
 
+#mm-0 .cat-item{
+  padding-left: 30px;
+}
 
 // searchform
 #gnav form {
-  padding: 10px 10px 10px 20px;
   background-color: #333;
 }
 #searchsubmit {
   display: none;
 }
 
-// コピーライト //
+
+////////// コピーライト //////////
 .m-copyright{
   margin-top: 1rem;
   text-align: center;
   font-size: 0.7em;
 }
 
-/*PC Switcher
---------------------------------------------*/
+
+////////// PC Switcher //////////
 .pc-switcher {
   position: absolute;
   bottom: 5px;
