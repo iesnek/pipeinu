@@ -973,35 +973,33 @@ html.mm-opened.mm-black .mm-page {
   position: relative;
   text-align: center;
   width: 100%; }
-
-.page-numbers {
-  display: inline-block;
-  margin: 0 2px;
-  width: 2rem;
-  height: 2rem;
-  overflow: hidden;
-  font-size: 0.8rem;
-  color: #222;
-  text-decoration: none;
-  line-height: 2rem;
-  background: #78c235;
-  color: #fff;
-  border-radius: 50%; }
-
-.dots {
-  background: none;
-  color: #78c235; }
-
-.next {
-  margin: 0.5rem auto;
-  display: block;
-  border-radius: 3px;
-  width: 90%;
-  font-size: 1rem;
-  font-weight: bold; }
-
-.prev {
-  display: none; }
+  .m-pager .page-numbers {
+    display: inline-block;
+    margin: 0 2px;
+    width: 2rem;
+    height: 2rem;
+    overflow: hidden;
+    font-size: 0.8rem;
+    color: #222;
+    text-decoration: none;
+    line-height: 2rem;
+    background: #78c235;
+    color: #fff;
+    border-radius: 50%; }
+  .m-pager .dots {
+    background: none;
+    color: #78c235; }
+  .m-pager .current {
+    background: #aaa; }
+  .m-pager .next {
+    margin: 0.5rem auto;
+    display: block;
+    border-radius: 3px;
+    width: 90%;
+    font-size: 1rem;
+    font-weight: bold; }
+  .m-pager .prev {
+    display: none; }
 
 .m-articleSns-A {
   width: 100%;
