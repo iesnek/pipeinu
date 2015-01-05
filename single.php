@@ -105,14 +105,14 @@ if (have_posts()) :
       <h1 class="m-subHead-A"><span>related</span>-関連記事-</h1><!-- /.m-subHead-A -->
       <?php
       if( $my_query -> have_posts() ): // サブループ ?>
-      <ul class="m-archives">
+      <ul class="m-subArchives">
         <?php
         while ($my_query -> have_posts()) : $my_query -> the_post(); // 繰り返し処理 ?>
-        <li class="m-archiveList">
+        <li class="m-subArchiveList">
           <a href="<?php the_permalink() ?>" title = "「<?php the_title(); ?>」を読む" class="clearfix">
-            <div class="m-archiveTxt">
+            <div class="m-subArchiveTxt">
               <h2><?php the_title(); ?></h2>
-              <ul class="m-archiveMeta">
+              <ul class="m-subArchiveMeta">
                 <li>
                   <svg><title>カテゴリー</title><desc>カテゴリーのアイコン</desc><use xlink:href="#cat"/></svg>
                   <?php $cat = get_the_category(); $cat = $cat[0]; { echo $cat->cat_name; } ?>
@@ -121,9 +121,9 @@ if (have_posts()) :
                   <svg><title>日付</title><desc>日付のアイコン</desc><use xlink:href="#date"/></svg>
                   <?php echo get_the_date(); ?>
                 </li>
-              </ul><!-- /.m-archiveMeta -->
-            </div><!-- /.m-archiveTxt -->
-            <div class="m-archiveImg">
+              </ul><!-- /.m-subArchiveMeta -->
+            </div><!-- /.m-subArchiveTxt -->
+            <div class="m-subArchiveImg">
               <h3>
                 <?php
                 if ( has_post_thumbnail() ):
@@ -135,13 +135,13 @@ if (have_posts()) :
                 endif;
                 ?>
               </h3>
-            </div><!-- /.m-archiveImg -->
+            </div><!-- /.m-subArchiveImg -->
           </a>
-        </li><!-- /.m-archiveList -->
+        </li><!-- /.m-subArchiveList -->
         <?php
         endwhile; // サブループの繰り返し処理終了
         ?>
-      </ul><!-- /.m-archives -->
+      </ul><!-- /.m-subArchives -->
       <?php 
       else:
       ?>

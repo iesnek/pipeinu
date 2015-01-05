@@ -5,56 +5,59 @@
 <div id="contentswrap" class="clearfix">
 
   <div id="main">
+    <div class="m-archives clearfix">
 
 <?php
 if (have_posts()) :
   while (have_posts()) : the_post();
 ?>
 
-    <article id="post-<?php the_ID(); ?>" class="m-archiveList">
-      <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" class="clearfix">
-        <div class="m-archiveTxt">
-          <h1><?php the_title(); ?></h1>
-          <ul class="m-archiveMeta">
-            <li>
-              <svg><title>カテゴリー</title><desc>カテゴリーのアイコン</desc><use xlink:href="#cat"/></svg>
-              <?php $cat = get_the_category(); $cat = $cat[0]; { echo $cat->cat_name; } ?>
-            </li>
-            <li>
-              <svg><title>日付</title><desc>日付のアイコン</desc><use xlink:href="#date"/></svg>
-              <?php echo get_the_date(); ?>
-            </li>
-          </ul><!-- /.m-archiveMeta -->
-        </div><!-- /.m-archiveTxt -->
-        <div class="m-archiveImg">
-          <h2>
-            <?php
-            if (has_post_thumbnail()) :
-              the_post_thumbnail( 'medium' );
-            else :
-            ?>
-              <img src="<?php echo get_template_directory_uri(); ?>/img/noimages_m.jpg" alt="この記事を読む">
-            <?php
-            endif;
-            ?>
-          </h2>
-        </div><!-- /.m-archiveImg -->
-      </a>
-    </article>
+      <article id="post-<?php the_ID(); ?>" class="m-archiveList">
+        <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
+          <div class="m-archiveTxt">
+            <h1><?php the_title(); ?></h1>
+            <ul class="m-archiveMeta">
+              <li>
+                <svg><title>カテゴリー</title><desc>カテゴリーのアイコン</desc><use xlink:href="#cat"/></svg>
+                <?php $cat = get_the_category(); $cat = $cat[0]; { echo $cat->cat_name; } ?>
+              </li>
+              <li>
+                <svg><title>日付</title><desc>日付のアイコン</desc><use xlink:href="#date"/></svg>
+                <?php echo get_the_date(); ?>
+              </li>
+            </ul><!-- /.m-archiveMeta -->
+          </div><!-- /.m-archiveTxt -->
+          <div class="m-archiveImg">
+            <h2>
+              <?php
+              if (has_post_thumbnail()) :
+                the_post_thumbnail( 'medium' );
+              else :
+              ?>
+                <img src="<?php echo get_template_directory_uri(); ?>/img/noimages_m.jpg" alt="この記事を読む">
+              <?php
+              endif;
+              ?>
+            </h2>
+          </div><!-- /.m-archiveImg -->
+        </a>
+      </article>
 
 <?php
   endwhile;
 else :
 ?>
 
-    <article>
-      <h1>記事はありません</h1>
-      <p>お探しの記事は見つかりませんでした。</p>
-    </article>
+      <article>
+        <h1>記事はありません</h1>
+        <p>お探しの記事は見つかりませんでした。</p>
+      </article>
 
 <?php
 endif;
 ?>
+
+    </div><!-- /.m-archives -->
 
     <aside class="m-pager"> <!-- ページャーここから -->
       <?php global $wp_rewrite;
