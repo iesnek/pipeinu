@@ -44,22 +44,37 @@ if (have_posts()) :
         endif;
       ?>
 
-      <h2><?php echo get_post_meta($post->ID,'subtitle',true); ?></h2>
+      <h2><?php echo get_post_meta($post->ID,'dogs_subtitle',true); ?></h2>
 
       <?php
         the_content();
       ?>
 
-      <h3><?php echo get_post_meta($post->ID,'note_title',true); ?></h3>
-      <p><?php echo get_post_meta($post->ID,'note',true); ?></p>
+      <h3><?php echo get_post_meta($post->ID,'dogs_note_title',true); ?></h3>
+      <p><?php echo get_post_meta($post->ID,'dogs_note',true); ?></p>
 
-      <ul>
-        <li><?php echo get_post_meta($post->ID,'friendly',true); ?></li>
-        <li><?php echo get_post_meta($post->ID,'smart',true); ?></li>
-        <li><?php echo get_post_meta($post->ID,'wc',true); ?></li>
-        <li><?php echo get_post_meta($post->ID,'bark',true); ?></li>
-        <li><?php echo get_post_meta($post->ID,'attack',true); ?></li>
-      </ul>
+      <div class="m-dogsStates">
+        <dl>
+          <dt>ひとなつこさ</dt>
+          <dd><?php echo get_post_meta($post->ID,'dogs_friendly',true); ?></dd>
+        </dl>
+        <dl>
+          <dt>かしこさ</dt>
+          <dd><?php echo get_post_meta($post->ID,'dogs_smart',true); ?></dd>
+        </dl>
+        <dl>
+          <dt>トイレのしつけ</dt>
+          <dd><?php echo get_post_meta($post->ID,'dogs_wc',true); ?></dd>
+        </dl>
+        <dl>
+          <dt>無駄吠え</dt>
+          <dd><?php echo get_post_meta($post->ID,'dogs_bark',true); ?></dd>
+        </dl>
+        <dl>
+          <dt>攻撃性</dt>
+          <dd><?php echo get_post_meta($post->ID,'dogs_attack',true); ?></dd>
+        </dl>
+      </div><!-- /.m-dogsStates -->
 
       </div><!-- /.m-articleBody -->
       <footer>

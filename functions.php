@@ -106,9 +106,7 @@ add_action( 'admin_head', 'dogs_icons_styles' );
 
 ///// カスタムフィールドを追加
 function add_dogs_field() {  //メタボックスのID,メタボックス名,メタボックスの関数名,表示する場所
-  add_meta_box('dogs_subtitle', 'サブタイトル（必須）', 'dogs_subtitle_form', 'dogs');
-  add_meta_box('dogs_note', '気を付けること', 'dogs_note_form', 'dogs');
-  add_meta_box('dogs_status', '特徴', 'dogs_status_form', 'dogs');
+  add_meta_box('dogs_subtitle_box', 'サブタイトル', 'dogs_subtitle_form', 'dogs');
 }
 add_action('add_meta_boxes', 'add_dogs_field');
 
@@ -117,70 +115,8 @@ function dogs_subtitle_form() {  //「サブタイトル」メタボックスに
   global $post;  //編集中の記事に関するデータを保存
   wp_nonce_field(wp_create_nonce(__FILE__), 'my_nonce');  //CSRF対策の設定（フォームにhiddenフィールドとして追加するためのnonceを「'my_nonce」として設定）
 ?>
-  <p><input type="text" name="subtitle" value="<?php echo esc_html(get_post_meta($post->ID, 'subtitle', true)); ?>" style="width:100%" /></p>
+  <p><input type="text" name="dogs_subtitle" value="<?php echo esc_html(get_post_meta($post->ID, 'dogs_subtitle', true)); ?>" style="width:100%" /></p>
 <?php
-}
-
-function dogs_note_form() {  //「気を付けること」メタボックスに表示する内容
-  global $post;  //編集中の記事に関するデータを保存
-  wp_nonce_field(wp_create_nonce(__FILE__), 'my_nonce');  //CSRF対策の設定（フォームにhiddenフィールドとして追加するためのnonceを「'my_nonce」として設定）
-?>
-  <p><label>気を付けることタイトル<br><input type="text" name="note_title" value="<?php echo esc_html(get_post_meta($post->ID, 'note_title', true)); ?>" style="width:100%" /></label></p>
-  <p><label>気を付けること本文<br><textarea name="note" rows="3" style="width:100%;"><?php echo get_post_meta($post->ID, 'note', true); ?></textarea></label></p>
-<?php
-}
-
-function dogs_status_form(){  //「特徴」メタボックスに表示する内容
-  $id = get_the_ID();  //カスタムフィールドの値を取得
-  $friendly = get_post_meta($id,'friendly',true);  //セレクトボックスの値を配列に挿入
-  $smart = get_post_meta($id,'smart',true);  //セレクトボックスの値を配列に挿入
-  $wc = get_post_meta($id,'wc',true);  //セレクトボックスの値を配列に挿入
-  $bark = get_post_meta($id,'bark',true);  //セレクトボックスの値を配列に挿入
-  $attack = get_post_meta($id,'attack',true);  //セレクトボックスの値を配列に挿入
-  $data = array(  //例：array('表示','value','selected')
-    array("選択してください","",""),
-    array("★☆☆☆☆","★☆☆☆☆",""),
-    array("★★☆☆☆","★★☆☆☆",""),
-    array("★★★☆☆","★★★☆☆",""),
-    array("★★★★☆","★★★★☆",""),
-    array("★★★★★","★★★★★","")
-  );
-
-  echo '<p><label>人なつこさ　　 ： <select name="friendly">';
-  foreach($data as $d){  //セレクトボックスの作成:配列をforeachでまわす
-    if($d[1]==$friendly) $d[2] ="selected";
-    echo '<option value="', $d[1], '"', $d[2], '>', $d[0];
-  }
-  echo '</select></label></p>';
-
-  echo '<p><label>かしこさ　　　 ： <select name="smart">';
-  foreach($data as $d){  //セレクトボックスの作成:配列をforeachでまわす
-    if($d[1]==$smart) $d[2] ="selected";
-    echo '<option value="', $d[1], '"', $d[2], '>', $d[0];
-  }
-  echo '</select></label></p>';
-
-  echo '<p><label>トイレのしつけ ： <select name="wc">';
-  foreach($data as $d){  //セレクトボックスの作成:配列をforeachでまわす
-    if($d[1]==$wc) $d[2] ="selected";
-    echo '<option value="', $d[1], '"', $d[2], '>', $d[0];
-  }
-  echo '</select></label></p>';
-
-  echo '<p><label>無駄吠え　　　 ： <select name="bark">';
-  foreach($data as $d){  //セレクトボックスの作成:配列をforeachでまわす
-    if($d[1]==$bark) $d[2] ="selected";
-    echo '<option value="', $d[1], '"', $d[2], '>', $d[0];
-  }
-  echo '</select></label></p>';
-
-  echo '<p><label>攻撃性　　　　 ： <select name="attack">';
-  foreach($data as $d){  //セレクトボックスの作成:配列をforeachでまわす
-    if($d[1]==$attack) $d[2] ="selected";
-    echo '<option value="', $d[1], '"', $d[2], '>', $d[0];
-  }
-  echo '</select></label></p>';
-
 }
 
 ///// カスタムフィールドの値を保存
@@ -196,16 +132,7 @@ function dogs_customfields_save($post_id) {
   //ユーザーが編集権限を持っていない場合は何もしない。
   if($_POST['post_type'] == 'dogs'){  //'dogs' 投稿タイプの場合のみ実行  
   //入力フィールドに入力された情報を保存＆更新するように指定
-    update_post_meta($post->ID, 'subtitle', $_POST['subtitle']);
-
-    update_post_meta($post->ID, 'note_title', $_POST['note_title']);
-    update_post_meta($post->ID, 'note', $_POST['note']);
-
-    update_post_meta($post->ID, 'friendly', $_POST['friendly']);
-    update_post_meta($post->ID, 'smart', $_POST['smart']);
-    update_post_meta($post->ID, 'wc', $_POST['wc']);
-    update_post_meta($post->ID, 'bark', $_POST['bark']);
-    update_post_meta($post->ID, 'attack', $_POST['attack']);
+    update_post_meta($post->ID, 'dogs_subtitle', $_POST['dogs_subtitle']);
   }
 }
 add_action('save_post', 'dogs_customfields_save');
@@ -214,7 +141,7 @@ add_action('save_post', 'dogs_customfields_save');
 /////カスタムフィールドを投稿より上に表示(admin-script.js必須)
 function dogs_enqueue_scripts() {
   wp_enqueue_script('my-admin-script', get_bloginfo('template_directory').'/js/admin-script.js', array('jquery'), false, true);
-  echo '<style> #dogs_subtitle { margin-top: 20px; } </style>';
+  echo '<style> #dogs_subtitle_box { margin-top: 20px; } </style>';
 }
 add_action('admin_enqueue_scripts', 'dogs_enqueue_scripts');
 
@@ -276,7 +203,34 @@ function mov_icons_styles(){
 add_action( 'admin_head', 'mov_icons_styles' );
 
 
+////////// カスタムフィールド-動画紹介 //////////
 
+///// カスタムフィールドを追加
+function add_mov_field() {  //メタボックスのID,メタボックス名,メタボックスの関数名,表示する場所
+  add_meta_box('mov_note', 'コピペ用HTMLタグ', 'mov_note_form', 'dogs', 'side', 'low');
+  add_meta_box('mov_note', 'コピペ用HTMLタグ', 'mov_note_form', 'mov', 'side', 'low');
+}
+add_action('add_meta_boxes', 'add_mov_field');
+
+function mov_note_form() {  //「コピペ用HTMLタグ」メタボックスに表示する内容
+?>
+  <div class="m-articleBody">
+    <p><label><span class="b">太字にしたい</span><br><input type="text" name="" value='<span class="b">この中に文字</span>' style="width:100%" /></label></p>
+    <p><label><span class="bred">太字で赤にしたい</span><br><input type="text" name="" value='<span class="bred">この中に文字</span>' style="width:100%" /></label></p>
+    <p><label><span class="bb">ものすごい太字にしたい</span><br><input type="text" name="" value='<span class="bb">この中に文字</span>' style="width:100%" /></label></p>
+    <p><label><span class="bm">マーカー付の太字にしたい</span><br><input type="text" name="" value='<span class="bm">この中に文字</span>' style="width:100%" /></label></p>
+    <p><label><span class="m">マーカー引きたい</span><br><input type="text" name="" value='<span class="m">この中に文字</span>' style="width:100%" /></label></p>
+    <p><label><small>小さい文字にしたい（補足とか）</small><br><input type="text" name="" value='<small>この中に文字</small>' style="width:100%" /></label></p>
+    <p><label><span class="b">リンクを貼りたい</span><br><input type="text" name="" value='<a target="_brank" href="この中にＵＲＬ">この中にリンク先のタイトル</a>' style="width:100%" /></label></p>
+  </div><!-- /.m-articleBody -->
+<?php
+}
+
+///// 管理画面に任意のCSSを読み込ませる
+function wp_custom_admin_css() {
+  echo "\n" . '<link href="' .get_bloginfo('template_directory'). '/article.css' . '" rel="stylesheet" type="text/css" />' . "\n";
+}
+add_action('admin_head', 'wp_custom_admin_css', 100);
 
 
 ?>

@@ -1332,23 +1332,23 @@ html.mm-opened.mm-black .mm-page {
   font-weight: bold;
   font-size: 1rem; }
 
-.m-articleBody strong {
-  font-weight: bold;
-  background: #fbb; }
-
-.m-articleBody em {
-  background: #ffe677; }
-
-.m-articleBody .boldn {
+.m-articleBody .b {
   font-weight: bold; }
 
-.m-articleBody .boldred {
+.m-articleBody .bred {
   font-weight: bold;
   color: #f66; }
 
-.m-articleBody .boldz {
+.m-articleBody .bb {
   font-weight: bold;
   font-size: 1.4rem; }
+
+.m-articleBody .bm {
+  font-weight: bold;
+  background: #fbb; }
+
+.m-articleBody .m {
+  background: #ffe677; }
 
 .m-articleBody small {
   font-size: 0.7rem; }

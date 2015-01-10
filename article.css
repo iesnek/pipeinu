@@ -1,0 +1,194 @@
+@charset "UTF-8";
+/*=================================================================
+   article
+=================================================================*/
+.m-articleHead {
+  margin-bottom: 20px; }
+  .m-articleHead h1 {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 10px; }
+
+.m-articleMeta li {
+  font-size: 0.8rem;
+  color: #61c1bd; }
+  .m-articleMeta li:first-child {
+    float: left; }
+  .m-articleMeta li:nth-child(2) {
+    float: right; }
+  .m-articleMeta li:nth-child(3) {
+    clear: both; }
+  .m-articleMeta li a {
+    text-decoration: none;
+    color: inherit; }
+    .m-articleMeta li a:hover {
+      text-decoration: underline; }
+  .m-articleMeta li svg {
+    fill: #61c1bd;
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-right: 0.4rem; }
+
+.m-articleBody {
+  font-size: 1rem; }
+
+.m-articleBody p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 1.5rem 0; }
+  @media only screen and (min-width: 768px) {
+    .m-articleBody p {
+      line-height: 1.8; } }
+  @media only screen and (min-width: 1024px) {
+    .m-articleBody p {
+      line-height: 2; } }
+
+.m-articleBody h2 {
+  margin: 3rem 0 1rem;
+  padding-left: 0.3rem;
+  font-size: 1.2rem;
+  font-weight: bold; }
+  .m-articleBody h2:before {
+    content: '';
+    position: relative;
+    left: -0.3rem;
+    display: inline-block;
+    vertical-align: middle;
+    width: 0.7rem;
+    height: 1.5rem;
+    background: url(img/bg-polygon.png) right center; }
+
+.m-articleBody h3 {
+  margin: 2rem 0 0.7rem;
+  padding-left: 0.3rem;
+  font-size: 1.1rem;
+  font-weight: bold; }
+  .m-articleBody h3:before {
+    content: '';
+    position: relative;
+    left: -0.3rem;
+    display: inline-block;
+    vertical-align: middle;
+    width: 1rem;
+    height: 1rem;
+    background: #3e3f40; }
+
+.m-articleBody h4 {
+  margin: 0.7rem 0;
+  font-weight: bold;
+  font-size: 1rem; }
+
+.m-articleBody .b {
+  font-weight: bold; }
+
+.m-articleBody .bred {
+  font-weight: bold;
+  color: #f66; }
+
+.m-articleBody .bb {
+  font-weight: bold;
+  font-size: 1.4rem; }
+
+.m-articleBody .bm {
+  font-weight: bold;
+  background: #fbb; }
+
+.m-articleBody .m {
+  background: #ffe677; }
+
+.m-articleBody small {
+  font-size: 0.7rem; }
+
+.m-articleBody a {
+  color: #c04d97; }
+  .m-articleBody a:hover {
+    color: #61c1bd;
+    text-decoration: none; }
+
+.m-articleBody ul {
+  padding: 1.5rem 1rem; }
+  .m-articleBody ul li {
+    padding-left: 1.3rem;
+    background: url(svg/check.svg) no-repeat left center;
+    background-size: 1rem 1rem; }
+
+.m-articleBody ol {
+  list-style: decimal;
+  padding: 1.5rem 2rem; }
+
+.m-articleBody blockquote {
+  padding: 1.5rem 1rem;
+  text-align: center; }
+  .m-articleBody blockquote:before {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: url(svg/quo2.svg) no-repeat top left;
+    background-size: 1.5rem 1.5rem; }
+  .m-articleBody blockquote:after {
+    content: '';
+    margin-left: auto;
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: url(svg/quo1.svg) no-repeat bottom right;
+    background-size: 1.5rem 1.5rem; }
+
+.m-articleBody .aligncenter {
+  display: block;
+  margin: 0 auto;
+  text-align: center; }
+
+.m-articleBody .left {
+  float: left; }
+
+.m-articleBody .right {
+  float: right; }
+
+.m-articleBody img {
+  max-width: 100%;
+  padding: 0.9rem 0; }
+
+.m-articleBody .umekomi {
+  position: relative;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding-bottom: 50%;
+  padding-top: 69px;
+  overflow: hidden; }
+  .m-articleBody .umekomi iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
+article.article p a:before,
+article.article p a:after {
+  font-family: 'designek';
+  font-size: 0.8rem;
+  content: attr(data-icon);
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased; }
+
+/* 内部リンク - Internal Link */
+article.article p a[href^="/"]:before,
+article.article p a[href^=".."] :before {
+  content: "\37 \00A0"; }
+
+/* 外部リンク - External Link */
+article.article p a[href^="http://"]:after {
+  content: "\00A0 \38"; }
+
+/* URL指定 - URL Specified Link */
+article.article p a[href="http://design.iesnek.com/feed"]:before {
+  content: "\32 \00A0";
+  color: #f93; }
+
+/* ダウンロードファイル - Downloadable File */
+article.article p a[href$=".zip"]:before {
+  content: "\39 \00A0"; }
+
+/*# sourceMappingURL=article.css.map */

@@ -3,6 +3,9 @@
    article
 =================================================================*/
 
+@import "../core/setting";
+
+
 // 記事タイトル
 .m-articleHead{
   margin-bottom: 20px;
@@ -102,32 +105,32 @@
   font-size: 1rem;
 }
 
-// ストロング
-.m-articleBody strong{
-  font-weight: bold;
-  background: #fbb;
-}
-
-// em強調
-.m-articleBody em{
-  background: #ffe677;
-}
-
 // 太字-黒
-.m-articleBody .boldn {
+.m-articleBody .b {
   font-weight: bold;
 }
 
 // 太字-赤
-.m-articleBody .boldred {
+.m-articleBody .bred {
   font-weight: bold;
   color: #f66;
 }
 
 // 超太字
-.m-articleBody .boldz {
+.m-articleBody .bb {
   font-weight: bold;
   font-size: 1.4rem;
+}
+
+// 太字マーカー
+.m-articleBody .bm{
+  font-weight: bold;
+  background: #fbb;
+}
+
+// マーカー
+.m-articleBody .m{
+  background: #ffe677;
 }
 
 // 小文字
