@@ -955,6 +955,45 @@ html.mm-opened.mm-black .mm-page {
   margin: 0 auto;
   width: 90%; }
 
+.m-dogsArchiveList {
+  width: 50%;
+  float: left;
+  margin: 0 auto 0.8rem;
+  position: relative; }
+  .m-dogsArchiveList a {
+    display: block;
+    padding: 0.3rem;
+    line-height: 1.3;
+    color: #3e3f40;
+    text-decoration: none; }
+    .m-dogsArchiveList a:hover {
+      color: #c04d97; }
+    .m-dogsArchiveList a:hover:after {
+      border-color: #c04d97; }
+
+.m-dogsArchiveTxt {
+  position: absolute;
+  bottom: 5%;
+  text-align: center;
+  width: 95%;
+  padding: 0.3rem 0;
+  background-color: rgba(97, 193, 189, 0.8);
+  border-radius: 0.8rem; }
+  .m-dogsArchiveTxt h1 {
+    padding: 0 0.3rem;
+    font-weight: bold;
+    color: #fff; }
+
+.m-dogsArchiveImg {
+  margin: 0 auto;
+  width: 95%;
+  display: block;
+  height: auto;
+  overflow: hidden;
+  border-radius: 50%;
+  background-size: cover;
+  box-shadow: 3px 3px rgba(62, 63, 64, 0.4); }
+
 .m-subArchives {
   margin-bottom: 1rem; }
 
@@ -1284,7 +1323,8 @@ html.mm-opened.mm-black .mm-page {
     margin-right: 0.4rem; }
 
 .m-articleBody {
-  font-size: 1rem; }
+  font-size: 1rem;
+  margin-bottom: 3rem; }
 
 .m-articleBody p {
   font-size: 1rem;
@@ -1296,6 +1336,27 @@ html.mm-opened.mm-black .mm-page {
   @media only screen and (min-width: 1024px) {
     .m-articleBody p {
       line-height: 2; } }
+
+.m-articleBody img + p {
+  margin-top: 0; }
+
+.m-articleBody img {
+  max-width: 100%;
+  margin: 0.5rem 0; }
+
+.m-articleBody .m-umekomi {
+  position: relative;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding-bottom: 50%;
+  padding-top: 69px;
+  overflow: hidden; }
+  .m-articleBody .m-umekomi iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
 
 .m-articleBody h2 {
   margin: 3rem 0 1rem;
@@ -1325,7 +1386,7 @@ html.mm-opened.mm-black .mm-page {
     vertical-align: middle;
     width: 1rem;
     height: 1rem;
-    background: #3e3f40; }
+    background: #fabe00; }
 
 .m-articleBody h4 {
   margin: 0.7rem 0;
@@ -1363,7 +1424,7 @@ html.mm-opened.mm-black .mm-page {
   padding: 1.5rem 1rem; }
   .m-articleBody ul li {
     padding-left: 1.3rem;
-    background: url(svg/check.svg) no-repeat left center;
+    background: url(svg/pipeinu.svg/#check) no-repeat left center;
     background-size: 1rem 1rem; }
 
 .m-articleBody ol {
@@ -1399,24 +1460,6 @@ html.mm-opened.mm-black .mm-page {
 
 .m-articleBody .right {
   float: right; }
-
-.m-articleBody img {
-  max-width: 100%;
-  padding: 0.9rem 0; }
-
-.m-articleBody .umekomi {
-  position: relative;
-  margin-top: 2em;
-  margin-bottom: 2em;
-  padding-bottom: 50%;
-  padding-top: 69px;
-  overflow: hidden; }
-  .m-articleBody .umekomi iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; }
 
 article.article p a:before,
 article.article p a:after {

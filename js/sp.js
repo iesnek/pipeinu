@@ -9,6 +9,23 @@ jQuery(function() {
   });
 });
 
+
+/* サムネイルを正円に保つ
+=========================================== */
+
+jQuery(function(jQuery){ 
+    //.thumb_bgの縦横比をレスポンシブに合わせて調整 
+    function img_rect(){ 
+        var img_w = jQuery(".m-dogsArchiveImg").css("width"); 
+        jQuery(".m-dogsArchiveImg").css('height',img_w); 
+    }; 
+    jQuery(window).resize(function(){ 
+        img_rect(); 
+    }); 
+    img_rect(); 
+});
+
+
 /* Facebookみたいなナビゲーション jQuery mmenu
 =========================================== */
 /*  

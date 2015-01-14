@@ -30,7 +30,8 @@
     margin-right: 0.4rem; }
 
 .m-articleBody {
-  font-size: 1rem; }
+  font-size: 1rem;
+  margin-bottom: 3rem; }
 
 .m-articleBody p {
   font-size: 1rem;
@@ -42,6 +43,27 @@
   @media only screen and (min-width: 1024px) {
     .m-articleBody p {
       line-height: 2; } }
+
+.m-articleBody img + p {
+  margin-top: 0; }
+
+.m-articleBody img {
+  max-width: 100%;
+  margin: 0.5rem 0; }
+
+.m-articleBody .m-umekomi {
+  position: relative;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding-bottom: 50%;
+  padding-top: 69px;
+  overflow: hidden; }
+  .m-articleBody .m-umekomi iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
 
 .m-articleBody h2 {
   margin: 3rem 0 1rem;
@@ -71,7 +93,7 @@
     vertical-align: middle;
     width: 1rem;
     height: 1rem;
-    background: #3e3f40; }
+    background: #fabe00; }
 
 .m-articleBody h4 {
   margin: 0.7rem 0;
@@ -109,7 +131,7 @@
   padding: 1.5rem 1rem; }
   .m-articleBody ul li {
     padding-left: 1.3rem;
-    background: url(svg/check.svg) no-repeat left center;
+    background: url(svg/pipeinu.svg/#check) no-repeat left center;
     background-size: 1rem 1rem; }
 
 .m-articleBody ol {
@@ -145,24 +167,6 @@
 
 .m-articleBody .right {
   float: right; }
-
-.m-articleBody img {
-  max-width: 100%;
-  padding: 0.9rem 0; }
-
-.m-articleBody .umekomi {
-  position: relative;
-  margin-top: 2em;
-  margin-bottom: 2em;
-  padding-bottom: 50%;
-  padding-top: 69px;
-  overflow: hidden; }
-  .m-articleBody .umekomi iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; }
 
 article.article p a:before,
 article.article p a:after {

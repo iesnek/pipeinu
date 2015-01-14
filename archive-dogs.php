@@ -8,46 +8,28 @@
     <div class="m-archives clearfix">
 
 <?php
-global $wp_query;
-query_posts(array_merge(
-    array( 'post_type' => array('post','mov') ),
-    $wp_query->query
-));
-?>
-
-<?php
 if (have_posts()) :
   while (have_posts()) : the_post();
 ?>
 
-      <article id="post-<?php the_ID(); ?>" class="m-archiveList">
+      <article id="post-<?php the_ID(); ?>" class="m-dogsArchiveList">
         <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
-          <div class="m-archiveTxt">
+          <div class="m-dogsArchiveTxt">
             <h1><?php the_title(); ?></h1>
-            <ul class="m-archiveMeta">
-              <li>
-                <svg><title>カテゴリー</title><desc>カテゴリーのアイコン</desc><use xlink:href="#cat"/></svg>
-                <?php $cat = get_the_category(); $cat = $cat[0]; { echo $cat->cat_name; } ?>
-              </li>
-              <li>
-                <svg><title>日付</title><desc>日付のアイコン</desc><use xlink:href="#date"/></svg>
-                <?php echo get_the_date(); ?>
-              </li>
-            </ul><!-- /.m-archiveMeta -->
-          </div><!-- /.m-archiveTxt -->
-          <div class="m-archiveImg">
-            <h2>
-              <?php
-              if (has_post_thumbnail()) :
-                the_post_thumbnail( 'medium' );
-              else :
-              ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/noimages_m.jpg" alt="この記事を読む">
-              <?php
-              endif;
-              ?>
-            </h2>
-          </div><!-- /.m-archiveImg -->
+          </div><!-- /.m-dogsArchiveTxt -->
+          <?php
+          if (has_post_thumbnail()) :
+          ?>
+          <div class="m-dogsArchiveImg" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>)">
+          </div><!-- /.m-dogsArchiveImg -->
+          <?php
+          else :
+          ?>
+          <div class="m-dogsArchiveImg" style="background-image: url(<?php echo get_template_directory_uri(); ?>/img/noimages_m.jpg)">
+          </div><!-- /.m-dogsArchiveImg -->
+          <?php
+          endif;
+          ?>
         </a>
       </article>
 
@@ -94,5 +76,5 @@ endif;
 
 <!-- / index.php -->
 
-
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

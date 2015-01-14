@@ -45,6 +45,21 @@ function cntAd($content){
 }
 
 
+////////// いろいろな犬種アーカイブページの表示変更 //////////
+function change_posts_per_page($query) {
+    if ( is_admin() || ! $query->is_main_query() )
+        return;
+ 
+    if ( $query->is_archive('dogs') ) {
+        $query->set( 'posts_per_page', '20' );
+        $query->set( 'orderby', 'meta_value' );
+        $query->set( 'meta_key', 'dogs_yomi' );
+        $query->set( 'order', 'asc' );
+    }
+}
+add_action( 'pre_get_posts', 'change_posts_per_page' );
+
+
 ////////// カスタム投稿タイプ-いろいろな犬種 //////////
 
 add_action( 'init', 'register_cpt_dogs' );
@@ -106,7 +121,7 @@ add_action( 'admin_head', 'dogs_icons_styles' );
 
 ///// カスタムフィールドを追加
 function add_dogs_field() {  //メタボックスのID,メタボックス名,メタボックスの関数名,表示する場所
-  add_meta_box('dogs_subtitle_box', 'サブタイトル', 'dogs_subtitle_form', 'dogs');
+  add_meta_box('dogs_subtitle_box', 'ソート用読み仮名＆サブタイトル', 'dogs_subtitle_form', 'dogs');
 }
 add_action('add_meta_boxes', 'add_dogs_field');
 
@@ -115,7 +130,8 @@ function dogs_subtitle_form() {  //「サブタイトル」メタボックスに
   global $post;  //編集中の記事に関するデータを保存
   wp_nonce_field(wp_create_nonce(__FILE__), 'my_nonce');  //CSRF対策の設定（フォームにhiddenフィールドとして追加するためのnonceを「'my_nonce」として設定）
 ?>
-  <p><input type="text" name="dogs_subtitle" value="<?php echo esc_html(get_post_meta($post->ID, 'dogs_subtitle', true)); ?>" style="width:100%" /></p>
+  <p><label>読み仮名　　　<input type="text" name="dogs_yomi" value="<?php echo esc_html(get_post_meta($post->ID, 'dogs_yomi', true)); ?>" style="width:50%" /></label></p>
+  <p><label>サブタイトル<br><input type="text" name="dogs_subtitle" value="<?php echo esc_html(get_post_meta($post->ID, 'dogs_subtitle', true)); ?>" style="width:100%" /></label></p>
 <?php
 }
 
@@ -132,6 +148,7 @@ function dogs_customfields_save($post_id) {
   //ユーザーが編集権限を持っていない場合は何もしない。
   if($_POST['post_type'] == 'dogs'){  //'dogs' 投稿タイプの場合のみ実行  
   //入力フィールドに入力された情報を保存＆更新するように指定
+    update_post_meta($post->ID, 'dogs_yomi', $_POST['dogs_yomi']);
     update_post_meta($post->ID, 'dogs_subtitle', $_POST['dogs_subtitle']);
   }
 }
@@ -171,7 +188,8 @@ function register_cpt_mov() {
     'labels'       => $labels,
     'hierarchical' => false,  //階層ありならtrue（固定ページぽく） or 階層無しならfalse（投稿ぽく）
 
-    'supports' => array( 'title', 'thumbnail' ),
+    'supports'   => array( 'title', 'thumbnail' ),
+    'taxonomies' => array( 'category', 'post_tag' ),  //通常のカテゴリーとタグを使う
 
     'public'       => true,
     'show_ui'      => true,
@@ -190,6 +208,14 @@ function register_cpt_mov() {
 
   register_post_type( 'mov', $args );
 }
+
+add_action('init', 'my_add_default_boxes');
+
+function my_add_default_boxes() {  //通常のカテゴリーとタグを使う
+  register_taxonomy_for_object_type('category', 'mov');
+  register_taxonomy_for_object_type('post_tag', 'mov');
+}
+
 
 //カスタム投稿タイプのアイコン変更
 //https://developer.wordpress.org/resource/dashicons/　からアイコン選ぶ

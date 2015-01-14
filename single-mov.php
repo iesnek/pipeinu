@@ -14,6 +14,20 @@ if (have_posts()) :
     <article id="post-<?php the_ID(); ?>" class="l-article">
       <header class="m-articleHead">
         <h1><?php the_title(); ?></h1>
+        <ul class="m-articleMeta clearfix">
+          <li>
+            <svg><title>カテゴリー</title><desc>カテゴリーのアイコン</desc><use xlink:href="#cat"/></svg>
+            <?php the_category(', ') ?>
+          </li>
+          <li>
+            <svg><title>日付</title><desc>日付のアイコン</desc><use xlink:href="#date"/></svg>
+            <?php echo get_the_date(); ?>
+          </li>
+          <li>
+            <svg><title>タグ</title><desc>タグのアイコン</desc><use xlink:href="#tag"/></svg>
+            <?php the_tags(', ') ?>
+          </li>
+        </ul>
         <ul class="m-articleSns-A clearfix">
           <li class="m-like"><a href="#">
             <svg><title>いいね</title><use xlink:href="#like"/></svg>
@@ -34,7 +48,7 @@ if (have_posts()) :
       </header><!-- .m-articleHead -->
       <div class="m-articleBody">
 
-      <?php
+      <?php  //アイキャッチ画像
         if (has_post_thumbnail()) :
           the_post_thumbnail( 'large' );
         else :
@@ -44,37 +58,73 @@ if (have_posts()) :
         endif;
       ?>
 
-      <h2><?php echo get_post_meta($post->ID,'dogs_subtitle',true); ?></h2>
+      <?php  //リード文 ?>
+      <p><?php echo get_post_meta($post->ID,'mov_read',true); ?></p>
 
-      <?php
-        the_content();
+      <div class="m-ad">
+        <p>Sponsords Link</p>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- レクタングル（中） -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:300px;height:250px"
+             data-ad-client="ca-pub-1514095329243590"
+             data-ad-slot="6455402662"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+
+      <?php  //埋め込み動画
+        global $wp_embed;
+        if(get_post_meta($post->ID, 'mov_path', true)):
+        $youtube = get_post_meta($post->ID, 'mov_path', true);
+        $post_embed = $wp_embed->run_shortcode('[embed]' . $youtube . '[/embed]');
+        ?>
+        <div class="m-umekomi"><?php echo $post_embed; ?></div><!-- /.m-umekomi -->
+        <?php
+        endif;
       ?>
 
-      <h3><?php echo get_post_meta($post->ID,'dogs_note_title',true); ?></h3>
-      <p><?php echo get_post_meta($post->ID,'dogs_note',true); ?></p>
+      <?php  //キャプチャとコメント
+        $repeat_group = SCF::get( 'mov_content' );
+        if($repeat_group):
+          foreach ( $repeat_group as $repeat_field ) {
+            $screenshot = wp_get_attachment_image($repeat_field[mov_ss], 'full');
+          ?>
+            <?php echo $screenshot; ?>
+            <p><?php echo $repeat_field[mov_txt]; ?></p>
+          <?php
+          }
+        endif;
+      ?>
 
-      <div class="m-dogsStates">
-        <dl>
-          <dt>ひとなつこさ</dt>
-          <dd><?php echo get_post_meta($post->ID,'dogs_friendly',true); ?></dd>
-        </dl>
-        <dl>
-          <dt>かしこさ</dt>
-          <dd><?php echo get_post_meta($post->ID,'dogs_smart',true); ?></dd>
-        </dl>
-        <dl>
-          <dt>トイレのしつけ</dt>
-          <dd><?php echo get_post_meta($post->ID,'dogs_wc',true); ?></dd>
-        </dl>
-        <dl>
-          <dt>無駄吠え</dt>
-          <dd><?php echo get_post_meta($post->ID,'dogs_bark',true); ?></dd>
-        </dl>
-        <dl>
-          <dt>攻撃性</dt>
-          <dd><?php echo get_post_meta($post->ID,'dogs_attack',true); ?></dd>
-        </dl>
-      </div><!-- /.m-dogsStates -->
+      <?php  //埋め込み動画
+        global $wp_embed;
+        if(get_post_meta($post->ID, 'mov_path', true)):
+        $youtube = get_post_meta($post->ID, 'mov_path', true);
+        $post_embed = $wp_embed->run_shortcode('[embed]' . $youtube . '[/embed]');
+        ?>
+        <div class="m-umekomi"><?php echo $post_embed; ?></div><!-- /.m-umekomi -->
+        <?php
+        endif;
+      ?>
+
+      <?php  //ソース
+        $repeat_group = SCF::get( 'mov_source' );
+        if($repeat_group):
+        ?>
+          <p>
+          <?php
+          foreach ( $repeat_group as $repeat_field ) {
+          ?>
+            <small><a href="<?php echo $repeat_field[mov_source_url]; ?>"><?php echo $repeat_field[mov_source_title]; ?></a></small><br>
+          <?php
+          }
+          ?>
+          </p>
+          <?php
+        endif;
+      ?>
 
       </div><!-- /.m-articleBody -->
       <footer>
