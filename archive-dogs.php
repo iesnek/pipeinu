@@ -38,10 +38,14 @@ if (have_posts()) :
 else :
 ?>
 
-      <article>
-        <h1>記事はありません</h1>
+    <article class="l-article">
+      <header class="m-articleHead">
+          <h1>記事はありません</h1>
+      </header><!-- .m-articleHead -->
+      <div class="m-articleBody">
         <p>お探しの記事は見つかりませんでした。</p>
-      </article>
+      </div><!-- /.m-articleBody -->
+    </article><!-- .l-article -->
 
 <?php
 endif;

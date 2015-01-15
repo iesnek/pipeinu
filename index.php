@@ -7,7 +7,7 @@
   <div id="main">
     <div class="m-archives clearfix">
 
-<?php
+<?php //カスタム投稿タイプ「mov」の投稿を取得する
 global $wp_query;
 query_posts(array_merge(
     array( 'post_type' => array('post','mov') ),
@@ -56,10 +56,14 @@ if (have_posts()) :
 else :
 ?>
 
-      <article>
-        <h1>記事はありません</h1>
-        <p>お探しの記事は見つかりませんでした。</p>
-      </article>
+      <article class="l-article">
+        <header class="m-articleHead">
+            <h1>記事はありません</h1>
+        </header><!-- .m-articleHead -->
+        <div class="m-articleBody">
+          <p>お探しの記事は見つかりませんでした。</p>
+        </div><!-- /.m-articleBody -->
+      </article><!-- .l-article -->
 
 <?php
 endif;

@@ -248,7 +248,7 @@ article.article p a[href^=".."] :before {
 }
 
 /* 外部リンク - External Link */
-article.article p a[href^="http://"]:after {
+article.article p a[target="_blank"]:after {
   content: "\00A0 \38";
 }
 

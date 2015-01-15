@@ -5,43 +5,55 @@
 <div id="contentswrap" class="clearfix">
 
   <div id="main">
-  <div class="main_inner">
 
 <?php
 if (have_posts()) :
   while (have_posts()) : the_post();
 ?>
 
-    <article id="post-<?php the_ID(); ?>" class="clearfix article">
-      <header>
-        <div class="title">
-          <h1><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h1>
-        </div><!-- /.title -->
-      </header>
+    <article id="post-<?php the_ID(); ?>" class="l-article">
+      <header class="m-articleHead">
+          <h1><?php the_title(); ?></h1>
+      </header><!-- .m-articleHead -->
+      <div class="m-articleBody">
+
+      <?php  //アイキャッチ画像
+        if (has_post_thumbnail()) :
+        ?>
+          <picture><?php the_post_thumbnail( 'large' ); ?></picture>
+        <?php
+        else :
+        ?>
+          <picture><img src="<?php echo get_template_directory_uri(); ?>/img/noimages_m.jpg" alt=""></picture>
+        <?php
+        endif;
+      ?>
+
       <?php
         the_content();
       ?>
-    </article>
+
+      </div><!-- /.m-articleBody -->
+    </article><!-- /.l-article -->
 
 <?php
   endwhile;
 else :
 ?>
 
-    <article>
-      <header>
-        <div class="title">
+    <article class="l-article">
+      <header class="m-articleHead">
           <h1>ページがありません</h1>
-        </div><!-- /.title -->
-      </header>
-      <p>お探しのページは見つかりませんでした。</p>
-    </article>
+      </header><!-- .m-articleHead -->
+      <div class="m-articleBody">
+        <p>お探しのページは見つかりませんでした。</p>
+      </div><!-- /.m-articleBody -->
+    </article><!-- .l-article -->
 
 <?php
 endif;
 ?>
 
-  </div><!-- /.main_inner -->
   </div><!-- /main -->
 
 <!-- / page.php -->
