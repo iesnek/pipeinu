@@ -133,6 +133,7 @@
 }
 
 // 太字-黒
+.m-articleBody strong,
 .m-articleBody .b {
   font-weight: bold;
 }
@@ -156,6 +157,7 @@
 }
 
 // マーカー
+.m-articleBody em,
 .m-articleBody .m{
   background: #ffe677;
 }
@@ -165,13 +167,31 @@
   font-size: 0.7rem;
 }
 
-// 記事内リンク
-.m-articleBody a{
+// 内部リンク
+.m-articleBody p a{
   color: $color5;
   &:hover{
     color: $color4;
     text-decoration: none;
   }
+  &:after{
+    content: '';
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background: $svg-link no-repeat bottom center;
+    background-size: 0.9em 0.9em;
+  }
+}
+
+// 外部リンク
+.m-articleBody p a[target="_blank"]:after {
+  content: '';
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background: $svg-link2 no-repeat bottom center;
+  background-size: 0.9em 0.9em;
 }
 
 // 記事内リスト
@@ -179,7 +199,7 @@
   padding: 1.5rem 1rem;
   li{
     padding-left: 1.3rem;
-    background: url(svg/pipeinu.svg/#check) no-repeat left center;
+    background: $svg-list no-repeat left center;
     background-size: 1rem 1rem;
   }
 }
@@ -190,77 +210,36 @@
 
 // 引用
 .m-articleBody blockquote{
-  padding: 1.5rem 1rem;
+  position: relative;
+  padding: 0 0.5rem;
+  margin-bottom: 1rem;
   text-align: center;
+  background-color: rgba($color2, 0.05);
+  border-radius: 10px;
+  p{
+    margin: 0;
+  }
   &:before{
+    position: relative;
+    top: -0.6rem;
+    left: 0.6rem;
     content: '';
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background: url(svg/quo2.svg) no-repeat top left;
+    background: $svg-quo1 no-repeat bottom right;
     background-size: 1.5rem 1.5rem;
   }
   &:after{
+    position: relative;
+    bottom: -0.6rem;
+    right: 0.6rem;
     content: '';
     margin-left: auto;
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background: url(svg/quo1.svg) no-repeat bottom right;
+    background: $svg-quo2 no-repeat bottom right;
     background-size: 1.5rem 1.5rem;
   }
 }
-
-// テキスト中央寄せ
-.m-articleBody .aligncenter{
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-}
-
-// フロート左
-.m-articleBody .left{
-  float: left;
-}
-
-// フロート右
-.m-articleBody .right{
-  float: right;
-}
-
-
-/////////////////未修正　アイコンフォント////////////////////////
-
-article.article p a:before,
-article.article p a:after {
-  font-family: 'designek';
-  font-size: 0.8rem;
-  content: attr(data-icon);
-  speak: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* 内部リンク - Internal Link */
-article.article p a[href^="/"]:before,
-article.article p a[href^=".."] :before {
-  content: "\37 \00A0";
-}
-
-/* 外部リンク - External Link */
-article.article p a[target="_blank"]:after {
-  content: "\00A0 \38";
-}
-
-/* URL指定 - URL Specified Link */
-article.article p a[href="http://design.iesnek.com/feed"]:before {
-  content: "\32 \00A0";
-  color: #f93;
-}
-
-/* ダウンロードファイル - Downloadable File */
-article.article p a[href$=".zip"]:before {
-  content: "\39 \00A0";
-}
-
-/////////////////未修正　アイコンフォント////////////////////////

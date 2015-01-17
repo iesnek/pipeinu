@@ -127,7 +127,9 @@ if ( is_singular() ) {
 </head>
 <body <?php body_class(); ?>>
 
-<?php include_once("svg/pipeinu.svg"); ?>
+<?php include_once("svg/sprite-sp.svg"); ?>
+<?php include_once("svg/logo-h.svg"); ?>
+<?php include_once("svg/logo-v.svg"); ?>
 
 <div><!-- the wrapper -->
 

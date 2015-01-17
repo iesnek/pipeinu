@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*=================================================================
    article
 =================================================================*/
@@ -100,6 +99,7 @@
   font-weight: bold;
   font-size: 1rem; }
 
+.m-articleBody strong,
 .m-articleBody .b {
   font-weight: bold; }
 
@@ -115,23 +115,39 @@
   font-weight: bold;
   background: #fbb; }
 
+.m-articleBody em,
 .m-articleBody .m {
   background: #ffe677; }
 
 .m-articleBody small {
   font-size: 0.7rem; }
 
-.m-articleBody a {
+.m-articleBody p a {
   color: #c04d97; }
-  .m-articleBody a:hover {
+  .m-articleBody p a:hover {
     color: #61c1bd;
     text-decoration: none; }
+  .m-articleBody p a:after {
+    content: '';
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22200px%22%20height%3D%22200px%22%20viewBox%3D%220%200%20200%20200%22%3E%3Cpath%20fill%3D%22%23c04d97%22%20d%3D%22M85.6%2C124.8c-2.7%2C0-5.3-1-7.4-3c-19-19-19-50%2C0-69l38.4-38.4C125.9%2C5.1%2C138.2%2C0%2C151.2%2C0s25.3%2C5.1%2C34.5%2C14.3c19%2C19%2C19%2C50%2C0%2C69l-17.6%2C17.6c-4.1%2C4.1-10.6%2C4.1-14.7%2C0c-4.1-4.1-4.1-10.6%2C0-14.7L171%2C68.6c10.9-10.9%2C10.9-28.7%2C0-39.6c-5.3-5.3-12.3-8.2-19.8-8.2c-7.5%2C0-14.5%2C2.9-19.8%2C8.2L93%2C67.4C82.1%2C78.3%2C82.1%2C96.1%2C93%2C107c4.1%2C4.1%2C4.1%2C10.6%2C0%2C14.7C91%2C123.7%2C88.3%2C124.8%2C85.6%2C124.8zM83.3%2C185.7l38.4-38.4c19-19%2C19-50%2C0-69c-4.1-4.1-10.7-4.1-14.7%2C0s-4.1%2C10.6%2C0%2C14.7c10.9%2C10.9%2C10.9%2C28.7%2C0%2C39.6L68.6%2C171c-5.3%2C5.3-12.3%2C8.2-19.8%2C8.2c-7.5%2C0-14.5-2.9-19.8-8.2c-10.9-10.9-10.9-28.7%2C0-39.6l17.6-17.6c4.1-4.1%2C4.1-10.6%2C0-14.7c-4.1-4.1-10.6-4.1-14.7%2C0l-17.6%2C17.6c-19%2C19-19%2C50%2C0%2C69c9.2%2C9.2%2C21.5%2C14.3%2C34.5%2C14.3S74.1%2C194.9%2C83.3%2C185.7z%22/%3E%3C/svg%3E") no-repeat bottom center;
+    background-size: 0.9em 0.9em; }
+
+.m-articleBody p a[target="_blank"]:after {
+  content: '';
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22200px%22%20height%3D%22200px%22%20viewBox%3D%220%200%20200%20200%22%3E%3Cpath%20fill%3D%22%23c04d97%22%20d%3D%22M28.6%2C0v171.4H200V0H28.6zM185.7%2C157.1H42.9V14.3h142.9V157.1zM14.3%2C185.7v-150L0%2C21.4V200h178.6l-14.3-14.3H14.3zM157.1%2C42.9v92.9L121.4%2C100l-42.9%2C42.9l-21.4-21.4L100%2C78.6L64.3%2C42.9H157.1z%22/%3E%3C/svg%3E") no-repeat bottom center;
+  background-size: 0.9em 0.9em; }
 
 .m-articleBody ul {
   padding: 1.5rem 1rem; }
   .m-articleBody ul li {
     padding-left: 1.3rem;
-    background: url(svg/pipeinu.svg/#check) no-repeat left center;
+    background: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22200px%22%20height%3D%22200px%22%20viewBox%3D%220%200%20200%20200%22%3E%3Cpolygon%20fill%3D%22%23ee7700%22%20points%3D%22200%2C40%2070%2C180%200%2C90%2025.6%2C68.1%2070%2C114.4%20180%2C20%20%22/%3E%3C/svg%3E") no-repeat left center;
     background-size: 1rem 1rem; }
 
 .m-articleBody ol {
@@ -139,60 +155,32 @@
   padding: 1.5rem 2rem; }
 
 .m-articleBody blockquote {
-  padding: 1.5rem 1rem;
-  text-align: center; }
+  position: relative;
+  padding: 0 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  background-color: rgba(250, 190, 0, 0.05);
+  border-radius: 10px; }
+  .m-articleBody blockquote p {
+    margin: 0; }
   .m-articleBody blockquote:before {
+    position: relative;
+    top: -0.6rem;
+    left: 0.6rem;
     content: '';
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background: url(svg/quo2.svg) no-repeat top left;
+    background: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22200px%22%20height%3D%22200px%22%20viewBox%3D%220%200%20200%20200%22%3E%3Cpath%20fill%3D%22%23aaa%22%20d%3D%22M43.9%2C81.3c24.1%2C0%2C43.7%2C19.6%2C43.7%2C43.7S68%2C168.7%2C43.9%2C168.7c-24.1%2C0-43.7-19.6-43.7-43.7L0%2C118.7c0-48.3%2C39.1-87.4%2C87.4-87.4v25c-16.7%2C0-32.4%2C6.5-44.1%2C18.3c-2.3%2C2.3-4.3%2C4.7-6.2%2C7.2C39.3%2C81.5%2C41.6%2C81.3%2C43.9%2C81.3zM156.3%2C81.3c24.1%2C0%2C43.7%2C19.6%2C43.7%2C43.7s-19.6%2C43.7-43.7%2C43.7c-24.1%2C0-43.7-19.6-43.7-43.7l-0.2-6.2c0-48.3%2C39.1-87.4%2C87.4-87.4v25c-16.7%2C0-32.4%2C6.5-44.1%2C18.3c-2.3%2C2.3-4.3%2C4.7-6.2%2C7.2C151.7%2C81.5%2C154%2C81.3%2C156.3%2C81.3L156.3%2C81.3z%22/%3E%3C/svg%3E") no-repeat bottom right;
     background-size: 1.5rem 1.5rem; }
   .m-articleBody blockquote:after {
+    position: relative;
+    bottom: -0.6rem;
+    right: 0.6rem;
     content: '';
     margin-left: auto;
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background: url(svg/quo1.svg) no-repeat bottom right;
+    background: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22200px%22%20height%3D%22200px%22%20viewBox%3D%220%200%20200%20200%22%3E%3Cpath%20fill%3D%22%23aaa%22%20d%3D%22M156.1%2C118.7c-24.1%2C0-43.7-19.6-43.7-43.7s19.6-43.7%2C43.7-43.7s43.7%2C19.6%2C43.7%2C43.7l0.2%2C6.2c0%2C48.3-39.1%2C87.4-87.4%2C87.4v-25c16.7%2C0%2C32.4-6.5%2C44.1-18.3c2.3-2.3%2C4.3-4.7%2C6.2-7.2C160.7%2C118.5%2C158.4%2C118.7%2C156.1%2C118.7zM43.7%2C118.7C19.6%2C118.7%2C0%2C99.2%2C0%2C75s19.6-43.7%2C43.7-43.7S87.4%2C50.9%2C87.4%2C75l0.2%2C6.2c0%2C48.3-39.1%2C87.4-87.4%2C87.4v-25c16.7%2C0%2C32.4-6.5%2C44.1-18.3c2.3-2.3%2C4.3-4.7%2C6.2-7.2C48.3%2C118.5%2C46%2C118.7%2C43.7%2C118.7z%22/%3E%3C/svg%3E") no-repeat bottom right;
     background-size: 1.5rem 1.5rem; }
-
-.m-articleBody .aligncenter {
-  display: block;
-  margin: 0 auto;
-  text-align: center; }
-
-.m-articleBody .left {
-  float: left; }
-
-.m-articleBody .right {
-  float: right; }
-
-article.article p a:before,
-article.article p a:after {
-  font-family: 'designek';
-  font-size: 0.8rem;
-  content: attr(data-icon);
-  speak: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-
-/* 内部リンク - Internal Link */
-article.article p a[href^="/"]:before,
-article.article p a[href^=".."] :before {
-  content: "\37 \00A0"; }
-
-/* 外部リンク - External Link */
-article.article p a[target="_blank"]:after {
-  content: "\00A0 \38"; }
-
-/* URL指定 - URL Specified Link */
-article.article p a[href="http://design.iesnek.com/feed"]:before {
-  content: "\32 \00A0";
-  color: #f93; }
-
-/* ダウンロードファイル - Downloadable File */
-article.article p a[href$=".zip"]:before {
-  content: "\39 \00A0"; }
-
-/*# sourceMappingURL=article.css.map */
