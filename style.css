@@ -179,17 +179,19 @@ body {
   bottom: -10px;
   display: block;
   width: 100%;
-  height: 3px;
+  height: 0.25rem;
   background: url(img/bg-polygon.png) repeat-x bottom; }
 
 .l-headLogo {
   margin: 0 auto;
   width: 150px; }
+  @media only screen and (min-width: 768px) {
+    .l-headLogo {
+      width: 250px; } }
   .l-headLogo a {
-    display: block; }
-    .l-headLogo a svg {
-      width: 150px;
-      height: 30px; }
+    display: block;
+    width: 100%;
+    height: auto; }
 
 /*=================================================================
    main
@@ -1208,17 +1210,19 @@ html.mm-opened.mm-black .mm-page {
   position: fixed;
   top: 5px;
   text-align: center;
-  width: 40px;
-  height: 40px;
   z-index: 150; }
   .m-fixedBtn li a {
     display: block;
-    width: 40px;
-    height: 40px;
-    text-decoration: none; }
-  .m-fixedBtn li svg {
+    text-decoration: none;
     width: 40px;
     height: 40px; }
+    @media only screen and (min-width: 768px) {
+      .m-fixedBtn li a {
+        width: 60px;
+        height: 60px; } }
+  .m-fixedBtn li svg {
+    width: 100%;
+    height: 100%; }
 
 .m-fixedBtn .m-fixedMenu {
   left: 10px; }
@@ -1242,17 +1246,21 @@ html.mm-opened.mm-black .mm-page {
 
 .mmProf {
   background-color: #2b2b2b;
-  padding: 20px 10px 10px 20px !important;
-  height: 76px; }
-  .mmProf svg {
+  padding: 20px 10px 10px 20px !important; }
+  .mmProf img {
     display: block;
-    float: left;
-    margin-right: 10px;
-    width: 80px;
-    height: 76px; }
-  .mmProf p {
-    font-size: 0.8rem;
+    width: 90%;
+    height: auto;
+    margin-bottom: 1rem; }
+  .mmProf dl {
+    width: 90%;
     line-height: 1.5; }
+    .mmProf dl dt {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 0.3rem; }
+    .mmProf dl dd {
+      font-size: 0.9rem; }
 
 .mmLabel {
   background-color: #2b2b2b; }

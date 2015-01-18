@@ -41,7 +41,7 @@
         お問い合わせ</a></li>
       </ul><!-- /.footNav -->
       <div class="l-footLogo"><a href="<?php echo home_url('/'); ?>">
-        <svg><title>ピペイヌ</title><desc>ピペイヌのロゴ</desc><use xlink:href="#logo-v"/></svg>
+        <img src="<?php echo get_template_directory_uri(); ?>/svg/logo-v.svg" width="200" height="190" alt="ピペイヌ">
       </a></div><!-- /.footLogo -->
     </div>
 
@@ -62,9 +62,12 @@
   <nav id="gnav">
     <ul>
 
-      <li class="mmProf clearfix">
-          <svg><title>pipeinu</title><desc>pipeinuのロゴ</desc><use xlink:href="#logo-v"/></svg>
-          <p>pipeinu（ピペイヌ）<br>犬好きの私から犬好きの皆さんへ贈る、心揺さぶるいぬメディア</p>
+      <li class="mmProf">
+        <img src="<?php echo get_template_directory_uri(); ?>/svg/logo-hw.svg" width="500" height="100" alt="ピペイヌ">
+        <dl>
+          <dt>pipeinu（ピペイヌ）</dt>
+          <dd>犬好きの私から犬好きの皆さんへ贈る、心揺さぶるいぬメディア</dd>
+        </dl>
       </li>
 
       <li class="mm-search"><?php get_search_form(); ?><!-- /searchform.php --></li>

@@ -85,6 +85,15 @@ if ( is_singular() ) {
   });
 </script>
 
+<!-- svgからpngへのフォールバック -->
+<script>
+if(!Modernizr.svg) {
+ $('img[src*="svg"]').attr('src', function() {
+ return $(this).attr('src').replace('.svg', '.png');
+ });
+}
+</script>
+
 <!-- アナリティクスコード -->
 
 
@@ -128,15 +137,13 @@ if ( is_singular() ) {
 <body <?php body_class(); ?>>
 
 <?php include_once("svg/sprite-sp.svg"); ?>
-<?php include_once("svg/logo-h.svg"); ?>
-<?php include_once("svg/logo-v.svg"); ?>
 
 <div><!-- the wrapper -->
 
 <header id="header">
   <h1 class="l-headLogo">
     <a href="<?php echo home_url('/'); ?>">
-      <svg><title>ピペイヌ</title><desc>ピペイヌのロゴ</desc><use xlink:href="#logo-h"/></svg>
+      <img src="<?php echo get_template_directory_uri(); ?>/svg/logo-h.svg" width="500" height="100" alt="ピペイヌ">
     </a>
   </h1><!-- /.l-headLogo -->
 </header><!-- /#header -->

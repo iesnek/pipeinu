@@ -1,5 +1,21 @@
 @charset "utf-8";
 
+////////// 目次 //////////
+// アーカイブ
+// アーカイブ-ドッグス
+// サブアーカイブ
+// ページャー
+// シェアボタン
+// 広告
+// サブコンテンツの見出し
+// facebook likeボックス
+// twitter followボックス
+// footerのナビゲーション
+// ページトップボタン
+// 固定メニューボタン
+// MMENUの中
+// コピーライト
+// PC Switcher
 
 ////////// アーカイブ //////////
 .m-archives{
@@ -383,18 +399,20 @@
   position: fixed;
   top: 5px;
   text-align: center;
-  width: 40px;
-  height: 40px;
   z-index: 150;
   a{
     display: block;
+    text-decoration: none;
     width: 40px;
     height: 40px;
-    text-decoration: none;
+    @include media(tablet) {
+      width: 60px;
+      height: 60px;
+    }
   }
   svg{
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -428,17 +446,23 @@
 .mmProf {
   background-color: #2b2b2b;
   padding: 20px 10px 10px 20px !important;
-  height: 76px;
-  svg {
+  img {
     display: block;
-    float: left;
-    margin-right: 10px;
-    width: 80px;
-    height: 76px;
+    width: 90%;
+    height: auto;
+    margin-bottom: 1rem;
   }
-  p {
-    font-size: 0.8rem;
+  dl {
+    width: 90%;
     line-height: 1.5;
+    dt{
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+    dd{
+      font-size: 0.9rem;
+    }
   }
 }
 
