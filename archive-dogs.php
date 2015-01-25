@@ -5,6 +5,8 @@
 <div id="contentswrap" class="clearfix">
 
   <div id="main">
+  <div class="l-mainInner">
+
     <div class="m-archives clearfix">
 
 <?php
@@ -76,6 +78,7 @@ endif;
       )); ?>
     </aside> <!-- ページャーここまで -->
 
+  </div><!-- /.l-mainInner -->
   </div><!-- /main -->
 
 <!-- / index.php -->

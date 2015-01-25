@@ -188,7 +188,7 @@ function register_cpt_mov() {
     'labels'       => $labels,
     'hierarchical' => false,  //階層ありならtrue（固定ページぽく） or 階層無しならfalse（投稿ぽく）
 
-    'supports'   => array( 'title', 'thumbnail' ),
+    'supports'   => array( 'title', 'thumbnail', 'comments' ),
     'taxonomies' => array( 'category', 'post_tag' ),  //通常のカテゴリーとタグを使う
 
     'public'       => true,

@@ -20,6 +20,9 @@
 ////////// アーカイブ //////////
 .m-archives{
   margin-bottom: 1rem;
+  @include media(sl_tp) {
+    letter-spacing: -.40em; //文字間を詰めて隙間を削除する
+  }
 }
 
 .m-archiveList{
@@ -41,6 +44,19 @@
       border-color: $color5;
     }
   }
+  @include media(sl_tp) {
+    padding: 0.6rem 0;
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+    margin: 0 1% 1rem;
+    border: 2px solid  #eee;
+    box-sizing: border-box;
+    letter-spacing: normal; //文字間を通常に戻す
+    a{
+      padding: 0 4%;
+    }
+  }
 }
 
 .m-archiveTxt{
@@ -49,6 +65,12 @@
   h1{
     font-size: 1.1rem;
     font-weight: bold;
+  }
+  @include media(sl_tp) {
+    width: 100%;
+    h1{
+      font-size: 1.2rem;
+    }
   }
 }
 
@@ -69,6 +91,24 @@
 .m-archiveImg{
   margin: 0 auto;
   width: 90%;
+  @include media(sl_tp) {
+    width: 100%;
+  }
+}
+
+//一番上のだけ違う表示にする
+@include media(sl_tp) {
+  body:not(.paged){ //一ページ目のみに適応
+    .m-archiveList:first-child{
+      width: 98%;
+      a{
+        padding: 0 2%;
+      }
+      h1{
+        font-size: 2rem;
+      }
+    }
+  }
 }
 
 
@@ -76,14 +116,18 @@
 .m-dogsArchiveList{
   width: 50%;
   float: left;
-  margin: 0 auto 0.8rem;
+  margin-bottom: 0.8rem;
   position: relative;
+  @include media(sl_tp) {
+    width: 33.33%;
+  }
   a{
     display: block;
     padding: 0.3rem;
     line-height: 1.3;
     color: $color1;
     text-decoration: none;
+    letter-spacing: normal; //文字間を通常に戻す
     &:hover{
       color: $color5;
     }
@@ -123,6 +167,9 @@
 ////////// サブアーカイブ //////////
 .m-subArchives{
   margin-bottom: 1rem;
+  @include media(sl_tp) {
+    letter-spacing: -.40em; //文字間を詰めて隙間を削除する
+  }
 }
 
 .m-subArchiveList{
@@ -130,7 +177,6 @@
   padding: 0.3rem 0;
   position: relative;
   border: 1px solid  #eee;
-  //border-radius: 5px;
   background-color: #fff;
   &:after {
   display: block;
@@ -159,6 +205,22 @@
       border-color: $color5;
     }
   }
+  @include media(sl_tp) {
+    padding: 0.6rem 0;
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+    margin: 0 1% 1rem;
+    border: 2px solid  #eee;
+    box-sizing: border-box;
+    letter-spacing: normal; //文字間を通常に戻す
+    &:after {
+      display: none;
+    }
+    a{
+      padding: 0 4%;
+    }
+  }
 }
 
 .m-subArchiveTxt{
@@ -167,6 +229,13 @@
   h2{
     font-size: 1.1rem;
     font-weight: bold;
+  }
+  @include media(sl_tp) {
+    float: none;
+    width: 100%;
+    h2{
+      font-size: 1.2rem;
+    }
   }
 }
 
@@ -187,6 +256,10 @@
 .m-subArchiveImg{
   float: left;
   width: 37%;
+  @include media(sl_tp) {
+    float: none;
+    width: 100%;
+  }
 }
 
 
@@ -334,11 +407,23 @@
   &:after{
     content: '';
     position: relative;
-    bottom: -3px;
+    bottom: -0.25rem;
     display: block;
     width: 100%;
-    height: 3px;
+    height: 0.25rem;
     background: url(img/bg-polygon.png) repeat-x bottom;
+  }
+  @include media(sl_tp) {
+    margin-bottom: 1.25rem;
+    span{
+      font-size: 2rem;
+    }
+  }
+  @include media(tl) {
+    margin-bottom: 1.5rem;
+    span{
+      font-size: 2.5rem;
+    }
   }
 }
 
@@ -361,17 +446,30 @@
 
 ////////// footerのナビゲーション //////////
 .m-footNav{
-  a{
-    color: $color1;
-    text-decoration: none;
-    &:hover{
+  margin-bottom: 0.5rem;
+  li{
+    margin-bottom: 0.3rem;
+    a{
       color: $color1;
-      text-decoration: underline;
+      text-decoration: none;
+      &:hover{
+        color: $color1;
+        text-decoration: underline;
+      }
+      svg{
+        width: 1rem;
+        height: 1rem;
+      }
     }
   }
-  svg{
-    width: 1rem;
-    height: 1rem;
+  @include media(sl_tp) {
+    a{
+      font-size: 1.2rem;
+      svg{
+        width: 1.2rem;
+        height: 1.2rem;
+      }
+    }
   }
 }
 
@@ -405,7 +503,7 @@
     text-decoration: none;
     width: 40px;
     height: 40px;
-    @include media(tablet) {
+    @include media(sl_tp) {
       width: 60px;
       height: 60px;
     }

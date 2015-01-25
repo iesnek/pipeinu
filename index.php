@@ -5,6 +5,8 @@
 <div id="contentswrap" class="clearfix">
 
   <div id="main">
+  <div class="l-mainInner">
+
     <div class="m-archives clearfix">
 
 <?php //カスタム投稿タイプ「mov」の投稿を取得する
@@ -94,6 +96,7 @@ endif;
       )); ?>
     </aside> <!-- ページャーここまで -->
 
+  </div><!-- /.l-mainInner -->
   </div><!-- /main -->
 
 <!-- / index.php -->

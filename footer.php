@@ -1,144 +1,76 @@
-<!-- /footer.php -->
-
 </div><!-- /#contentswrap -->
 
 <footer id="footer">
-  <div class="m-pagetop"><a href="#header">
-    <svg><title>ページトップ</title><desc>ページ最上部へのリンク</desc><use xlink:href="#pagetop"/></svg>
-  </a></div><!-- /.pagetop -->
-  <div class="l-footerInner">
 
-      <!-- facebook -->
-    <div class="m-fbBox">
-      <h1 class="m-subHead-A"><span>facebook</span>-フェイスブック-</h1><!-- /.m-subHead-A -->
-      <div id="fb-root"></div>
-      <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.async = true; js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=169496816474656"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
-      <div class="fb-like-box" data-href="http://www.facebook.com/design.iesnek" data-width="100%" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
-    </div><!-- /.m-fbBox -->
-      <!-- facebook -->
+<div class="m-pagetop"><a href="#header">
+  <svg><title>ページトップ</title><desc>ページ最上部へのリンク</desc><use xlink:href="#pagetop"/></svg>
+</a></div><!-- /.pagetop -->
 
-      <!-- twitter -->
-    <aside class="m-twBox">
-      <h1 class="m-subHead-A"><span>twitter</span>-ツイッター-</h1><!-- /.m-subHead-A -->
-      <a href="https://twitter.com/design_iesnek" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @design_iesnek</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </aside><!-- /.m-twitterBox -->
-      <!-- /twitter -->
+<div class="l-footerInner">
 
-    <div class="clearfix">
-      <ul class="l-footNav m-footNav">
-        <li class="home"><a href="<?php echo home_url('/'); ?>">
-          <svg><title>ホーム</title><desc>ホームアイコン</desc><use xlink:href="#home"/></svg>
-        ホーム</a></li>
-        <li class="dogs"><a href="<?php echo home_url('/'); ?>dogs/">
-          <svg><title>犬種</title><desc>犬種アイコン</desc><use xlink:href="#dogs"/></svg>
-        いろいろな犬種</a></li>
-        <li class="about"><a href="<?php echo home_url('/'); ?>about/">
-          <svg><title>pipeinuとは</title><desc>pipeinuアイコン</desc><use xlink:href="#pipeinu"/></svg>
-        pipeinuとは</a></li>
-        <li class="contact"><a href="<?php echo home_url('/'); ?>contact/">
-          <svg><title>問合せ</title><desc>問合せアイコン</desc><use xlink:href="#mail"/></svg>
-        お問い合わせ</a></li>
-      </ul><!-- /.footNav -->
-      <div class="l-footLogo"><a href="<?php echo home_url('/'); ?>">
-        <img src="<?php echo get_template_directory_uri(); ?>/svg/logo-v.svg" width="200" height="190" alt="ピペイヌ">
-      </a></div><!-- /.footLogo -->
-    </div>
+    <!-- facebook -->
+  <div class="m-fbBox">
+    <h1 class="m-subHead-A"><span>facebook</span>-フェイスブック-</h1><!-- /.m-subHead-A -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.async = true; js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=169496816474656"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+    <div class="fb-like-box" data-href="http://www.facebook.com/design.iesnek" data-width="100%" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+  </div><!-- /.m-fbBox -->
+    <!-- facebook -->
 
-    <p class="m-copyright"><small>&copy; 2015 pipeinu</small></p>
+    <!-- twitter -->
+  <aside class="m-twBox">
+    <h1 class="m-subHead-A"><span>twitter</span>-ツイッター-</h1><!-- /.m-subHead-A -->
+    <a href="https://twitter.com/design_iesnek" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @design_iesnek</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </aside><!-- /.m-twitterBox -->
+    <!-- /twitter -->
 
-  </div><!-- /.l-footerInner -->
-
-
-  <ul class="m-fixedBtn">
-    <li class="m-fixedMenu"><a href="#gnav">
-      <svg><title>メニューボタン</title><desc>メニューボタンのアイコン</desc><use xlink:href="#menu"/></svg>
-    </a></li><!-- /.m-fixedMenu -->
-    <li class="m-fixedFollow"><a href="#like">
-      <svg><title>フォローボタン</title><desc>フォローボタンのアイコン</desc><use xlink:href="#heart"/></svg>
-    </a></li><!-- /.m-fixedLike -->
-  </ul><!-- /.m-fixedBtn -->
-
-  <nav id="gnav">
-    <ul>
-
-      <li class="mmProf">
-        <img src="<?php echo get_template_directory_uri(); ?>/svg/logo-hw.svg" width="500" height="100" alt="ピペイヌ">
-        <dl>
-          <dt>pipeinu（ピペイヌ）</dt>
-          <dd>犬好きの私から犬好きの皆さんへ贈る、心揺さぶるいぬメディア</dd>
-        </dl>
-      </li>
-
-      <li class="mm-search"><?php get_search_form(); ?><!-- /searchform.php --></li>
-
-      <li class="mmNav home"><a href="<?php echo home_url('/'); ?>">
+  <div class="clearfix">
+    <ul class="l-footNav m-footNav">
+      <li class="home"><a href="<?php echo home_url('/'); ?>">
         <svg><title>ホーム</title><desc>ホームアイコン</desc><use xlink:href="#home"/></svg>
-      <span>home</span>&#160;ホーム</a></li>
-
-      <li class="mmNav mmLabel cat">
-        <p>
-          <svg><title>カテゴリー</title><desc>カテゴリーアイコン</desc><use xlink:href="#cat"/></svg>
-        <span>category</span>&#160;カテゴリー</p>
-      </li>
-      <?php //カテゴリー
-        $cats = wp_list_categories('echo=0&orderby=ID&order=DESC&title_li=');
-        $cats = preg_replace('/ title=\"(.*?)\"/','',$cats);
-        echo $cats;
-      ?>
-
-      <li class="mmNav dogs"><a href="<?php echo home_url('/'); ?>dogs/">
-        <svg><title>いろいろな犬種</title><desc>犬アイコン</desc><use xlink:href="#dogs"/></svg>
-      <span>dogs</span>&#160;いろいろな犬種</a></li>
-
-      <li class="mmNav about"><a href="<?php echo home_url('/'); ?>about/">
+      ホーム</a></li>
+      <li class="dogs"><a href="<?php echo home_url('/'); ?>dogs/">
+        <svg><title>犬種</title><desc>犬種アイコン</desc><use xlink:href="#dogs"/></svg>
+      いろいろな犬種</a></li>
+      <li class="about"><a href="<?php echo home_url('/'); ?>about/">
         <svg><title>pipeinuとは</title><desc>pipeinuアイコン</desc><use xlink:href="#pipeinu"/></svg>
-      <span>about pipeinu</span>&#160;pipeinuとは</a></li>
-
-      <li class="mmNav contact"><a href="<?php echo home_url('/'); ?>contact/">
+      pipeinuとは</a></li>
+      <li class="contact"><a href="<?php echo home_url('/'); ?>contact/">
         <svg><title>問合せ</title><desc>問合せアイコン</desc><use xlink:href="#mail"/></svg>
-      <span>contact</span>コンタクト</a></li>
+      お問い合わせ</a></li>
+    </ul><!-- /.footNav -->
+    <div class="l-footLogo"><a href="<?php echo home_url('/'); ?>">
+      <img src="<?php echo get_template_directory_uri(); ?>/svg/logo-v.svg" width="200" height="190" alt="ピペイヌ">
+    </a></div><!-- /.footLogo -->
+  </div>
 
-      <li class="mmNav fb"><a href="">
-        <svg><title>Facebook</title><desc>Facebookアイコン</desc><use xlink:href="#fb1"/></svg>
-      <span>Facebook</span></a></li>
+  <p class="m-copyright"><small>&copy; 2015 pipeinu</small></p>
 
-      <li class="mmNav tw"><a href="">
-        <svg><title>Twitter</title><desc>Twitterアイコン</desc><use xlink:href="#tw1"/></svg>
-      <span>Twitter</span></a></li>
+</div><!-- /.l-footerInner -->
 
-      <li class="mmNav gp"><a href="">
-        <svg><title>Google +</title><desc>Google +アイコン</desc><use xlink:href="#gplus1"/></svg>
-      <span>Google +</span></a></li>
+<?php
+if ( function_exists( 'is_multi_device' ) ):
+  if ( is_multi_device('smart') || is_multi_device('tablet') ): //スマホかタブレットの場合
+?>
 
-    </ul>
-  </nav><!-- /#gnav -->
+<ul class="m-fixedBtn">
+  <li class="m-fixedMenu"><a href="#gnav">
+    <svg><title>メニューボタン</title><desc>メニューボタンのアイコン</desc><use xlink:href="#menu"/></svg>
+  </a></li><!-- /.m-fixedMenu -->
+  <li class="m-fixedFollow"><a href="#follow">
+    <svg><title>フォローボタン</title><desc>フォローボタンのアイコン</desc><use xlink:href="#heart"/></svg>
+  </a></li><!-- /.m-fixedFollow -->
+</ul><!-- /.m-fixedBtn -->
 
-  <nav id="like" class="md-modal md-effect-2">
-    <div class="md-content">
-      <section>
-        <h1><span class="icon_fb">&#160;</span>share & like me!!</h1>
-        <p>この記事をシェアする</p>
-        <div id="fb-root"></div>
-        <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.async = true; js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=169496816474656"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
-        <div class="fb-share-button" data-href="<?php the_permalink(); ?>" data-type="button_count"></div>
-        <p>facebookページもあります</p>
-        <div class="fb-like" data-href="http://www.facebook.com/design.iesnek" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
-      </section>
+<?php get_template_part('navigation');  //ナビゲーション呼び出し ?>
 
-      <section>
-        <h1><span class="icon_twitter">&#160;</span>tweet & follow me!!</h1>
-        <p>この記事をツイートする</p>
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="design_iesnek" data-url="<?php the_permalink(); ?>" data-text="<?php the_title(); ?>" data-lang="ja">ツイート</a>
-        <p>もし良ければフォローも</p>
-        <a href="https://twitter.com/design_iesnek" class="twitter-follow-button" data-show-count="false">Follow @design_iesnek</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-      </section>
+<?php get_template_part('follow');  //フォローブロック呼び出し ?>
 
-    </div><!-- /.md-content -->
-  </nav><!-- /#like -->
-
-
+<?php
+  endif;
+endif;
+?>
 
 </footer>
 

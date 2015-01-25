@@ -5,7 +5,7 @@
 
 #side aside{
 	margin-bottom: 2rem;
-	@include media(tablet) {
+	@include media(sl_tp) {
 		margin-bottom: 1.25rem;
 	}
 }

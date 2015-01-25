@@ -16,7 +16,7 @@
 .l-headLogo {
   margin: 0 auto;
   width: 150px; //height: 30px
-  @include media(tablet) {
+  @include media(sl_tp) {
     width: 250px; //height: 50px
   }
   a{

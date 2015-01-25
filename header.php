@@ -67,6 +67,10 @@ if ( is_singular() ) {
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
+<?php
+if ( function_exists( 'is_multi_device' ) ):
+  if ( is_multi_device('smart') || is_multi_device('tablet') ): //スマホかタブレットの場合
+?>
 
 <!-- FBみたいなナビゲーションmmenu -->
 <script type="text/javascript">
@@ -76,7 +80,7 @@ if ( is_singular() ) {
   });
 
   jQuery(document).ready(function() {
-    jQuery("nav#like").mmenu({
+    jQuery("div#follow").mmenu({
       "offCanvas": {
         "position": "right"
       },
@@ -85,14 +89,12 @@ if ( is_singular() ) {
   });
 </script>
 
-<!-- svgからpngへのフォールバック -->
-<script>
-if(!Modernizr.svg) {
- $('img[src*="svg"]').attr('src', function() {
- return $(this).attr('src').replace('.svg', '.png');
- });
-}
-</script>
+<?php
+  endif;
+endif;
+?>
+
+
 
 <!-- アナリティクスコード -->
 
@@ -147,6 +149,19 @@ if(!Modernizr.svg) {
     </a>
   </h1><!-- /.l-headLogo -->
 </header><!-- /#header -->
+
+<?php
+if ( function_exists( 'is_multi_device' ) ):
+  if ( !is_multi_device('smart') && !is_multi_device('tablet') ): //スマホかタブレットの場合
+?>
+
+<?php get_template_part('navigation');  //ナビゲーション呼び出し ?>
+
+
+<?php
+  endif;
+endif;
+?>
 
 
 
