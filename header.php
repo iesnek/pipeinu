@@ -138,31 +138,62 @@ endif;
 </head>
 <body <?php body_class(); ?>>
 
-<?php include_once("svg/sprite-sp.svg"); ?>
+<?php
+if ( function_exists( 'is_multi_device' ) ):
+  if ( is_multi_device('smart') || is_multi_device('tablet') ): //スマホかタブレットの場合
+    include_once("svg/sprite-sp.svg");
+  else:
+    include_once("svg/sprite-pc.svg");
+  endif;
+endif;
+?>
 
 <div><!-- the wrapper -->
 
 <header id="header">
+<?php
+if ( function_exists( 'is_multi_device' ) ):
+  if ( is_multi_device('smart') || is_multi_device('tablet') ): //スマホかタブレットの場合
+?>
   <h1 class="l-headLogo">
     <a href="<?php echo home_url('/'); ?>">
       <img src="<?php echo get_template_directory_uri(); ?>/svg/logo-h.svg" width="500" height="100" alt="ピペイヌ">
     </a>
   </h1><!-- /.l-headLogo -->
-</header><!-- /#header -->
-
-<?php
-if ( function_exists( 'is_multi_device' ) ):
-  if ( !is_multi_device('smart') && !is_multi_device('tablet') ): //スマホかタブレットの場合
-?>
-
-<?php get_template_part('navigation');  //ナビゲーション呼び出し ?>
-
-
 <?php
   endif;
 endif;
 ?>
-
-
-
-<!-- /header.php -->
+<?php
+if ( function_exists( 'is_multi_device' ) ):
+  if ( !is_multi_device('smart') && !is_multi_device('tablet') ): //スマホでもタブレットでも無い場合
+?>
+  <div class="l-headInner clearfix">
+    <h1 class="l-headLogo">
+      <a href="<?php echo home_url('/'); ?>">
+        <img src="<?php echo get_template_directory_uri(); ?>/svg/logo-h.svg" width="500" height="100" alt="ピペイヌ">
+      </a>
+    </h1><!-- /.l-headLogo -->
+    <ul class="l-headFollow clearfix">
+      <li class="fb"><a href="">
+          <svg><title>Facebook</title><use xlink:href="#fb2"/></svg>
+        </a></li>
+      <li class="tw"><a href="">
+          <svg><title>Twitter</title><use xlink:href="#tw2"/></svg>
+        </a></li>
+      <li class="gp"><a href="">
+          <svg><title>Google +</title><use xlink:href="#gplus2"/></svg>
+        </a></li>
+      <li class="rss"><a href="">
+          <svg><title>RSS</title><use xlink:href="#rss"/></svg>
+        </a></li>
+    </ul><!-- /.l-headFollow -->
+  </div><!-- /.l-headInner -->
+  <div class="m-headGnav">
+    <?php get_template_part('navigation');  //ナビゲーション呼び出し ?>
+  </div><!-- /.m-headGnav -->
+<?php
+  endif;
+endif;
+?>
+</header><!-- /#header -->

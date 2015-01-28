@@ -26,6 +26,9 @@ body {
 #header {
   padding: 10px 0 0;
   width: 100%;
+  @include media(pc) {
+    padding-top: 20px;
+  }
 }
 
 #contentswrap {

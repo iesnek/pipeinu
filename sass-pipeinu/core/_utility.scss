@@ -23,10 +23,8 @@ img,svg {
 
 /* 禁則処理の追加 */
 p,li,dt,dd,th,td,pre {
-  -ms-line-break: strict;
-  line-break: strict;
-  -ms-word-break: break-strict;
-  word-break: break-strict;
+  word-wrap : break-word;
+  overflow-wrap : break-word;
 }
 
 /* Clearfix */
@@ -46,3 +44,4 @@ p,li,dt,dd,th,td,pre {
 .fb svg{fill: $fb;}
 .tw svg{fill: $tw;}
 .gp svg{fill: $gplus;}
+.rss svg{fill: $color3;}

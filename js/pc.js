@@ -1,3 +1,7 @@
+/*  ドロップダウンメニュー
+=========================================== */
+
+
 /* ヘッダーの固定
 =========================================== */
 
@@ -35,31 +39,6 @@ jQuery(function() {
     }, 500);
     return false;
     });
-});
-
-
-/* 固定ヘッダーのナビゲーション
-=========================================== */
-
-jQuery(document).ready( function(){
-    jQuery("#open_nav").click(function(){
-      jQuery("#gnav").addClass('move');
-      jQuery("#gnav").toggleClass('fixed_gnav_checked');
-    });
-});
-
-
-/* アーカイブのアコーディオン
-=========================================== */
-
-jQuery(function(){
-  jQuery('.month').hide();
-  //
-  jQuery('#archive .year').click(function(e){
-    jQuery('+ul.month',this).slideToggle();
-    jQuery(this).toggleClass("active");
-    jQuery('span',this).toggleClass("icon_b");
-  });
 });
 
 

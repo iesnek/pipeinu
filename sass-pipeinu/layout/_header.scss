@@ -6,7 +6,6 @@
 #header:after {
   content: '';
   position: relative;
-  bottom: -10px;
   display: block;
   width: 100%;
   height: 0.25rem;
@@ -14,14 +13,56 @@
 }
 
 .l-headLogo {
-  margin: 0 auto;
+  margin: 0 auto 10px;
   width: 150px; //height: 30px
   @include media(sl_tp) {
     width: 250px; //height: 50px
+    margin: 0 auto 20px;
   }
   a{
     display: block;
     width: 100%;
     height: auto;
+  }
+}
+
+.l-headInner {
+  width: 95%;
+  margin: 0 auto;
+  @include media(sl_tp) {
+    width: 92.5%;
+  }
+  @include media(tl) {
+    width: 90%;
+  }
+  @include media(pc) {
+    width: 1100px;//未定
+  }
+  .l-headLogo{
+    width: 250px;
+    float: left;
+    a{
+      transition: 0.3s;
+      &:hover{opacity: 0.6;}
+    }
+  }
+  .l-headFollow{
+    width: 260px;
+    float: right;
+    li{
+      float: left;
+    }
+    a{
+      display: block;
+      width: 45px;
+      height: 45px;
+      margin: 5px 0 0 20px;
+      transition: 0.3s;
+      &:hover{opacity: 0.6;}
+    }
+    svg{
+      width: 100%;
+      height: 100%;
+    }
   }
 }

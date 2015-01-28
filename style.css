@@ -75,10 +75,8 @@ img, svg {
 
 /* 禁則処理の追加 */
 p, li, dt, dd, th, td, pre {
-  -ms-line-break: strict;
-  line-break: strict;
-  -ms-word-break: break-strict;
-  word-break: break-strict; }
+  word-wrap: break-word;
+  overflow-wrap: break-word; }
 
 /* Clearfix */
 .clearfix:before, .clearfix:after {
@@ -116,6 +114,9 @@ p, li, dt, dd, th, td, pre {
 .gp svg {
   fill: #db4a39; }
 
+.rss svg {
+  fill: #ee7700; }
+
 /*=================================================================
    base
 =================================================================*/
@@ -140,6 +141,9 @@ body {
 #header {
   padding: 10px 0 0;
   width: 100%; }
+  @media only screen and (min-width: 1100px) {
+    #header {
+      padding-top: 20px; } }
 
 #contentswrap {
   position: relative;
@@ -197,22 +201,58 @@ body {
 #header:after {
   content: '';
   position: relative;
-  bottom: -10px;
   display: block;
   width: 100%;
   height: 0.25rem;
   background: url(img/bg-polygon.png) repeat-x bottom; }
 
 .l-headLogo {
-  margin: 0 auto;
+  margin: 0 auto 10px;
   width: 150px; }
   @media only screen and (min-width: 481px) {
     .l-headLogo {
-      width: 250px; } }
+      width: 250px;
+      margin: 0 auto 20px; } }
   .l-headLogo a {
     display: block;
     width: 100%;
     height: auto; }
+
+.l-headInner {
+  width: 95%;
+  margin: 0 auto; }
+  @media only screen and (min-width: 481px) {
+    .l-headInner {
+      width: 92.5%; } }
+  @media only screen and (min-width: 769px) {
+    .l-headInner {
+      width: 90%; } }
+  @media only screen and (min-width: 1100px) {
+    .l-headInner {
+      width: 1100px; } }
+  .l-headInner .l-headLogo {
+    width: 250px;
+    float: left; }
+    .l-headInner .l-headLogo a {
+      transition: 0.3s; }
+      .l-headInner .l-headLogo a:hover {
+        opacity: 0.6; }
+  .l-headInner .l-headFollow {
+    width: 260px;
+    float: right; }
+    .l-headInner .l-headFollow li {
+      float: left; }
+    .l-headInner .l-headFollow a {
+      display: block;
+      width: 45px;
+      height: 45px;
+      margin: 5px 0 0 20px;
+      transition: 0.3s; }
+      .l-headInner .l-headFollow a:hover {
+        opacity: 0.6; }
+    .l-headInner .l-headFollow svg {
+      width: 100%;
+      height: 100%; }
 
 /*=================================================================
    main
@@ -1332,16 +1372,18 @@ html.mm-opened.mm-black .mm-page {
   .m-fixedBtn .m-fixedFollow svg {
     fill: rgba(192, 77, 151, 0.5); }
 
-.mmNav {
-  font-size: 0.8rem; }
-  .mmNav span {
-    font: 700 1rem 'Noto Sans';
-    margin-right: 0.5rem; }
-  .mmNav svg {
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    margin-right: 5px; }
+.mmNav dt {
+  font: 700 1rem 'Noto Sans';
+  margin-right: 0.5rem;
+  display: inline; }
+.mmNav dd {
+  font-size: 0.8rem;
+  display: inline; }
+.mmNav svg {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 5px; }
 
 .mmProf {
   background-color: #2b2b2b;
@@ -1363,7 +1405,7 @@ html.mm-opened.mm-black .mm-page {
 
 .mmLabel {
   background-color: #2b2b2b; }
-  .mmLabel p {
+  .mmLabel dl {
     line-height: 15px;
     padding: 15px 10px 15px 20px; }
 
@@ -1398,6 +1440,87 @@ html.mm-opened.mm-black .mm-page {
 
 .pc-switcher span {
   background: rgba(238, 119, 0, 0.9) !important; }
+
+.m-headGnav {
+  width: 100%;
+  height: auto;
+  background: #fff; }
+
+.m-headGnav ul {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%; }
+  @media only screen and (min-width: 1100px) {
+    .m-headGnav ul {
+      width: 1100px; } }
+  .m-headGnav ul li {
+    float: left;
+    position: relative;
+    width: 25%;
+    /*親メニューの幅*/
+    height: 3.5rem;
+    /*親メニューの高さ*/
+    line-height: 2;
+    text-align: center;
+    cursor: pointer; }
+  .m-headGnav ul li a {
+    color: #fff;
+    display: block;
+    text-decoration: none; }
+  .m-headGnav ul dl dt {
+    display: block;
+    font: 400 1.4rem 'Noto Sans'; }
+  .m-headGnav ul dl dd {
+    display: block;
+    font-size: 0.7rem; }
+
+.m-headGnav ul li ul {
+  position: absolute;
+  top: 3.5rem;
+  /*親メニューの高さと同じにする*/
+  width: 100%;
+  z-index: 100; }
+  .m-headGnav ul li ul li {
+    visibility: hidden;
+    overflow: hidden;
+    width: 100%;
+    /*サブメニューの幅*/
+    height: 0;
+    background: rgba(192, 77, 151, 0.7);
+    /*サブメニューの背景色*/ }
+
+.m-headGnav ul li {
+  transition: 0.5s; }
+  .m-headGnav ul li:hover, .m-headGnav ul li a:hover {
+    color: #fff; }
+  .m-headGnav ul li:hover svg, .m-headGnav ul li a:hover svg {
+    fill: #fff; }
+  .m-headGnav ul li ul li:hover, .m-headGnav ul li ul li a:hover {
+    background: #c04d97;
+    /*ホバー時のサブメニューの背景色*/ }
+  .m-headGnav ul li:hover ul li, .m-headGnav ul li a:hover ul li {
+    visibility: visible;
+    overflow: visible;
+    height: 40px;
+    /*サブメニューの高さ*/
+    z-index: 10; }
+
+.m-headGnav .home a {
+  color: #fabe00; }
+.m-headGnav .cat {
+  color: #c04d97; }
+.m-headGnav .dogs a {
+  color: #ee7700; }
+.m-headGnav .about a {
+  color: #78c235; }
+.m-headGnav .home:hover {
+  background-color: #fabe00; }
+.m-headGnav .cat:hover {
+  background-color: #c04d97; }
+.m-headGnav .dogs:hover {
+  background-color: #ee7700; }
+.m-headGnav .about:hover {
+  background-color: #78c235; }
 
 /*=================================================================
    article

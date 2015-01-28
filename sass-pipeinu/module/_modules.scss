@@ -528,10 +528,14 @@
 
 ////////// MMENUの中 //////////
 .mmNav{
-  font-size: 0.8rem;
-  span{
+  dt{
     font: 700 1rem 'Noto Sans';
     margin-right: 0.5rem;
+    display: inline;
+  }
+  dd{
+    font-size: 0.8rem;
+    display: inline;
   }
   svg{
     display: inline-block;
@@ -566,7 +570,7 @@
 
 .mmLabel {
   background-color: #2b2b2b;
-  p{
+  dl{
     line-height: 15px;
     padding: 15px 10px 15px 20px;
   }
@@ -615,4 +619,94 @@
 }
 .pc-switcher a:first-child,
 .pc-switcher span:first-child {
+}
+
+
+////////// PCグローバルナビゲーション //////////
+.m-headGnav {
+  width: 100%;
+  height: auto;
+  background:#fff;
+}
+
+//親メニュー
+.m-headGnav ul{
+  margin:0 auto;
+  padding:0;
+  width: 100%;
+  @include media(pc) {
+    width: 1100px;//未定
+  }
+  li {
+    float: left;
+    position: relative;
+    width: 25%;/*親メニューの幅*/
+    height: 3.5rem;/*親メニューの高さ*/
+    line-height: 2;
+    text-align:center;
+    cursor: pointer;
+  }
+  li a {
+    color: #fff;
+    display: block;
+    text-decoration: none;
+  }
+  dl{
+    dt{
+      display: block;
+      font: 400 1.4rem 'Noto Sans';
+    }
+    dd{
+      display: block;
+      font-size: 0.7rem;
+    }
+  }
+}
+
+//子メニュー
+.m-headGnav ul li ul {
+  position: absolute;
+  top: 3.5rem;/*親メニューの高さと同じにする*/
+  width: 100%;
+  z-index: 100;
+  li {
+    visibility: hidden;
+    overflow: hidden;
+    width: 100%;/*サブメニューの幅*/
+    height: 0;
+    background:rgba($color5, 0.7);/*サブメニューの背景色*/
+  }
+}
+
+//マウスオーバー
+.m-headGnav ul li{
+  transition: 0.5s;
+  &:hover, a:hover {
+    color:#fff; //ホバー時の親メニューの文字色
+  }
+  &:hover svg, a:hover svg {
+    fill:#fff; //ホバー時の親メニューのアイコン色
+  }
+  ul li:hover, ul li a:hover {
+    background:$color5;/*ホバー時のサブメニューの背景色*/
+  }
+  &:hover ul li, a:hover ul li{
+    visibility: visible;
+    overflow: visible;
+    height:40px;/*サブメニューの高さ*/
+    z-index: 10;
+  }
+}
+
+// カラーリング
+.m-headGnav{
+  .home a{color: $color2;}
+  .cat{color: $color5;}
+  .dogs a{color: $color3;}
+  .about a{color: $color6;}
+
+  .home:hover{background-color: $color2;}
+  .cat:hover{background-color: $color5;}
+  .dogs:hover{background-color: $color3;}
+  .about:hover{background-color: $color6;}
 }
