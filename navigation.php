@@ -1,5 +1,5 @@
 <nav id="gnav">
-  <ul class="m-headGnav clearfix">
+  <ul class="clearfix">
 
 <?php //プロフィールと検索窓ここから-MMENUのみ表示 ?>
 <?php
@@ -108,5 +108,5 @@ endif;
 ?>
 <?php //問合せとSNSここまで-MMENUのみ表示 ?>
 
-  </ul>
+  </ul><!-- /.m-headGnav -->
 </nav><!-- /#gnav -->

@@ -1,50 +1,34 @@
-/*  ドロップダウンメニュー
+/* スクロールしてトップ
 =========================================== */
-
-
-/* ヘッダーの固定
-=========================================== */
-
-jQuery(function() {
-  var showFlag = false;
-  var topBtn = jQuery('#fixed_header');
-  topBtn.css('top', '-100px');
-  var showFlag = false;
-
-  //スクロールが100に達したらボタン表示
-  jQuery(window).scroll(function () {
-    if (jQuery(this).scrollTop() > 100) {
-      if (showFlag == false) {
-        showFlag = true;
-        topBtn.stop().animate({'top' : '0'}, 700);
-        jQuery("#gnav").addClass('fixed_gnav');
-        jQuery("#header").addClass('fixed_height');
-      }
-    } else {
-      if (showFlag) {
-        showFlag = false;
-        topBtn.stop().animate({'top' : '-100px'}, 700);
-        jQuery("#gnav").removeClass('fixed_gnav');
-        jQuery("#gnav").removeClass('move');
-        jQuery("#gnav").removeClass('fixed_gnav_checked');
-        jQuery("#header").removeClass('fixed_height');
-      }
-    }
-  });
-
-  //スクロールしてトップ
-    jQuery('.pagetop a').click(function () {
-    jQuery('body,html').animate({
-      scrollTop: 0
-    }, 500);
-    return false;
+jQuery(function(){
+    jQuery('.m-pagetop a,.m-articleBody a[href^=#]').click(function(){ 
+        var speed = 500; //移動完了までの時間(sec)を指定 数字が小さいほどシャッっといく
+        var href= jQuery(this).attr("href"); 
+        var target = jQuery(href == "#" || href == "" ? 'html' : href);
+        var position = target.offset().top;
+        jQuery("html, body").animate({scrollTop:position}, speed, "swing");
+        return false;
     });
+});
+
+
+/* サムネイルを正円に保つ
+=========================================== */
+jQuery(function(jQuery){ 
+    //.m-dogsArchiveImgの縦横比をレスポンシブに合わせて調整 
+    function img_rect(){ 
+        var img_w = jQuery(".m-dogsArchiveImg").css("width"); 
+        jQuery(".m-dogsArchiveImg").css('height',img_w); 
+    }; 
+    jQuery(window).resize(function(){ 
+        img_rect(); 
+    }); 
+    img_rect(); 
 });
 
 
 /* タブ切り替え
 =========================================== */
-
 jQuery(function(){
   jQuery("#entry_tab li a").on("click", function(e) {
     e.preventDefault();
@@ -59,11 +43,10 @@ jQuery(function(){
 
 /* サイドバーの固定
 =========================================== */
-
 (function(){
   jQuery(function(){
   var fix = jQuery('#fixed_sidebar'), //固定したいコンテンツ
-  side = jQuery('#side'), //サイドバーのID
+  side = jQuery('#sub'), //サイドバーのID
   main = jQuery('#contentswrap'), //固定する要素を収める範囲
   sideTop = side.offset().top;
   fixTop = fix.offset().top,
@@ -83,7 +66,8 @@ jQuery(function(){
   }else if(winTop >= fixTop){
   fix.css({
   position: 'fixed',
-  top: 80
+  top: 0, //固定する位置
+  width: 336 //固定した時の幅指定（何もしないとwidth:100%で広がっちゃう）
   });
   }else{
   fix.css('position', 'static');
@@ -92,22 +76,6 @@ jQuery(function(){
   w.on('scroll', adjust);
   });
 })(jQuery);
-
-
-/* サムネイルを正円に保つ
-=========================================== */
-
-jQuery(function(jQuery){ 
-    //.thumb_bgの縦横比をレスポンシブに合わせて調整 
-    function img_rect(){ 
-        var img_w = jQuery(".thumb_bg").css("width"); 
-        jQuery(".thumb_bg").css('height',img_w); 
-    }; 
-    jQuery(window).resize(function(){ 
-        img_rect(); 
-    }); 
-    img_rect(); 
-});
 
 
 /* サイドの固定SNS

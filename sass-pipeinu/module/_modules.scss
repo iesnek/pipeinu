@@ -16,6 +16,8 @@
 // MMENUの中
 // コピーライト
 // PC Switcher
+// PCグローバルナビゲーション
+// PC検索フォーム
 
 ////////// アーカイブ //////////
 .m-archives{
@@ -166,7 +168,6 @@
 
 ////////// サブアーカイブ //////////
 .m-subArchives{
-  margin-bottom: 1rem;
   @include media(sl_tp) {
     letter-spacing: -.40em; //文字間を詰めて隙間を削除する
   }
@@ -200,6 +201,9 @@
     text-decoration: none;
     &:hover{
       color: $color5;
+    }
+    &:hover h2{
+      text-decoration: underline;
     }
     &:hover:after{
       border-color: $color5;
@@ -259,6 +263,78 @@
   @include media(sl_tp) {
     float: none;
     width: 100%;
+  }
+}
+
+//サイドアーカイブ
+@include media(pc) {
+  .m-sideArchives{
+    letter-spacing: normal;
+
+    .m-subArchiveList{
+      padding: 0.5rem 0;
+      display: block;
+      margin: 0 1% 0.5rem;
+      width: 100%;
+      border: 2px solid  #eee;
+      box-sizing: border-box;
+      &:after {
+      display: block;
+      }
+      a{
+        padding: 0 5% 0 2%;
+      }
+    }
+
+    .m-subArchiveTxt{
+      float: right;
+      width: 60%;
+      h2{
+        font-size: 1rem;
+        font-weight: normal;
+      }
+    }
+
+    .m-subArchiveMeta{
+      li{
+        margin-right: 0.3rem;
+        font-size: 0.6rem;
+        svg{
+          width: 0.6rem;
+          height: 0.6rem;
+        }
+      }
+    }
+
+    .m-subArchiveImg{
+      float: left;
+      width: 37%;
+    }
+  }
+}
+
+//犬種サイドアーカイブ
+.m-subDogArchives{
+  display: none;
+  @include media(pc) {
+    display: block;
+    .m-subArchiveList{
+      border: none;
+      border-bottom: 2px dotted $color3;
+      background: none;
+      &:after {
+      border-color: $color3
+      }
+      a{
+        padding: 0 5% 0 0;
+        &:hover h2, &:hover h3{
+          text-decoration: underline;
+          color: $color3;
+        }
+      }
+      h2{ font-size: 0.95rem; font-weight: bold; }
+      h3{ font-size: 0.85rem; margin-top: 0.5rem; }
+    }
   }
 }
 
@@ -363,22 +439,54 @@
 .m-like a{
   background-color: $fb;
   box-shadow: 0 3px 0 $fb - 30;
+  @include media(pc) {
+  &:hover{ box-shadow: 0 6px 0 $fb - 30; }
+  }
 }
 .m-share a{
   background-color: $fb;
   box-shadow: 0 3px 0 $fb - 30;
+  @include media(pc) {
+  &:hover{ box-shadow: 0 6px 0 $fb - 30; }
+  }
 }
 .m-tweet a{
   background-color: $tw;
   box-shadow: 0 3px 0 $tw - 30;
+  @include media(pc) {
+  &:hover{ box-shadow: 0 6px 0 $tw - 30; }
+  }
 }
 .m-line a{
   background-color: $line;
   box-shadow: 0 3px 0 $line - 30;
+  @include media(pc) {
+  &:hover{ box-shadow: 0 6px 0 $line - 30; }
+  }
 }
 .m-gplus a{
   background-color: $gplus;
   box-shadow: 0 3px 0 $gplus - 30;
+  @include media(pc) {
+  &:hover{ box-shadow: 0 6px 0 $gplus - 30; }
+  }
+}
+
+//PCホバー
+@include media(pc) {
+  .m-articleSns-A, .m-articleSns-B{
+    a{
+      margin: 3px 0 3px 0;
+      transition: 0.1s;
+      &:hover{
+        margin: 0 0 6px 0;
+      }
+      &:active{
+        box-shadow: none;
+        margin: 6px 0 0 0;
+      }
+    }
+  }
 }
 
 
@@ -581,10 +689,10 @@
 }
 
 // searchform
-#gnav form {
+.mm-search form {
   background-color: #333;
 }
-#searchsubmit {
+.mm-search #searchsubmit {
   display: none;
 }
 
@@ -695,6 +803,9 @@
     overflow: visible;
     height:40px;/*サブメニューの高さ*/
     z-index: 10;
+    a{
+      height: 40px;
+    }
   }
 }
 
@@ -709,4 +820,48 @@
   .cat:hover{background-color: $color5;}
   .dogs:hover{background-color: $color3;}
   .about:hover{background-color: $color6;}
+}
+
+
+////////// PC検索フォーム //////////
+.m-search{
+  form{
+    display: none;
+    @include media(pc) {
+      display: block;
+      position: relative;
+      width: 100%;
+    }
+  }
+  #s{
+    padding-left: 10px;
+    width: 290px;
+    height: 40px;
+    border: 2px solid #888;
+    outline: none;
+    box-sizing: border-box;
+  }
+  #searchsubmit{
+    position: absolute;
+    top: 0;
+    _top: 1px;
+    left: 296px;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: #888;
+    background-image: $svg-search;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: 5px 5px;
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover{
+      background-color: $color4;
+    }
+  }
+  *:first-child + html #searchsubmit{
+    top: 1px;
+  }
 }

@@ -1,12 +1,21 @@
 @charset "utf-8";
 /*=================================================================
-   side
+   sub
 =================================================================*/
 
-#side aside{
-	margin-bottom: 2rem;
-	@include media(sl_tp) {
-		margin-bottom: 1.25rem;
-	}
+.l-subBlocks{
+	margin-bottom: 1rem;
+  @include media(sl_tp) {
+    margin-bottom: 1.25rem;
+  }
+  @include media(pc) {
+    margin-bottom: 1.5rem;
+  }
 }
 
+@media only screen and (max-width: $bp-pc) {
+  #fixed_sidebar{
+    position: static !important;
+    width: 100% !important;
+  }
+}

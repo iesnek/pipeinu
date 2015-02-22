@@ -26,7 +26,8 @@ add_filter( 'excerpt_more', 'new_excerpt_more' );
 
 add_filter('the_content', 'cntAd');
 function cntAd($content){
-  $ad = '<div class="m-ad"><p>Sponsords Link</p><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- レクタングル（中） --><ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-1514095329243590" data-ad-slot="6455402662"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script></div>';
+  $ad =  get_template_part('adsense');  //アドセンス呼び出し
+;
   $count = 0;
 
   if(is_single() && !is_singular('dogs')){
@@ -51,7 +52,7 @@ function change_posts_per_page($query) {
         return;
  
     if ( $query->is_archive('dogs') ) {
-        $query->set( 'posts_per_page', '20' );
+        $query->set( 'posts_per_page', '18' );
         $query->set( 'orderby', 'meta_value' );
         $query->set( 'meta_key', 'dogs_yomi' );
         $query->set( 'order', 'asc' );

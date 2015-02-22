@@ -57,39 +57,31 @@ if ( is_singular() ) {
 ?>
 
 <!-- jQuery呼び出しとスクリプト -->
-<?php wp_enqueue_script('jquery'); ?>
-<?php wp_enqueue_script('sp', get_bloginfo('template_url') . '/js/sp.js',array(jquery)); ?>
-<?php wp_head(); ?>
-
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/sp.js"></script>
-<!--[if lt IE 9]>
-  <meta http-equiv="Imagetoolbar" content="no" />
-  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-
 <?php
 if ( function_exists( 'is_multi_device' ) ):
-  if ( is_multi_device('smart') || is_multi_device('tablet') ): //スマホかタブレットの場合
+  if ( is_multi_device('smart') || is_multi_device('tablet') ):
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('sp', get_bloginfo('template_url') . '/js/sp.js',array(jquery),'1.0',true); //スマホかタブレットの場合
+    wp_head();
 ?>
-
 <!-- FBみたいなナビゲーションmmenu -->
 <script type="text/javascript">
   jQuery(document).ready(function() {
     jQuery("nav#gnav").mmenu({
     });
   });
-
   jQuery(document).ready(function() {
     jQuery("div#follow").mmenu({
-      "offCanvas": {
-        "position": "right"
-      },
+      "offCanvas": { "position": "right" },
       "classes": "mm-light"
     });
   });
 </script>
-
 <?php
+  else:
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('pc', get_bloginfo('template_url') . '/js/pc.js',array(jquery),'1.0',true); //PC・その他の場合
+    wp_head();
   endif;
 endif;
 ?>
@@ -140,10 +132,10 @@ endif;
 
 <?php
 if ( function_exists( 'is_multi_device' ) ):
-  if ( is_multi_device('smart') || is_multi_device('tablet') ): //スマホかタブレットの場合
-    include_once("svg/sprite-sp.svg");
+  if ( is_multi_device('smart') || is_multi_device('tablet') ):
+    include_once("svg/sprite-sp.svg"); //スマホかタブレットの場合
   else:
-    include_once("svg/sprite-pc.svg");
+    include_once("svg/sprite-pc.svg"); //PC・その他の場合
   endif;
 endif;
 ?>
