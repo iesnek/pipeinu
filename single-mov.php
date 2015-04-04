@@ -27,7 +27,7 @@ if (have_posts()) :
         <?php the_tags(', ') ?>
       </li>
     </ul>
-    <?php get_template_part('sns','5');  //シェアボタン5列呼び出し ?>
+    <?php get_template_part('sns','head');  //シェアボタン[head]呼び出し ?>
   </header><!-- .m-articleHead -->
 
   <div class="m-articleBody">
@@ -103,19 +103,30 @@ if (have_posts()) :
 
   </div><!-- /.m-articleBody -->
   <footer>
-    <?php get_template_part('sns','3');  //シェアボタン3列呼び出し ?>
+    <?php get_template_part('sns','foot');  //シェアボタン[foot]呼び出し ?>
   </footer>
 </article><!-- /.l-article .m-article -->
+
+
+<section class="l-mainBlocks m-comments">
+  <h1 class="m-subHead-A"><span>comments</span>-コメントする-</h1>
+
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ja_KS/sdk.js#xfbml=1&appId=169496816474656&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <div class="fb-comments" data-href="http://pipeinu.com/" data-width="100%" data-numposts="10" data-colorscheme="light"></div>
+</section><!-- /.l-mainBlocks .m-comments -->
+
 
 <?php get_template_part('adsense');  //アドセンス呼び出し ?>
 
 <?php get_template_part('related');  //関連記事呼び出し ?>
-
-<section class="l-mainBlocks m-comments">
-  <h1 class="m-subHead-A"><span>comments</span>-コメントする-</h1><!-- /.m-subHead-A -->
-
-  <?php comments_template(); // コメント欄の表示 ?>
-</section><!-- /.l-mainBlocks .m-comments -->
 
 
 <?php

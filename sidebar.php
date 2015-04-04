@@ -19,7 +19,7 @@ $args = array(
 );
 $customPosts = get_posts($args);
 ?>
-<?php if($customPosts) : ?>
+<?php if($customPosts && !is_archive('dogs')) : ?>
 <section class="l-subBlocks m-subDogArchives">
   <h1 class="m-subHead-A"><span>dogs</span>-いろいろな犬種-</h1>
   <ul class="m-sideArchives clearfix">
@@ -50,7 +50,7 @@ wp_reset_postdata(); //クエリのリセット ?>
 endif;
 ?>
 
-<?php // ここから関連記事の表示
+<?php // ここから関連記事の表示※ほんとはここオススメ記事にしたい
 // カテゴリーIDの取得
 $categories = get_the_category($post->ID);
 $category_ID = array();

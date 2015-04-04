@@ -101,5 +101,12 @@ endif;
 
 <!-- / index.php -->
 
+<?php
+if ( function_exists( 'is_multi_device' ) ):
+  if ( !is_multi_device('smart') && !is_multi_device('tablet') ): //スマホでもタブレットでも無い場合
+  get_sidebar();
+  endif;
+endif;
+?>
 
 <?php get_footer(); ?>

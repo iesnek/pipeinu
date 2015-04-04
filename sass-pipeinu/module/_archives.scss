@@ -1,0 +1,375 @@
+@charset "utf-8";
+
+////////// アーカイブモジュール //////////
+
+
+////////// 目次 //////////
+// アーカイブ
+// アーカイブ-ドッグス
+// サブアーカイブ
+// ページャー
+
+
+////////// アーカイブ //////////
+.m-archives{
+  margin-bottom: 1rem;
+  @include media(sl_tp) {
+    letter-spacing: -.40em; //文字間を詰めて隙間を削除する
+  }
+}
+
+.m-archiveList{
+  width: 90%;
+  margin: 0 auto 0.8rem;
+  position: relative;
+  border: 1px solid  #eee;
+  background-color: #fff;
+  a{
+    display: block;
+    padding: 0.3rem;
+    line-height: 1.3;
+    color: $color1;
+    text-decoration: none;
+    &:hover{
+      color: $color5;
+    }
+    &:hover:after{
+      border-color: $color5;
+    }
+  }
+  @include media(sl_tp) {
+    padding: 0.6rem 0;
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+    margin: 0 1% 1rem;
+    border: 2px solid  #eee;
+    box-sizing: border-box;
+    letter-spacing: normal; //文字間を通常に戻す
+    a{
+      padding: 0 4%;
+    }
+  }
+}
+
+.m-archiveTxt{
+  width: 90%;
+  margin: 0 auto 0.3rem;
+  h1{
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  @include media(sl_tp) {
+    width: 100%;
+    h1{
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.m-archiveMeta{
+  li{
+    display: inline-block;
+    margin-right: 0.3rem;
+    font-size: 0.7rem;
+    color: #888;
+    svg{
+      width: 0.7rem;
+      height: 0.7rem;
+      fill: #888;
+    }
+  }
+}
+
+.m-archiveImg{
+  margin: 0 auto;
+  width: 90%;
+  @include media(sl_tp) {
+    width: 100%;
+  }
+}
+
+//一番上のだけ違う表示にする
+@include media(sl_tp) {
+  body:not(.paged){ //一ページ目のみに適応
+    .m-archiveList:first-child{
+      width: 98%;
+      a{
+        padding: 0 2%;
+      }
+      h1{
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+
+////////// アーカイブ-ドッグス //////////
+.m-dogsArchiveList{
+  width: 50%;
+  float: left;
+  margin-bottom: 0.8rem;
+  position: relative;
+  @include media(sl_tp) {
+    width: 33.33%;
+  }
+  @include media(pc) {
+    width: 45%;
+    margin-right: 5%;
+    margin-bottom: 2rem;
+  }
+  a{
+    display: block;
+    padding: 0.3rem;
+    line-height: 1.3;
+    color: $color1;
+    text-decoration: none;
+    letter-spacing: normal; //文字間を通常に戻す
+    &:hover{
+      color: $color5;
+    }
+    &:hover:after{
+      border-color: $color5;
+    }
+  }
+}
+
+.m-dogsArchiveTxt{
+  position: absolute;
+  bottom: 5%;
+  text-align: center;
+  width: 95%;
+  padding: 0.3rem 0;
+  background-color: rgba($color4, 0.8);
+  border-radius: 0.8rem;
+  h1{
+    padding: 0 0.3rem;
+    font-weight: bold;
+    color: #fff;
+  }
+}
+
+.m-dogsArchiveImg{
+  margin: 0 auto;
+  width: 95%;
+  display: block;
+  height: auto;
+  overflow: hidden;
+  border-radius: 50%;
+  background-size: cover;
+  box-shadow: 3px 3px rgba($color1,0.4);
+}
+
+
+////////// サブアーカイブ //////////
+.m-subArchives{
+  @include media(sl_tp) {
+    letter-spacing: -.40em; //文字間を詰めて隙間を削除する
+  }
+}
+
+.m-subArchiveList{
+  margin-bottom: 0.5rem;
+  padding: 0.3rem 0;
+  position: relative;
+  border: 1px solid  #eee;
+  background-color: #fff;
+  &:after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: -4px 0 0 0;
+  border-top: solid 2px $color5;
+  border-right: solid 2px $color5;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  }
+  a{
+    display: block;
+    padding: 0 5% 0 2%;
+    line-height: 1.3;
+    color: $color1;
+    text-decoration: none;
+    &:hover{
+      color: $color5;
+    }
+    &:hover h2{
+      text-decoration: underline;
+    }
+    &:hover:after{
+      border-color: $color5;
+    }
+  }
+  @include media(sl_tp) {
+    padding: 0.6rem 0;
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+    margin: 0 1% 1rem;
+    border: 2px solid  #eee;
+    box-sizing: border-box;
+    letter-spacing: normal; //文字間を通常に戻す
+    &:after {
+      display: none;
+    }
+    a{
+      padding: 0 4%;
+    }
+  }
+}
+
+.m-subArchiveTxt{
+  float: right;
+  width: 60%;
+  h2{
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  @include media(sl_tp) {
+    float: none;
+    width: 100%;
+    h2{
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.m-subArchiveMeta{
+  li{
+    display: inline-block;
+    margin-right: 0.3rem;
+    font-size: 0.7rem;
+    color: #888;
+    svg{
+      width: 0.7rem;
+      height: 0.7rem;
+      fill: #888;
+    }
+  }
+}
+
+.m-subArchiveImg{
+  float: left;
+  width: 37%;
+  @include media(sl_tp) {
+    float: none;
+    width: 100%;
+  }
+}
+
+//サイドアーカイブ
+@include media(pc) {
+  .m-sideArchives{
+    letter-spacing: normal;
+
+    .m-subArchiveList{
+      padding: 0.5rem 0;
+      display: block;
+      margin: 0 1% 0.5rem;
+      width: 100%;
+      border: 2px solid  #eee;
+      box-sizing: border-box;
+      &:after {
+      display: block;
+      }
+      a{
+        padding: 0 5% 0 2%;
+      }
+    }
+
+    .m-subArchiveTxt{
+      float: right;
+      width: 60%;
+      h2{
+        font-size: 1rem;
+        font-weight: normal;
+      }
+    }
+
+    .m-subArchiveMeta{
+      li{
+        margin-right: 0.3rem;
+        font-size: 0.6rem;
+        svg{
+          width: 0.6rem;
+          height: 0.6rem;
+        }
+      }
+    }
+
+    .m-subArchiveImg{
+      float: left;
+      width: 37%;
+    }
+  }
+}
+
+//犬種サイドアーカイブ
+.m-subDogArchives{
+  display: none;
+  @include media(pc) {
+    display: block;
+    .m-subArchiveList{
+      border: none;
+      border-bottom: 2px dotted $color3;
+      background: none;
+      &:after {
+      border-color: $color3
+      }
+      a{
+        padding: 0 5% 0 0;
+        &:hover h2, &:hover h3{
+          text-decoration: underline;
+          color: $color3;
+        }
+      }
+      h2{ font-size: 0.95rem; font-weight: bold; }
+      h3{ font-size: 0.85rem; margin-top: 0.5rem; }
+    }
+  }
+}
+
+
+////////// ページャー //////////
+.m-pager{
+  position: relative;
+  text-align:center;
+  width: 100%;
+  .page-numbers{
+    display: inline-block;
+    margin: 0 2px;
+    width: 2rem;
+    height: 2rem;
+    overflow: hidden;
+    font-size: 0.8rem;
+    color: #222;
+    text-decoration: none;
+    line-height: 2rem;
+    background: $color6;
+    color: #fff;
+    border-radius: 50%;
+  }
+  .dots{
+    background: none;
+    color: $color6;
+  }
+  .current{
+    background: #aaa;
+  }
+  .next{
+    margin: 0.5rem auto;
+    display: block;
+    border-radius: 3px;
+    width: 90%;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .prev{
+    display: none;
+  }
+}

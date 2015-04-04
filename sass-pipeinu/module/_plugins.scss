@@ -1,0 +1,302 @@
+@charset "utf-8";
+
+////////// プラグインモジュール //////////
+
+
+////////// 目次 //////////
+// シェアボタン
+// footerのSNSリンク
+// facebook likeボックス
+// twitter followボックス
+// facebook コメントプラグイン
+// MMENUの中
+// PC Switcher
+
+
+////////// シェアボタン //////////
+// 5列
+.m-articleSns-A{
+  width: 100%;
+  margin: 0.5rem 0 0.5rem -1%;
+  text-align: center;
+  li{
+    float: left;
+    width: 19%;
+    margin-left: 1%;
+    a{
+      display: block;
+      padding: 10px 0;
+      border-radius: 3px;
+      border-radius: 3px;
+      text-decoration: none;
+      color: #fff;
+      svg{
+        fill: #fff;
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+      img{
+        fill: #fff;
+        width: 1.6rem;
+        height: auto;
+      }
+    }
+  }
+}
+
+// 3列
+.m-articleSns-B{
+  width: 100%;
+  margin: 0.5rem -2% 0.5rem 0;
+  text-align: center;
+  li{
+    float: left;
+    width: 31%;
+    margin-right: 2%;
+    a{
+      display: block;
+      padding: 10px 0;
+      border-radius: 3px;
+      border-radius: 3px;
+      text-decoration: none;
+      color: #fff;
+      svg{
+        fill: #fff;
+        width: 1.3rem;
+        height: 1.3rem;
+      }
+    }
+  }
+}
+
+//いいねボタン
+.fb-like,
+.fb-like span,
+.fb-like iframe[style]{
+  width: 100%!important;
+}
+
+// 各SNS配色
+.m-like a{
+  background-color: $fb;
+  box-shadow: 0 3px 0 $fb - 30;
+  @include media(pc) {
+  &:hover{ box-shadow: 0 6px 0 $fb - 30; }
+  }
+}
+.m-share a{
+  background-color: $fb;
+  box-shadow: 0 3px 0 $fb - 30;
+  @include media(pc) {
+  &:hover{ box-shadow: 0 6px 0 $fb - 30; }
+  }
+}
+.m-tweet a{
+  background-color: $tw;
+  box-shadow: 0 3px 0 $tw - 30;
+  @include media(pc) {
+  &:hover{ box-shadow: 0 6px 0 $tw - 30; }
+  }
+}
+.m-line a{
+  background-color: $line;
+  box-shadow: 0 3px 0 $line - 30;
+  @include media(pc) {
+  &:hover{ box-shadow: 0 6px 0 $line - 30; }
+  }
+}
+.m-gplus a{
+  background-color: $gplus;
+  box-shadow: 0 3px 0 $gplus - 30;
+  @include media(pc) {
+  &:hover{ box-shadow: 0 6px 0 $gplus - 30; }
+  }
+}
+
+//PCホバー
+@include media(pc) {
+  .m-articleSns-A, .m-articleSns-B{
+    a{
+      margin: 3px 0 3px 0;
+      transition: 0.1s;
+      &:hover{
+        margin: 0 0 6px 0;
+      }
+      &:active{
+        box-shadow: none;
+        margin: 6px 0 0 0;
+      }
+    }
+  }
+}
+
+
+////////// footerのSNSリンク //////////
+.m-snsBox{
+  width: 100%;
+  margin: 1rem 0;
+  text-align: center;
+  a{
+    display: block;
+    padding: 10px 0;
+    border-radius: 3px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #fff;
+    svg{
+      fill: #fff;
+      width: 1.3rem;
+      height: 1.3rem;
+    }
+  }
+}
+
+// 各SNS配色
+.m-fbBox a{
+  background-color: $fb;
+  box-shadow: 0 3px 0 $fb - 30;
+}
+.m-twBox a{
+  background-color: $tw;
+  box-shadow: 0 3px 0 $tw - 30;
+}
+.m-lineBox a{
+  background-color: $line;
+  box-shadow: 0 3px 0 $line - 30;
+}
+
+
+////////// facebook likeボックス //////////
+.m-fbBox{
+  width: 100%;
+  margin-bottom: 1rem;
+  .fb-like-box{
+    max-width: 100%;
+  }
+  @include media(tl) {
+  }
+}
+
+//facebook Likeboxを可変幅に
+.fb-like-box,
+.fb-like-box span,
+.fb-like-box iframe[style]{
+  width: 100%!important;
+}
+
+
+////////// twitter followボックス //////////
+.m-twBox{
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+//twitter tweetboxのスタイル
+iframe[Attributes Style]{
+  height: 400px;
+}
+#twitter-widget-2[style]{
+  width: 100% !important;
+}
+
+
+////////// facebook コメントプラグイン //////////
+
+//facebookコメントを可変幅に
+.fb-comments,
+.fb_iframe_widget,
+.fb_iframe_widget[style],
+.fb-comments iframe[style],
+.fb-social-plugin span,
+.fb-comments span {
+    width: 100% !important;
+    display: block;
+}
+
+
+////////// MMENUの中 //////////
+.mmNav{
+  dt{
+    font: 700 1rem 'Noto Sans';
+    margin-right: 0.5rem;
+    display: inline;
+  }
+  dd{
+    font-size: 0.8rem;
+    display: inline;
+  }
+  svg{
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 5px;
+  }
+}
+
+.mmProf {
+  background-color: #2b2b2b;
+  padding: 20px 10px 10px 20px !important;
+  img {
+    display: block;
+    width: 90%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  dl {
+    width: 90%;
+    line-height: 1.5;
+    dt{
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+    dd{
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.mmLabel {
+  background-color: #2b2b2b;
+  dl{
+    line-height: 15px;
+    padding: 15px 10px 15px 20px;
+  }
+}
+
+#mm-0 .cat-item{
+  padding-left: 30px;
+}
+
+// searchform
+.mm-search form {
+  background-color: #333;
+}
+.mm-search #searchsubmit {
+  display: none;
+}
+
+
+////////// PC Switcher //////////
+.pc-switcher {
+  position: absolute;
+  bottom: 5px;
+  margin: 5px auto 0 !important;
+  width: 100% !important;
+}
+
+.pc-switcher a,
+.pc-switcher span {
+  display: inline-block;
+  padding: 1rem 0;
+  border: none !important;
+}
+.pc-switcher a{
+  background: rgba($color4, 0.9) !important;
+}
+.pc-switcher span{
+  background: rgba($color3, 0.9) !important;
+}
+.pc-switcher a:first-child,
+.pc-switcher span:first-child {
+}

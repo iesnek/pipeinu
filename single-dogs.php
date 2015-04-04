@@ -14,7 +14,7 @@ if (have_posts()) :
 <article id="post-<?php the_ID(); ?>" class="l-article">
   <header class="m-articleHead">
     <h1><?php the_title(); ?></h1>
-    <?php get_template_part('sns','5');  //シェアボタン5列呼び出し ?>
+    <?php get_template_part('sns','head');  //シェアボタン[head]呼び出し ?>
   </header><!-- .m-articleHead -->
 
   <div class="m-articleBody">
@@ -70,7 +70,7 @@ if (have_posts()) :
 
   </div><!-- /.m-articleBody -->
   <footer>
-    <?php get_template_part('sns','3');  //シェアボタン3列呼び出し ?>
+    <?php get_template_part('sns','foot');  //シェアボタン[foot]呼び出し ?>
   </footer>
 </article><!-- /.l-article .m-article -->
 

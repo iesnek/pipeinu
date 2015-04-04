@@ -123,6 +123,11 @@
   @include media(sl_tp) {
     width: 33.33%;
   }
+  @include media(pc) {
+    width: 45%;
+    margin-right: 5%;
+    margin-bottom: 2rem;
+  }
   a{
     display: block;
     padding: 0.3rem;
@@ -542,6 +547,8 @@
   margin-bottom: 1rem;
   .fb-like-box{
     max-width: 100%;
+  }
+  @include media(tl) {
   }
 }
 

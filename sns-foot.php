@@ -5,7 +5,7 @@
   <li class="m-tweet"><a href="#">
     <svg><title>ツイート</title><use xlink:href="#tw1"/></svg>
   つぶやく</a></li>
-  <li class="m-line"><a href="#">
+  <li class="m-line"><a href="http://line.me/R/msg/text/?<?php the_title(); ?>%0D%0A<?php the_permalink(); ?>">
     <svg><title>おしえる</title><use xlink:href="#line"/></svg>
   おしえる</a></li>
 </ul><!-- /.m-articleSns-B -->

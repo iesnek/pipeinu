@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-/*
+/*!
  * Theme Name: pipeinu
  * Description: pipeinu theme by <a href="http://design.iesnek.com/">designek</a>. 
  * Theme URI: http://pipeinu.com
@@ -20,6 +20,8 @@
 @import "layout/sub";
 @import "layout/footer";
 
+@import "module/common";
+@import "module/archives";
+@import "module/plugins";
 @import "module/mmenu";
-@import "module/modules";
 @import "module/article";
