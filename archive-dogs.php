@@ -1,7 +1,5 @@
 <?php get_header(); ?>
 
-<!-- index.php -->
-
 <div id="contentswrap" class="clearfix">
 
   <div id="main">
@@ -19,21 +17,28 @@ if (have_posts()) :
           <div class="m-dogsArchiveTxt">
             <h1><?php the_title(); ?></h1>
           </div><!-- /.m-dogsArchiveTxt -->
-          <?php
-          if (has_post_thumbnail()) :
-          ?>
-          <div class="m-dogsArchiveImg" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>)">
-          </div><!-- /.m-dogsArchiveImg -->
-          <?php
-          else :
-          ?>
-          <div class="m-dogsArchiveImg" style="background-image: url(<?php echo get_template_directory_uri(); ?>/img/noimages_m.jpg)">
-          </div><!-- /.m-dogsArchiveImg -->
-          <?php
+          <?php //レスポンシブイメージへの対応
+          $thumbnail_id = get_post_thumbnail_id(); // アイキャッチ画像のIDを取得
+          $thumbnail2_img = wp_get_attachment_image_src( $thumbnail_id , 'thumbnail2' );
+          $thumbnail_img = wp_get_attachment_image_src( $thumbnail_id , 'thumbnail' );
+          if ( function_exists( 'is_multi_device' ) ):
+            if ( is_multi_device('smart') ): //スマホの場合
+              if (has_post_thumbnail()) : ?>
+          <div class="m-dogsArchiveImg" style="background-image: url(<?php echo $thumbnail2_img[0]; ?>)"></div>
+          <?php else: ?>
+          <div class="m-dogsArchiveImg" style="background-image: url(<?php echo get_template_directory_uri(); ?>/img/noimg_thumb2.png)"></div>
+              <?php endif;
+            else: //スマホじゃない場合
+              if (has_post_thumbnail()) : ?>
+          <div class="m-dogsArchiveImg" style="background-image: url(<?php echo $thumbnail_img[0]; ?>)"></div>
+          <?php else: ?>
+          <div class="m-dogsArchiveImg" style="background-image: url(<?php echo get_template_directory_uri(); ?>/img/noimg_thumb.png)"></div>
+              <?php endif;
+            endif;
           endif;
           ?>
         </a>
-      </article>
+      </article><!-- /.m-archiveList -->
 
 <?php
   endwhile;
@@ -79,9 +84,11 @@ endif;
     </aside> <!-- ページャーここまで -->
 
   </div><!-- /.l-mainInner -->
-  </div><!-- /main -->
+  </div><!-- /#main -->
 
-<!-- / index.php -->
 
 <?php get_sidebar(); ?>
+
+</div><!-- /#contentswrap -->
+
 <?php get_footer(); ?>

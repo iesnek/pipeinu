@@ -32,16 +32,30 @@ if (have_posts()) :
 
   <div class="m-articleBody">
 
-  <?php  //アイキャッチ画像
-    if (has_post_thumbnail()) :
-    ?>
-      <picture><?php the_post_thumbnail( 'large' ); ?></picture>
-    <?php
-    else :
-    ?>
-      <picture><img src="<?php echo get_template_directory_uri(); ?>/img/noimages_m.jpg" alt=""></picture>
-    <?php
-    endif;
+  <?php //アイキャッチ画像  レスポンシブイメージへの対応
+  $thumbnail_id = get_post_thumbnail_id(); // アイキャッチ画像のIDを取得
+  $thumbnail_img = wp_get_attachment_image_src( $thumbnail_id , 'thumbnail' );
+  $medium_img = wp_get_attachment_image_src( $thumbnail_id , 'medium' );
+  $large_img = wp_get_attachment_image_src( $thumbnail_id , 'large' );
+  if ( has_post_thumbnail() ):
+  ?>
+  <img src="<?php echo $medium_img[0]; ?>"
+       srcset="<?php echo $thumbnail_img[0]; ?> 660w,
+               <?php echo $medium_img[0]; ?> 750w,
+               <?php echo $large_img[0]; ?> 1500w"
+       sizes="(min-width: 769px) 750px, (min-width: 481px) 90vw, 95vw"
+       alt="<?php the_title(); ?>">
+  <?php
+  else:
+  ?>
+  <img src="<?php echo get_template_directory_uri(); ?>/img/noimg_medium.png"
+       srcset="<?php echo get_template_directory_uri(); ?>/img/noimg_thumb.png 660w,
+               <?php echo get_template_directory_uri(); ?>/img/noimg_medium.png 750w,
+               <?php echo get_template_directory_uri(); ?>/img/noimg_large.png 1500w"
+       sizes="(min-width: 769px) 750px, (min-width: 481px) 90vw, 95vw"
+       alt="<?php the_title(); ?>">
+  <?php
+  endif;
   ?>
 
   <?php  //リード文 ?>
@@ -64,9 +78,16 @@ if (have_posts()) :
     $repeat_group = SCF::get( 'mov_content' );
     if($repeat_group):
       foreach ( $repeat_group as $repeat_field ) {
-        $screenshot = wp_get_attachment_image($repeat_field[mov_ss], 'full');
+        $samll_ss = wp_get_attachment_image_src($repeat_field[mov_ss], 'thumbnail');
+        $medium_ss = wp_get_attachment_image_src($repeat_field[mov_ss], 'medium');
+        $large_ss = wp_get_attachment_image_src($repeat_field[mov_ss], 'large');
       ?>
-        <?php echo $screenshot; ?>
+        <img src="<?php echo $medium_ss[0]; ?>"
+             srcset="<?php echo $thumbnail_ss[0]; ?> 660w,
+                     <?php echo $medium_ss[0]; ?> 750w,
+                     <?php echo $large_ss[0]; ?> 1500w"
+             sizes="(min-width: 769px) 750px, (min-width: 481px) 90vw, 95vw"
+             alt="<?php echo $repeat_field[mov_txt]; ?>">
         <p><?php echo $repeat_field[mov_txt]; ?></p>
       <?php
       }
@@ -110,16 +131,6 @@ if (have_posts()) :
 
 <section class="l-mainBlocks m-comments">
   <h1 class="m-subHead-A"><span>comments</span>-コメントする-</h1>
-
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/ja_KS/sdk.js#xfbml=1&appId=169496816474656&version=v2.0";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-
   <div class="fb-comments" data-href="http://pipeinu.com/" data-width="100%" data-numposts="10" data-colorscheme="light"></div>
 </section><!-- /.l-mainBlocks .m-comments -->
 
@@ -151,4 +162,7 @@ endif;
 </div><!-- /#main -->
 
 <?php get_sidebar(); ?>
+
+</div><!-- /#contentswrap -->
+
 <?php get_footer(); ?>

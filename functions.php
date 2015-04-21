@@ -3,7 +3,7 @@
 ////////// 初期設定 //////////
 
 // メインカラムの幅を指定
-if ( ! isset( $content_width ) ) $content_width = 660;
+if ( ! isset( $content_width ) ) $content_width = 750;
 
 // <head>内に RSSフィードのリンクを表示
 add_theme_support( 'automatic-feed-links' );
@@ -12,7 +12,9 @@ add_theme_support( 'automatic-feed-links' );
 add_theme_support( 'post-thumbnails' );
 
 // アイキャッチ画像のサイズ追加
-add_image_size( 'small', 330, 220, false );
+add_image_size( 'thumbnail2', 330, 220, false );
+add_image_size( 'thumbnail3', 240, 160, false );
+add_image_size( 'thumbnail4', 120, 80, false );
 
 // 抜粋文の末尾の文字を変更[...]→...
 function new_excerpt_more($more){

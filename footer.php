@@ -1,5 +1,3 @@
-</div><!-- /#contentswrap -->
-
 <footer id="footer">
 
 <div class="m-pagetop"><a href="#header">
@@ -14,8 +12,8 @@ if ( function_exists( 'is_multi_device' ) ):
 ?>
 
   <aside class="m-snsBox m-lineBox"> <!-- line@ -->
-    <a href="http://line.me/ti/p/%40iwr5009y">
-      <svg><title>おしえる</title><use xlink:href="#line"/></svg>
+    <a href="https://line.me/ti/p/%40sem4928k">
+      <svg><title>友達になる</title><use xlink:href="#line"/></svg>
     LINE@でつながる</a>
   </aside>
 
@@ -27,7 +25,7 @@ if ( function_exists( 'is_multi_device' ) ):
 
   <aside class="m-snsBox m-twBox"> <!-- twitter -->
     <a href="https://twitter.com/intent/follow?screen_name=pipeinu">
-      <svg><title>ツイート</title><use xlink:href="#tw1"/></svg>
+      <svg><title>フォロー</title><use xlink:href="#tw1"/></svg>
     Twitterでつながる</a>
   </aside>
 
@@ -35,22 +33,58 @@ if ( function_exists( 'is_multi_device' ) ):
   elseif ( is_multi_device('tablet') ): //タブレットの場合
 ?>
 
+  <aside class="m-snsBox m-lineBox"> <!-- line@ -->
+    <a href="https://line.me/ti/p/%40sem4928k">
+      <svg><title>おしえる</title><use xlink:href="#line"/></svg>
+    LINE@でつながる</a>
+  </aside>
+
+  <div class="m-pagePlugin">
     <!-- facebook -->
-  <aside class="m-fbBox">
-    <h1 class="m-subHead-A"><span>facebook</span>-フェイスブック-</h1><!-- /.m-subHead-A -->
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/ja_KS/sdk.js#xfbml=1&appId=169496816474656&version=v2.0"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
-    <div class="fb-like-box" data-href="https://www.facebook.com/pipeinu" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
-  </aside><!-- /.m-fbBox -->
+    <aside class="m-snsBox m-fbBox">
+      <h1 class="m-subHead-A"><span>facebook</span>-フェイスブック-</h1><!-- /.m-subHead-A -->
+      <div class="fb-page" data-href="https://www.facebook.com/pipeinu" data-width="500" data-height="400" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"></div>
+    </aside><!-- /.m-fbBox -->
     <!-- facebook -->
 
     <!-- twitter -->
-  <aside class="m-twBox">
-    <h1 class="m-subHead-A"><span>twitter</span>-ツイッター-</h1><!-- /.m-subHead-A -->
-    <a class="twitter-timeline" href="https://twitter.com/design_iesnek" data-widget-id="572215273550123008">@design_iesnekさんのツイート</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  </aside><!-- /.m-twitterBox -->
+    <aside class="m-snsBox m-twBox">
+      <h1 class="m-subHead-A"><span>twitter</span>-ツイッター-</h1><!-- /.m-subHead-A -->
+      <a class="twitter-timeline" href="https://twitter.com/pipeinu" data-widget-id="584771686114861056">@pipeinuさんのツイート</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </aside><!-- /.m-twitterBox -->
     <!-- /twitter -->
+  </div>
+
+<?php
+  else: //それ以外（PC）の場合
+?>
+
+  <div class="m-pagePlugin">
+    <!-- facebook -->
+    <aside class="m-snsBox m-fbBox">
+      <h1 class="m-subHead-A"><span>facebook</span>-フェイスブック-</h1><!-- /.m-subHead-A -->
+      <div class="fb-page" data-href="https://www.facebook.com/pipeinu" data-width="500" data-height="400" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"></div>
+    </aside><!-- /.m-fbBox -->
+    <!-- facebook -->
+
+    <!-- twitter -->
+    <aside class="m-snsBox m-twBox">
+      <h1 class="m-subHead-A"><span>twitter</span>-ツイッター-</h1><!-- /.m-subHead-A -->
+      <a class="twitter-timeline" href="https://twitter.com/pipeinu" data-widget-id="584771686114861056">@pipeinuさんのツイート</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </aside><!-- /.m-twitterBox -->
+    <!-- /twitter -->
+
+    <aside class="m-snsBox m-lineBox"> <!-- line@ -->
+      <h1 class="m-subHead-A"><span>LINE@</span>-ラインアット-</h1><!-- /.m-subHead-A -->
+      <div>
+        <p>QRコードをスマホで読み込んでね！<br>↓↓↓</p>
+        <svg><title>LINE@ QRコード</title><use xlink:href="#lineQR"/></svg>
+      </div>
+    </aside>
+
+  </div>
 
 <?php
   endif;

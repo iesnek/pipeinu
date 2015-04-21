@@ -115,9 +115,7 @@
     width: 33.33%;
   }
   @include media(pc) {
-    width: 45%;
-    margin-right: 5%;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
   a{
     display: block;
@@ -158,6 +156,7 @@
   overflow: hidden;
   border-radius: 50%;
   background-size: cover;
+  background-position: center center;
   box-shadow: 3px 3px rgba($color1,0.4);
 }
 

@@ -4,29 +4,135 @@
 
 
 ////////// 目次 //////////
+// いいねボタン
+// Line@といいねボタン
 // シェアボタン
 // footerのSNSリンク
-// facebook likeボックス
-// twitter followボックス
+// footerのページプラグイン
 // facebook コメントプラグイン
 // MMENUの中
 // PC Switcher
+
+
+////////// いいねボタン //////////
+.m-iine{
+  margin-top: 1rem;
+  text-align: center;
+  > p{
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: $color3;
+  }
+}
+
+////////// Line@といいねボタン //////////
+.m-articleFollow{
+  width: 95%;
+  box-sizing: border-box;
+  margin: 1rem auto;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid  #eee;
+  background-color: #fff;
+  @include media(sl_tp) {
+    padding: 1rem 6rem;
+  }
+  @include media(tl) {
+    padding: 1rem 12rem;
+  }
+  @include media(pc) {
+    padding: 1rem 6rem;
+  }
+  p{
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: $color3;
+  }
+  .m-iine{
+    float: left;
+    width: 69px;
+  }
+  .m-lineat{
+    float: right;
+    width: 100%;
+    margin: 1rem 0 1rem -80px;
+    position: relative;
+    text-align: center;
+    .m-lineatInner{
+      margin-left: 80px;
+    }
+    a{
+      display: block;
+      height: 58px;
+      padding: 0.8rem 0;
+      border-radius: 3px;
+      text-decoration: none;
+      color: #fff;
+      box-sizing: border-box;
+      @include media(pc) {
+        position: relative;
+        bottom: 3px;
+      }
+      span{
+        font-size: 1.4rem;
+      }
+      svg{
+        fill: #fff;
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+    }
+  }
+}
+
+#lean_overlay{
+  position: fixed; z-index:100; 
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  display: none;
+}
+.m-lineQR{
+  background: none repeat scroll 0 0 rgba(#fff, 0.8);
+  box-shadow: 0 0 4px rgba(#000, 0.7);
+  display: none;
+  padding: 100px;
+  p{
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    color: $line;
+    svg{
+      fill: $line;
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  }
+  svg{
+    width: 300px;
+    height: 300px;
+  }
+ }
 
 
 ////////// シェアボタン //////////
 // 5列
 .m-articleSns-A{
   width: 100%;
-  margin: 0.5rem 0 0.5rem -1%;
-  text-align: center;
+  margin: 0.5rem 0;
+  display: table;
+  table-layout: fixed; //均等に配置
+  border-collapse: separate; //セルの間隔を空ける
+  border-spacing: 0.5rem 0; //左右 上下で記述
   li{
-    float: left;
-    width: 19%;
-    margin-left: 1%;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 25%;
     a{
       display: block;
       padding: 10px 0;
-      border-radius: 3px;
       border-radius: 3px;
       text-decoration: none;
       color: #fff;
@@ -47,12 +153,16 @@
 // 3列
 .m-articleSns-B{
   width: 100%;
-  margin: 0.5rem -2% 0.5rem 0;
-  text-align: center;
+  margin: 0.5rem 0;
+  display: table;
+  table-layout: fixed; //均等に配置
+  border-collapse: separate; //セルの間隔を空ける
+  border-spacing: 0.5rem 0; //左右 上下で記述
   li{
-    float: left;
-    width: 31%;
-    margin-right: 2%;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 33.333%;
     a{
       display: block;
       padding: 10px 0;
@@ -67,13 +177,6 @@
       }
     }
   }
-}
-
-//いいねボタン
-.fb-like,
-.fb-like span,
-.fb-like iframe[style]{
-  width: 100%!important;
 }
 
 // 各SNS配色
@@ -115,7 +218,7 @@
 
 //PCホバー
 @include media(pc) {
-  .m-articleSns-A, .m-articleSns-B{
+  .m-articleSns-A, .m-articleSns-B, .m-lineat{
     a{
       margin: 3px 0 3px 0;
       transition: 0.1s;
@@ -166,35 +269,25 @@
 }
 
 
-////////// facebook likeボックス //////////
-.m-fbBox{
-  width: 100%;
-  margin-bottom: 1rem;
-  .fb-like-box{
-    max-width: 100%;
+////////// footerのページプラグイン //////////
+
+.m-pagePlugin{
+  display: flex;
+  justify-content: space-between;
+  .m-snsBox{
+    width: 48%;
+    margin-bottom: 1rem;
+    @include media(pc) {
+      width: 32%;
+    }
   }
-  @include media(tl) {
-  }
 }
 
-//facebook Likeboxを可変幅に
-.fb-like-box,
-.fb-like-box span,
-.fb-like-box iframe[style]{
-  width: 100%!important;
+//facebook
+.fb-page span, .fb-page iframe{
+  width: 100% !important;
 }
-
-
-////////// twitter followボックス //////////
-.m-twBox{
-  width: 100%;
-  margin-bottom: 1rem;
-}
-
-//twitter tweetboxのスタイル
-iframe[Attributes Style]{
-  height: 400px;
-}
+// twitter
 #twitter-widget-2[style]{
   width: 100% !important;
 }
@@ -276,6 +369,46 @@ iframe[Attributes Style]{
   display: none;
 }
 
+
+////////// MMENUの中その２ //////////
+.m-mmFollow{
+  width: 100%;
+  margin: 1rem auto;
+  text-align: center;
+  .m-mmlike{
+    float: right;
+    width: 69px;
+  }
+  .m-mmshare{
+    float: left;
+    width: 100%;
+    margin-left: -80px;
+    position: relative;
+    text-align: center;
+    .m-mmshareInner{
+      margin-left: 80px;
+    }
+  }
+  .m-mmBtn{
+    a{
+      display: block;
+      height: 58px;
+      padding: 0.8rem 0;
+      border-radius: 3px;
+      text-decoration: none;
+      color: #fff;
+      box-sizing: border-box;
+      span{
+        font-size: 1.4rem;
+      }
+      svg{
+        fill: #fff;
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+    }
+  }
+}
 
 ////////// PC Switcher //////////
 .pc-switcher {

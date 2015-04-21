@@ -36,13 +36,13 @@ body {
   width: 95%;
   margin: 25px auto 80px;
   @include media(sl_tp) {
-    width: 92.5%;
-  }
-  @include media(tl) {
     width: 90%;
   }
+  @include media(tl) {
+    width: 750px;
+  }
   @include media(pc) {
-    width: 1100px;//未定
+    width: 1150px;//未定
   }
 }
 

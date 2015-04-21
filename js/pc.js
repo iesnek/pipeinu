@@ -93,3 +93,13 @@ jQuery(function() {
     }
   });
 });
+
+
+/* モーダルウインドウ
+=========================================== */
+
+// leanModal v1.1 by Ray Stone - http://finelysliced.com.au
+// Dual licensed under the MIT and GPL
+
+(function($){$.fn.extend({leanModal:function(options){var defaults={top:100,overlay:0.5,closeButton:null};var overlay=jQuery("<div id='lean_overlay'></div>");jQuery("body").append(overlay);options=$.extend(defaults,options);return this.each(function(){var o=options;jQuery(this).click(function(e){var modal_id=jQuery(this).attr("href");jQuery("#lean_overlay").click(function(){close_modal(modal_id)});jQuery(o.closeButton).click(function(){close_modal(modal_id)});var modal_height=jQuery(modal_id).outerHeight();var modal_width=jQuery(modal_id).outerWidth();
+jQuery("#lean_overlay").css({"display":"block",opacity:0});jQuery("#lean_overlay").fadeTo(200,o.overlay);jQuery(modal_id).css({"display":"block","position":"fixed","opacity":0,"z-index":11000,"left":50+"%","margin-left":-(modal_width/2)+"px","top":o.top+"px"});jQuery(modal_id).fadeTo(200,1);e.preventDefault()})});function close_modal(modal_id){jQuery("#lean_overlay").fadeOut(200);jQuery(modal_id).css({"display":"none"})}}})})(jQuery);

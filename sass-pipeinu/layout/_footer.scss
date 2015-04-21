@@ -26,4 +26,7 @@
   img{
     width: 100%;
   }
+  @include media(pc) {
+    max-width: 150px;
+  }
 }

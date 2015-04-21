@@ -40,12 +40,28 @@ $my_query = new WP_Query($args); ?>
         </div><!-- /.m-subArchiveTxt -->
         <div class="m-subArchiveImg">
           <h3>
-            <?php
+            <?php //レスポンシブイメージへの対応
+            $thumbnail_id = get_post_thumbnail_id(); // アイキャッチ画像のIDを取得
+            $thumbnail3_img = wp_get_attachment_image_src( $thumbnail_id , 'thumbnail3' );
+            $thumbnail2_img = wp_get_attachment_image_src( $thumbnail_id , 'thumbnail2' );
+            $thumbnail_img = wp_get_attachment_image_src( $thumbnail_id , 'thumbnail' );
             if ( has_post_thumbnail() ):
-              the_post_thumbnail( array(300,200) );
+            ?>
+            <img src="<?php echo $thumbnail3_img[0]; ?>"
+                 srcset="<?php echo $thumbnail3_img[0]; ?> 240w,
+                         <?php echo $thumbnail2_img[0]; ?> 330w,
+                         <?php echo $thumbnail_img[0]; ?> 660w"
+                 sizes="(min-width: 769px) 330px, (min-width: 481px) 40vw, 30vw"
+                 alt="<?php the_title(); ?>">
+            <?php
             else:
             ?>
-              <img src = "<?php echo get_template_directory_uri(); ?>/img/noimages_s.jpg" width = "300" height="200" alt="この記事を読む" />
+            <img src="<?php echo get_template_directory_uri(); ?>/img/noimg_thumb.png"
+                 srcset="<?php echo get_template_directory_uri(); ?>/img/noimg_thumb3.png 240w,
+                         <?php echo get_template_directory_uri(); ?>/img/noimg_thumb2.png 330w,
+                         <?php echo get_template_directory_uri(); ?>/img/noimg_thumb.png 660w"
+                 sizes="(min-width: 769px) 330px, (min-width: 481px) 40vw, 30vw"
+                 alt="<?php the_title(); ?>">
             <?php
             endif;
             ?>
