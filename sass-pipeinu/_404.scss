@@ -1,34 +1,49 @@
 @charset "utf-8";
-/*=================================================================
-   404
-=================================================================*/
 
-body.error404{
-  background-image: url(img/bg_paisley2.png);
-  background-repeat: repeat;
+////////// 404とコンテントノーン //////////
+
+.contentNone .m-subArchiveList{
+  background-image: none;
+  background-color: #fff;
+  padding-left: 0;
+  a:after{
+    display: none;
+  }
+  h3{
+    padding: 0;
+    margin: 0;
+    &:before{
+      display: none;
+    }
+  }
 }
 
-#wrap404{
-  padding: 10px 20% 7px;
-  border-bottom: 3px solid #bbb;
-}
-
-#wrap404 h1{
-  font: 400 5rem 'Noto Sans', sans-serif;
-  color: #222;
-  text-align: center;
-  text-shadow: 0 -1px 0 #222, 1px 1px 0 #fff;
-}
-
-#wrap404 p{
-  margin-top: 100px;
-  text-align: center;
-}
-
-#wrap404 p a{
-  color: #00acee;
-}
-
-#wrap404 p a:hover{
-  text-decoration: none;
+.contentNone ul.category li{
+  margin: 2rem 0 0.7rem;
+  padding-left: 0.3rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  &:before{
+    content: '';
+    position: relative;
+    left: -0.3rem;
+    display: inline-block;
+    vertical-align: middle;
+    width: 1rem;
+    height: 1rem;
+    background: $color2;
+  }
+  @include media(sl_tp) {
+    font-size: 1.4rem;
+  }
+  &:before{
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  a{
+    color: $color1;
+    &:after{
+      display: none;
+    }
+  }
 }

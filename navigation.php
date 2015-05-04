@@ -83,24 +83,29 @@ endif;
 if ( function_exists( 'is_multi_device' ) ):
   if ( is_multi_device('smart') || is_multi_device('tablet') ): //スマホかタブレットの場合
 ?>
-    <li class="mmNav contact"><a href="<?php echo home_url('/'); ?>contact/"><dl>
-      <dt><svg><title>問合せ</title><use xlink:href="#mail"/></svg>contact</dt>
-      <dd>コンタクト</dd>
-    </dl></a></li>
-
-    <li class="mmNav fb"><a href=""><dl>
+    <li class="mmNav fb"><a href="fb://page/381573368687283"><dl>
       <dt><svg><title>Facebook</title><use xlink:href="#fb1"/></svg>Facebook</dt>
       <dd>「いいね！」してね</dd>
     </dl></a></li>
 
-    <li class="mmNav tw"><a href=""><dl>
+    <li class="mmNav tw"><a href="https://twitter.com/intent/follow?screen_name=pipeinu"><dl>
       <dt><svg><title>Twitter</title><use xlink:href="#tw1"/></svg>Twitter</dt>
       <dd>「フォロー」してね</dd>
     </dl></a></li>
 
-    <li class="mmNav gp"><a href=""><dl>
+    <li class="mmNav line"><a href="https://line.me/ti/p/%40sem4928k"><dl>
+      <dt><svg><title>LINE@</title><use xlink:href="#line"/></svg>LINE@</dt>
+      <dd>「友だち」になってね</dd>
+    </dl></a></li>
+
+    <li class="mmNav gp"><a href="https://plus.google.com/111407110397137154547/about"><dl>
       <dt><svg><title>Google +</title><use xlink:href="#gplus1"/></svg>Google +</dt>
       <dd>「フォロー」してね</dd>
+    </dl></a></li>
+
+    <li class="mmNav contact"><a href="<?php echo home_url('/'); ?>contact/"><dl>
+      <dt><svg><title>問合せ</title><use xlink:href="#mail"/></svg>contact</dt>
+      <dd>お問い合わせ</dd>
     </dl></a></li>
 <?php
   endif;

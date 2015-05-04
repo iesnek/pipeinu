@@ -52,18 +52,7 @@ if (have_posts()) :
 <?php
   endwhile;
 else :
-?>
-
-<article class="l-article">
-  <header class="m-articleHead">
-      <h1>ページがありません</h1>
-  </header><!-- .m-articleHead -->
-  <div class="m-articleBody">
-    <p>お探しのページは見つかりませんでした。</p>
-  </div><!-- /.m-articleBody -->
-</article><!-- .l-article -->
-
-<?php
+      get_template_part('content', 'none');  //コンテントノーン呼び出し
 endif;
 ?>
 

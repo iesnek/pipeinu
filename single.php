@@ -82,20 +82,9 @@ if (have_posts()) :
 
 
 <?php
-endwhile;
+  endwhile;
 else :
-?>
-
-<article class="l-article">
-  <header class="m-articleHead">
-      <h1>記事はありません</h1>
-  </header><!-- .m-articleHead -->
-  <div class="m-articleBody">
-    <p>お探しの記事は見つかりませんでした。</p>
-  </div><!-- /.m-articleBody -->
-</article><!-- .l-article -->
-
-<?php
+      get_template_part('content', 'none');  //コンテントノーン呼び出し
 endif;
 ?>
 

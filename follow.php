@@ -2,7 +2,7 @@
   <div>
 
     <aside>
-      <h1 class="m-subHead-B">Facobookで繋がろう！</h1><!-- /.m-subHead-B -->
+      <h1 class="m-subHead-B">Facobookで繋がろう！</h1>
       <div class="m-mmFollow clearfix">
         <div class="m-share m-mmshare m-mmBtn">
           <div class="m-mmshareInner">
@@ -18,7 +18,7 @@
     </aside>
 
     <aside>
-      <h1 class="m-subHead-B">Twitterで繋がろう！</h1><!-- /.m-subHead-B -->
+      <h1 class="m-subHead-B">Twitterで繋がろう！</h1>
       <div class="m-mmFollow clearfix">
         <div class="m-tweet m-mmshare m-mmBtn">
           <div class="m-mmshareInner">
@@ -36,7 +36,7 @@
     </aside>
 
     <aside>
-      <h1 class="m-subHead-B">LINEで繋がろう！</h1><!-- /.m-subHead-B -->
+      <h1 class="m-subHead-B">LINEで繋がろう！</h1>
       <div class="m-mmFollow clearfix">
         <div class="m-line m-mmshare m-mmBtn">
           <div class="m-mmshareInner">
@@ -54,7 +54,7 @@
     </aside>
 
     <aside>
-      <h1 class="m-subHead-B">Google+で繋がろう！</h1><!-- /.m-subHead-B -->
+      <h1 class="m-subHead-B">Google+で繋がろう！</h1>
       <div class="m-mmFollow clearfix">
         <div class="m-gplus m-mmshare m-mmBtn">
           <div class="m-mmshareInner">
@@ -64,7 +64,7 @@
           </div>
         </div>
         <div class="m-gplus m-mmlike m-mmBtn">
-          <a href="https://plus.google.com/u/0/b/111407110397137154547/111407110397137154547/about/p/pub">
+          <a href="https://plus.google.com/111407110397137154547">
             <svg><title>Google+</title><use xlink:href="#gplus1"/></svg>
           <br>Google+</a>
         </div>

@@ -32,9 +32,9 @@ $customPosts = get_posts($args);
         </div><!-- /.m-subArchiveTxt -->
         <div class="m-subArchiveImg">
           <?php if (has_post_thumbnail()) : ?>
-          <div class="m-dogsArchiveImg" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>)"></div><!-- /.m-dogsArchiveImg -->
+          <div class="m-dogsArchiveImg" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>)"></div>
           <?php else : ?>
-          <div class="m-dogsArchiveImg" style="background-image: url(<?php echo get_template_directory_uri(); ?>/img/noimg_thumb.png)"></div><!-- /.m-dogsArchiveImg -->
+          <div class="m-dogsArchiveImg" style="background-image: url(<?php echo get_template_directory_uri(); ?>/img/noimg_thumb.png)"></div>
           <?php endif; ?>
         </div><!-- /.m-subArchiveImg -->
       </a>

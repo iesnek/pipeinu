@@ -43,24 +43,13 @@ if (have_posts()) :
 <?php
   endwhile;
 else :
-?>
-
-    <article class="l-article">
-      <header class="m-articleHead">
-          <h1>記事はありません</h1>
-      </header><!-- .m-articleHead -->
-      <div class="m-articleBody">
-        <p>お探しの記事は見つかりませんでした。</p>
-      </div><!-- /.m-articleBody -->
-    </article><!-- .l-article -->
-
-<?php
+      get_template_part('content', 'none');  //コンテントノーン呼び出し
 endif;
 ?>
 
     </div><!-- /.m-archives -->
 
-    <aside class="m-pager"> <!-- ページャーここから -->
+    <aside class="m-pager"> <!-- ページャー -->
       <?php global $wp_rewrite;
       $paginate_base = get_pagenum_link(1);
       if(strpos($paginate_base, '?') || ! $wp_rewrite->using_permalinks()){
@@ -81,7 +70,7 @@ endif;
         'prev_text' => '',
         'next_text' => '次のページ',
       )); ?>
-    </aside> <!-- ページャーここまで -->
+    </aside> <!-- /ページャー -->
 
   </div><!-- /.l-mainInner -->
   </div><!-- /#main -->

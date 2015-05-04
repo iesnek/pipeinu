@@ -26,33 +26,12 @@ add_filter( 'excerpt_more', 'new_excerpt_more' );
 
 ////////// 最初の</p>のあとに広告を表示 //////////
 
-add_filter('the_content', 'cntAd');
-function cntAd($content){
-  $ad =  get_template_part('adsense');  //アドセンス呼び出し
-;
-  $count = 0;
-
-  if(is_single() && !is_singular('dogs')){
-    $arrayCnts = preg_split('/<\/p>/', $content, -1, PREG_SPLIT_NO_EMPTY);
-    foreach( $arrayCnts as $arrayCnt ){
-      $count++;
-      if($count == 1){
-      $arrayCntAd[] = $arrayCnt.'</p>'.$ad;
-      } else {
-        $arrayCntAd[] = $arrayCnt.'</p>';
-      }
-    }
-    $content = implode("", $arrayCntAd);
-  }
-  return $content;
-}
-
 
 ////////// いろいろな犬種アーカイブページの表示変更 //////////
 function change_posts_per_page($query) {
     if ( is_admin() || ! $query->is_main_query() )
         return;
- 
+
     if ( $query->is_archive('dogs') ) {
         $query->set( 'posts_per_page', '18' );
         $query->set( 'orderby', 'meta_value' );

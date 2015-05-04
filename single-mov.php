@@ -69,7 +69,7 @@ if (have_posts()) :
     $youtube = get_post_meta($post->ID, 'mov_path', true);
     $post_embed = $wp_embed->run_shortcode('[embed]' . $youtube . '[/embed]');
     ?>
-    <div class="m-umekomi"><?php echo $post_embed; ?></div><!-- /.m-umekomi -->
+    <div class="m-umekomi"><?php echo $post_embed; ?></div>
     <?php
     endif;
   ?>
@@ -100,7 +100,7 @@ if (have_posts()) :
     $youtube = get_post_meta($post->ID, 'mov_path', true);
     $post_embed = $wp_embed->run_shortcode('[embed]' . $youtube . '[/embed]');
     ?>
-    <div class="m-umekomi"><?php echo $post_embed; ?></div><!-- /.m-umekomi -->
+    <div class="m-umekomi"><?php echo $post_embed; ?></div>
     <?php
     endif;
   ?>
@@ -141,20 +141,9 @@ if (have_posts()) :
 
 
 <?php
-endwhile;
+  endwhile;
 else :
-?>
-
-<article class="l-article">
-  <header class="m-articleHead">
-      <h1>記事はありません</h1>
-  </header><!-- .m-articleHead -->
-  <div class="m-articleBody">
-    <p>お探しの記事は見つかりませんでした。</p>
-  </div><!-- /.m-articleBody -->
-</article><!-- .l-article -->
-
-<?php
+      get_template_part('content', 'none');  //コンテントノーン呼び出し
 endif;
 ?>
 

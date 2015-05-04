@@ -40,51 +40,42 @@ if ( function_exists( 'is_multi_device' ) ):
   </aside>
 
   <div class="m-pagePlugin">
-    <!-- facebook -->
-    <aside class="m-snsBox m-fbBox">
-      <h1 class="m-subHead-A"><span>facebook</span>-フェイスブック-</h1><!-- /.m-subHead-A -->
+    <aside class="m-snsBox m-fbBox"> <!-- facebook -->
+      <h1 class="m-subHead-A"><span>facebook</span>-フェイスブック-</h1>
       <div class="fb-page" data-href="https://www.facebook.com/pipeinu" data-width="500" data-height="400" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"></div>
-    </aside><!-- /.m-fbBox -->
-    <!-- facebook -->
+    </aside>
 
-    <!-- twitter -->
-    <aside class="m-snsBox m-twBox">
-      <h1 class="m-subHead-A"><span>twitter</span>-ツイッター-</h1><!-- /.m-subHead-A -->
+    <aside class="m-snsBox m-twBox"> <!-- twitter -->
+      <h1 class="m-subHead-A"><span>twitter</span>-ツイッター-</h1>
       <a class="twitter-timeline" href="https://twitter.com/pipeinu" data-widget-id="584771686114861056">@pipeinuさんのツイート</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    </aside><!-- /.m-twitterBox -->
-    <!-- /twitter -->
-  </div>
+    </aside>
+  </div> <!-- /m-pagePlugin -->
 
 <?php
   else: //それ以外（PC）の場合
 ?>
 
   <div class="m-pagePlugin">
-    <!-- facebook -->
-    <aside class="m-snsBox m-fbBox">
-      <h1 class="m-subHead-A"><span>facebook</span>-フェイスブック-</h1><!-- /.m-subHead-A -->
+    <aside class="m-snsBox m-fbBox"> <!-- facebook -->
+      <h1 class="m-subHead-A"><span>facebook</span>-フェイスブック-</h1>
       <div class="fb-page" data-href="https://www.facebook.com/pipeinu" data-width="500" data-height="400" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"></div>
-    </aside><!-- /.m-fbBox -->
-    <!-- facebook -->
+    </aside>
 
-    <!-- twitter -->
-    <aside class="m-snsBox m-twBox">
-      <h1 class="m-subHead-A"><span>twitter</span>-ツイッター-</h1><!-- /.m-subHead-A -->
+    <aside class="m-snsBox m-twBox"> <!-- twitter -->
+      <h1 class="m-subHead-A"><span>twitter</span>-ツイッター-</h1>
       <a class="twitter-timeline" href="https://twitter.com/pipeinu" data-widget-id="584771686114861056">@pipeinuさんのツイート</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    </aside><!-- /.m-twitterBox -->
-    <!-- /twitter -->
+    </aside>
 
     <aside class="m-snsBox m-lineBox"> <!-- line@ -->
-      <h1 class="m-subHead-A"><span>LINE@</span>-ラインアット-</h1><!-- /.m-subHead-A -->
-      <div>
+      <h1 class="m-subHead-A"><span>LINE@</span>-ラインアット-</h1>
+      <div class="default">
         <p>QRコードをスマホで読み込んでね！<br>↓↓↓</p>
         <svg><title>LINE@ QRコード</title><use xlink:href="#lineQR"/></svg>
       </div>
     </aside>
-
-  </div>
+  </div> <!-- /m-pagePlugin -->
 
 <?php
   endif;
@@ -123,10 +114,10 @@ if ( function_exists( 'is_multi_device' ) ):
 <ul class="m-fixedBtn">
   <li class="m-fixedMenu"><a href="#gnav">
     <svg><title>メニューボタン</title><desc>メニューボタンのアイコン</desc><use xlink:href="#menu"/></svg>
-  </a></li><!-- /.m-fixedMenu -->
+  </a></li>
   <li class="m-fixedFollow"><a href="#follow">
     <svg><title>フォローボタン</title><desc>フォローボタンのアイコン</desc><use xlink:href="#heart"/></svg>
-  </a></li><!-- /.m-fixedFollow -->
+  </a></li>
 </ul><!-- /.m-fixedBtn -->
 
 <?php get_template_part('navigation');  //ナビゲーション呼び出し ?>

@@ -3,6 +3,29 @@
 ////////// 記事内モジュール //////////
 
 
+////////// 目次 //////////
+// 記事タイトル
+// カテゴリーとかタグとか
+// 記事本文
+// 画像
+// 動画埋め込み
+// 見出しH2
+// 見出しH3
+// 見出しH4
+// 太字-黒
+// 太字-赤
+// 超太字
+// 太字マーカー
+// マーカー
+// 小文字
+// 内部リンク
+// 外部リンク
+// 記事内リスト
+// 引用
+// 記事内定義リスト（dl-dt-dd）-犬種ページ
+
+
+
 @import "../core/setting";
 
 
@@ -191,7 +214,8 @@
 }
 
 // 内部リンク
-.m-articleBody p a{
+.m-articleBody p a,
+.m-articleBody li a{
   color: $color5;
   &:hover{
     color: $color4;
@@ -208,7 +232,8 @@
 }
 
 // 外部リンク
-.m-articleBody p a[target="_blank"]:after {
+.m-articleBody p a[target="_blank"]:after,
+.m-articleBody li a[target="_blank"]:after {
   content: '';
   display: inline-block;
   width: 1rem;
