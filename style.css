@@ -729,10 +729,30 @@ body {
       float: none;
       width: 100%; } }
 
+.m-subArchiveNum {
+  position: absolute;
+  top: -0.3rem;
+  left: -0.3rem;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  line-height: 2rem;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #61c1bd; }
+
+.m-subArchiveList:first-child .m-subArchiveNum {
+  background-color: #f33; }
+.m-subArchiveList:nth-child(2) .m-subArchiveNum {
+  background-color: #fabe00; }
+.m-subArchiveList:nth-child(3) .m-subArchiveNum {
+  background-color: #ee7700; }
+
 @media only screen and (min-width: 1150px) {
   .m-sideArchives {
     letter-spacing: normal; }
     .m-sideArchives .m-subArchiveList {
+      position: relative;
       padding: 0.5rem 0;
       display: block;
       margin: 0 1% 0.5rem;

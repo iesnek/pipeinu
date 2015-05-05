@@ -30,29 +30,22 @@
   </ul>
 
   <h2>人気の記事から見つける</h2>
-  <?php // ここから関連記事の表示※ほんとはここオススメ記事にしたい
-  // カテゴリーIDの取得
-  $categories = get_the_category($post->ID);
-  $category_ID = array();
-  foreach($categories as $category):
-    array_push( $category_ID, $category -> cat_ID);
-  endforeach ;
-
-  // WordPressオブジェクトの作成
-  $args = array(
-    'post__not_in' => array($post -> ID),
-    'category__in' => $category_ID,
-    'posts_per_page'=> 6,
-    'post_type' => array('post','mov'),    //投稿タイプの指定
-    'orderby' => 'rand',
-  );
-  $my_query = new WP_Query($args); ?>
-
+<?php // ここから人気記事の表示
+// WordPressオブジェクトの作成
+$args = array(
+  'orderby' => 'meta_value_num',//meta_valueではないので注意
+  'meta_key' =>'views',
+  'posts_per_page' => 6,
+  'post_type' => array('post','mov'),    //投稿タイプの指定
+  'order' => 'DESC',
+);
+$my_query = new WP_Query( $args ); ?>
   <?php
   if( $my_query -> have_posts() ): // サブループ ?>
   <ul class="m-subArchives clearfix">
     <?php
-    while ($my_query -> have_posts()) : $my_query -> the_post(); // 繰り返し処理 ?>
+    while ($my_query -> have_posts()) : $my_query -> the_post(); // 繰り返し処理
+    ?>
     <li class="m-subArchiveList">
       <a href="<?php the_permalink() ?>" title = "「<?php the_title(); ?>」を読む" class="clearfix">
         <div class="m-subArchiveTxt">
@@ -71,7 +64,7 @@
                  srcset="<?php echo $thumbnail3_img[0]; ?> 240w,
                          <?php echo $thumbnail2_img[0]; ?> 330w,
                          <?php echo $thumbnail_img[0]; ?> 660w"
-                 sizes="(min-width: 769px) 330px, (min-width: 481px) 40vw, 30vw"
+                 sizes="(min-width: 769px) 330px, (min-width: 481px) 50vw, 30vw"
                  alt="<?php the_title(); ?>">
             <?php
             else:
@@ -80,7 +73,7 @@
                  srcset="<?php echo get_template_directory_uri(); ?>/img/noimg_thumb3.png 240w,
                          <?php echo get_template_directory_uri(); ?>/img/noimg_thumb2.png 330w,
                          <?php echo get_template_directory_uri(); ?>/img/noimg_thumb.png 660w"
-                 sizes="(min-width: 769px) 330px, (min-width: 481px) 40vw, 30vw"
+                 sizes="(min-width: 769px) 330px, (min-width: 481px) 50vw, 30vw"
                  alt="<?php the_title(); ?>">
             <?php
             endif;
@@ -88,6 +81,7 @@
           </h4>
         </div><!-- /.m-subArchiveImg -->
       </a>
+      <div class="m-subArchiveNum"><?php echo $my_query->current_post+1; ?></div>
     </li><!-- /.m-subArchiveList -->
     <?php
     endwhile; // サブループの繰り返し処理終了

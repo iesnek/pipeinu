@@ -78,12 +78,12 @@ if (have_posts()) :
     $repeat_group = SCF::get( 'mov_content' );
     if($repeat_group):
       foreach ( $repeat_group as $repeat_field ) {
-        $samll_ss = wp_get_attachment_image_src($repeat_field[mov_ss], 'thumbnail');
+        $small_ss = wp_get_attachment_image_src($repeat_field[mov_ss], 'thumbnail');
         $medium_ss = wp_get_attachment_image_src($repeat_field[mov_ss], 'medium');
         $large_ss = wp_get_attachment_image_src($repeat_field[mov_ss], 'large');
       ?>
         <img src="<?php echo $medium_ss[0]; ?>"
-             srcset="<?php echo $thumbnail_ss[0]; ?> 660w,
+             srcset="<?php echo $small_ss[0]; ?> 660w,
                      <?php echo $medium_ss[0]; ?> 750w,
                      <?php echo $large_ss[0]; ?> 1500w"
              sizes="(min-width: 769px) 750px, (min-width: 481px) 90vw, 95vw"

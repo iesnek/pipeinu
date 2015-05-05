@@ -12,9 +12,9 @@ add_theme_support( 'automatic-feed-links' );
 add_theme_support( 'post-thumbnails' );
 
 // アイキャッチ画像のサイズ追加
-add_image_size( 'thumbnail2', 330, 220, false );
-add_image_size( 'thumbnail3', 240, 160, false );
-add_image_size( 'thumbnail4', 120, 80, false );
+add_image_size( 'thumbnail2', 330, 220, true );
+add_image_size( 'thumbnail3', 240, 160, true );
+add_image_size( 'thumbnail4', 120, 80, true );
 
 // 抜粋文の末尾の文字を変更[...]→...
 function new_excerpt_more($more){
@@ -24,7 +24,15 @@ add_filter( 'excerpt_more', 'new_excerpt_more' );
 
 
 
+////////// 条件分岐タグ「is_first_post」を定義 //////////
+function is_first_post(){
+  global $wp_query;
+  return ($wp_query->current_post === 0);
+}
+
+
 ////////// 最初の</p>のあとに広告を表示 //////////
+
 
 
 ////////// いろいろな犬種アーカイブページの表示変更 //////////

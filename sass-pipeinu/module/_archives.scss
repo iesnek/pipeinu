@@ -261,12 +261,39 @@
   }
 }
 
+.m-subArchiveNum{
+  position: absolute;
+  top: -0.3rem;
+  left: -0.3rem;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  line-height: 2rem;
+  border-radius: 50%;
+  color: #fff;
+  background-color: $color4;
+}
+
+.m-subArchiveList{
+  &:first-child .m-subArchiveNum{
+    background-color: #f33;
+  }
+  &:nth-child(2) .m-subArchiveNum{
+    background-color: $color2;
+  }
+  &:nth-child(3) .m-subArchiveNum{
+    background-color: $color3;
+  }
+}
+
+
 //サイドアーカイブ
 @include media(pc) {
   .m-sideArchives{
     letter-spacing: normal;
 
     .m-subArchiveList{
+      position: relative;
       padding: 0.5rem 0;
       display: block;
       margin: 0 1% 0.5rem;

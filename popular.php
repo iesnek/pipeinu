@@ -1,28 +1,22 @@
-<?php // ここから関連記事の表示
-// カテゴリーIDの取得
-$categories = get_the_category($post->ID);
-$category_ID = array();
-foreach($categories as $category):
-  array_push( $category_ID, $category -> cat_ID);
-endforeach ;
-
+<?php // ここから人気記事の表示
 // WordPressオブジェクトの作成
 $args = array(
-  'post__not_in' => array($post -> ID),
-  'category__in' => $category_ID,
-  'posts_per_page'=> 6,
+  'orderby' => 'meta_value_num',//meta_valueではないので注意
+  'meta_key' =>'views',
+  'posts_per_page' => 6,
   'post_type' => array('post','mov'),    //投稿タイプの指定
-  'orderby' => 'rand',
+  'order' => 'DESC',
 );
-$my_query = new WP_Query($args); ?>
+$my_query = new WP_Query( $args ); ?>
 
-<section class="l-mainBlocks">
-  <h1 class="m-subHead-A"><span>related</span>-関連記事-</h1>
+<section id="fixed_sidebar" class="l-subBlocks">
+  <h1 class="m-subHead-A"><span>pick up</span>-オススメ記事-</h1>
   <?php
-  if( $my_query -> have_posts() ): // サブループ ?>
-  <ul class="m-subArchives clearfix">
+  if( $my_query -> have_posts() ) : // サブループ ?>
+  <ul class="m-subArchives m-sideArchives clearfix">
     <?php
-    while ($my_query -> have_posts()) : $my_query -> the_post(); // 繰り返し処理 ?>
+    while ($my_query -> have_posts()) : $my_query -> the_post(); // 繰り返し処理
+    ?>
     <li class="m-subArchiveList">
       <a href="<?php the_permalink() ?>" title = "「<?php the_title(); ?>」を読む" class="clearfix">
         <div class="m-subArchiveTxt">
@@ -42,25 +36,28 @@ $my_query = new WP_Query($args); ?>
           <h3>
             <?php //レスポンシブイメージへの対応
             $thumbnail_id = get_post_thumbnail_id(); // アイキャッチ画像のIDを取得
+            $thumbnail4_img = wp_get_attachment_image_src( $thumbnail_id , 'thumbnail4' );
             $thumbnail3_img = wp_get_attachment_image_src( $thumbnail_id , 'thumbnail3' );
             $thumbnail2_img = wp_get_attachment_image_src( $thumbnail_id , 'thumbnail2' );
             $thumbnail_img = wp_get_attachment_image_src( $thumbnail_id , 'thumbnail' );
             if ( has_post_thumbnail() ):
             ?>
             <img src="<?php echo $thumbnail3_img[0]; ?>"
-                 srcset="<?php echo $thumbnail3_img[0]; ?> 240w,
+                 srcset="<?php echo $thumbnail4_img[0]; ?> 240w,
+                         <?php echo $thumbnail3_img[0]; ?> 330w,
                          <?php echo $thumbnail2_img[0]; ?> 330w,
                          <?php echo $thumbnail_img[0]; ?> 660w"
-                 sizes="(min-width: 769px) 330px, (min-width: 481px) 50vw, 30vw"
+                 sizes="(min-width: 1150px) 240px, (min-width: 481px) 50vw, 30vw"
                  alt="<?php the_title(); ?>">
             <?php
             else:
             ?>
             <img src="<?php echo get_template_directory_uri(); ?>/img/noimg_thumb.png"
-                 srcset="<?php echo get_template_directory_uri(); ?>/img/noimg_thumb3.png 240w,
+                 srcset="<?php echo get_template_directory_uri(); ?>/img/noimg_thumb4.png 120w,
+                         <?php echo get_template_directory_uri(); ?>/img/noimg_thumb3.png 240w,
                          <?php echo get_template_directory_uri(); ?>/img/noimg_thumb2.png 330w,
                          <?php echo get_template_directory_uri(); ?>/img/noimg_thumb.png 660w"
-                 sizes="(min-width: 769px) 330px, (min-width: 481px) 50vw, 30vw"
+                 sizes="(min-width: 1150px) 240px, (min-width: 481px) 50vw, 30vw"
                  alt="<?php the_title(); ?>">
             <?php
             endif;
@@ -68,6 +65,7 @@ $my_query = new WP_Query($args); ?>
           </h3>
         </div><!-- /.m-subArchiveImg -->
       </a>
+      <div class="m-subArchiveNum"><?php echo $my_query->current_post+1; ?></div>
     </li><!-- /.m-subArchiveList -->
     <?php
     endwhile; // サブループの繰り返し処理終了
@@ -76,9 +74,9 @@ $my_query = new WP_Query($args); ?>
   <?php 
   else:
   ?>
-    <p>関連する記事はありませんでした ...</p>
+    <p>オススメ記事はありませんでした ...</p>
   <?php
   endif; // サブループ終了
   wp_reset_postdata();
   ?>
-</section><!-- /.l-mainBlocks -->
+</section><!-- /#fixed_sidebar .l-subBlocks -->

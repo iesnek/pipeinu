@@ -39,33 +39,54 @@ if (have_posts()) :
             <h2>
               <?php //レスポンシブイメージへの対応
               $thumbnail_id = get_post_thumbnail_id(); // アイキャッチ画像のIDを取得
-              $thumbnail3_img = wp_get_attachment_image_src( $thumbnail_id , 'thumbnail3' );
               $thumbnail2_img = wp_get_attachment_image_src( $thumbnail_id , 'thumbnail2' );
               $thumbnail_img = wp_get_attachment_image_src( $thumbnail_id , 'thumbnail' );
               $medium_img = wp_get_attachment_image_src( $thumbnail_id , 'medium' );
               $large_img = wp_get_attachment_image_src( $thumbnail_id , 'large' );
               if ( has_post_thumbnail() ):
+                if ( is_first_post() ):
               ?>
-              <img src="<?php echo $thumbnail3_img[0]; ?>"
-                   srcset="<?php echo $thumbnail3_img[0]; ?> 240w,
-                           <?php echo $thumbnail2_img[0]; ?> 330w,
+              <img src="<?php echo $thumbnail_img[0]; ?>"
+                   srcset="<?php echo $thumbnail2_img[0]; ?> 330w,
                            <?php echo $thumbnail_img[0]; ?> 660w,
                            <?php echo $medium_img[0]; ?> 750w,
                            <?php echo $large_img[0]; ?> 1500w"
-                   sizes="(min-width: 769px) 330px, (min-width: 481px) 40vw, 30vw"
+                   sizes="(min-width: 769px) 750px, 100vw"
+                   alt="<?php the_title(); ?>">
+                <?php
+                else:
+                ?>
+              <img src="<?php echo $thumbnail_img[0]; ?>"
+                   srcset="<?php echo $thumbnail2_img[0]; ?> 330w,
+                           <?php echo $thumbnail_img[0]; ?> 660w,
+                           <?php echo $medium_img[0]; ?> 750w,
+                           <?php echo $large_img[0]; ?> 1500w"
+                   sizes="(min-width: 769px) 330px, (min-width: 481px) 50vw, 100vw"
                    alt="<?php the_title(); ?>">
               <?php
+                endif;
               else:
+                if ( is_first_post() ):
               ?>
               <img src="<?php echo get_template_directory_uri(); ?>/img/noimg_thumb.png"
-                   srcset="<?php echo get_template_directory_uri(); ?>/img/noimg_thumb3.png 240w,
-                           <?php echo get_template_directory_uri(); ?>/img/noimg_thumb2.png 330w,
+                   srcset="<?php echo get_template_directory_uri(); ?>/img/noimg_thumb2.png 330w,
                            <?php echo get_template_directory_uri(); ?>/img/noimg_thumb.png 660w,
                            <?php echo get_template_directory_uri(); ?>/img/noimg_medium.png 750w,
                            <?php echo get_template_directory_uri(); ?>/img/noimg_large.png 1500w"
-                   sizes="(min-width: 769px) 330px, (min-width: 481px) 40vw, 30vw"
+                   sizes="(min-width: 769px) 750px, 100vw"
+                   alt="<?php the_title(); ?>">
+                <?php
+                else:
+                ?>
+              <img src="<?php echo get_template_directory_uri(); ?>/img/noimg_thumb.png"
+                   srcset="<?php echo get_template_directory_uri(); ?>/img/noimg_thumb2.png 330w,
+                           <?php echo get_template_directory_uri(); ?>/img/noimg_thumb.png 660w,
+                           <?php echo get_template_directory_uri(); ?>/img/noimg_medium.png 750w,
+                           <?php echo get_template_directory_uri(); ?>/img/noimg_large.png 1500w"
+                   sizes="(min-width: 769px) 330px, (min-width: 481px) 50vw, 100vw"
                    alt="<?php the_title(); ?>">
               <?php
+                endif;
               endif;
               ?>
             </h2>
