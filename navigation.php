@@ -38,7 +38,7 @@ if ( function_exists( 'is_multi_device' ) ):
       <dd>カテゴリー</dd>
     </dl></p></li>
     <?php //カテゴリー
-      $cats = wp_list_categories('echo=0&orderby=ID&order=DESC&title_li=');
+      $cats = wp_list_categories('echo=0&title_li=');
       $cats = preg_replace('/ title=\"(.*?)\"/','',$cats);
       echo $cats;
     ?>
@@ -52,7 +52,7 @@ if ( function_exists( 'is_multi_device' ) ):
       </dl>
       <ul>
         <?php //カテゴリー
-          $cats = wp_list_categories('echo=0&orderby=ID&order=DESC&title_li=');
+          $cats = wp_list_categories('echo=0&title_li=');
           $cats = preg_replace('/ title=\"(.*?)\"/','',$cats);
           echo $cats;
         ?>
@@ -98,7 +98,7 @@ if ( function_exists( 'is_multi_device' ) ):
       <dd>「友だち」になってね</dd>
     </dl></a></li>
 
-    <li class="mmNav gp"><a href="https://plus.google.com/111407110397137154547/about"><dl>
+    <li class="mmNav gp"><a href="https://www.google.com/+Pipeinu"><dl>
       <dt><svg><title>Google +</title><use xlink:href="#gplus1"/></svg>Google +</dt>
       <dd>「フォロー」してね</dd>
     </dl></a></li>

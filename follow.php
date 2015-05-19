@@ -64,7 +64,7 @@
           </div>
         </div>
         <div class="m-gplus m-mmlike m-mmBtn">
-          <a href="https://plus.google.com/111407110397137154547">
+          <a href="https://www.google.com/+Pipeinu">
             <svg><title>Google+</title><use xlink:href="#gplus1"/></svg>
           <br>Google+</a>
         </div>

@@ -48,8 +48,13 @@ $my_query = new WP_Query( $args ); ?>
     ?>
     <li class="m-subArchiveList">
       <a href="<?php the_permalink() ?>" title = "「<?php the_title(); ?>」を読む" class="clearfix">
-        <div class="m-subArchiveTxt">
-          <h3><?php the_title(); ?></h3>
+        <div class="m-subArchiveTxt arrangeHeight">
+          <h3>
+            <?php if(function_exists('is_multi_device')): if(!is_multi_device('smart')): ?>
+            <span class="m-subArchiveNum"><?php echo $my_query->current_post+1; ?></span>
+            <?php endif; endif; ?>
+            <?php the_title(); ?>
+          </h3>
         </div><!-- /.m-subArchiveTxt -->
         <div class="m-subArchiveImg">
           <h4>
@@ -81,7 +86,9 @@ $my_query = new WP_Query( $args ); ?>
           </h4>
         </div><!-- /.m-subArchiveImg -->
       </a>
-      <div class="m-subArchiveNum"><?php echo $my_query->current_post+1; ?></div>
+      <?php if(function_exists('is_multi_device')): if(is_multi_device('smart')): ?>
+      <div class="m-subArchiveNum m-sideArchiveNum"><?php echo $my_query->current_post+1; ?></div>
+      <?php endif; endif; ?>
     </li><!-- /.m-subArchiveList -->
     <?php
     endwhile; // サブループの繰り返し処理終了

@@ -1,7 +1,7 @@
 /* スクロールしてトップ
 =========================================== */
 jQuery(function(){
-    jQuery('.m-pagetop a,.m-articleBody a[href^=#]').click(function(){ 
+    jQuery('#pagetopBtn a,.m-articleBody a[href^=#]').click(function(){ 
         var speed = 500; //移動完了までの時間(sec)を指定 数字が小さいほどシャッっといく
         var href= jQuery(this).attr("href"); 
         var target = jQuery(href == "#" || href == "" ? 'html' : href);
@@ -27,18 +27,15 @@ jQuery(function(jQuery){
 });
 
 
-/* タブ切り替え
+/* inline-blockの高さを揃える ※２番目の要素以降
 =========================================== */
-jQuery(function(){
-  jQuery("#entry_tab li a").on("click", function(e) {
-    e.preventDefault();
-    jQuery("#tabs div").hide();
-    jQuery(jQuery(this).attr("href")).fadeToggle();
-    jQuery("#entry_tab li a").removeClass("active");
-    jQuery(this).toggleClass("active");
-  });
-  return false;
+var maxHeight = 0;
+//もし.arrangeHeightがmaxHeightの値より大きい場合は.arrangeHeightの高さを全部合わせる
+jQuery(".arrangeHeight:not(':first')").each(function(){
+   if (jQuery(this).height() > maxHeight) { maxHeight = jQuery(this).height(); }
 });
+//.arrangeHeightの高さを取得する
+jQuery(".arrangeHeight:not(':first')").height(maxHeight);
 
 
 /* サイドバーの固定
@@ -84,7 +81,7 @@ jQuery(function(){
 jQuery(function() {
   var topBtn = jQuery('#fixed_sns');
   topBtn.hide();
-  //スクロールが100に達したらボタン表示
+  //スクロールが600に達したらボタン表示
   jQuery(window).scroll(function () {
     if (jQuery(this).scrollTop() > 600) {
       topBtn.fadeIn();

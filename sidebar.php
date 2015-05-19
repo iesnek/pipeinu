@@ -10,16 +10,28 @@ if ( function_exists( 'is_multi_device' ) ):
   <?php get_search_form(); ?>
 </aside><!-- /.m-search -->
 
+<?php
+  endif;
+endif;
+?>
+
+<?php
+if ( function_exists( 'is_multi_device' ) ):
+  if ( is_singular('dogs') && (is_multi_device('smart') || is_multi_device('tablet')) ): //犬種ページの場合、かつ、スマホかタブレットの場合
+    get_template_part('popular');  //人気記事呼び出し
+  endif;
+endif;
+?>
 
 <?php
 $args = array(
-  'numberposts' => 5,                //表示（取得）する記事の数
+  'numberposts' => 6,                //表示（取得）する記事の数
   'post_type' => 'dogs',    //投稿タイプの指定
   'orderby' => 'rand',
 );
 $customPosts = get_posts($args);
 ?>
-<?php if($customPosts && !is_archive('dogs')) : ?>
+<?php if($customPosts && !is_post_type_archive('dogs')) : ?>
 <section class="l-subBlocks m-subDogArchives">
   <h1 class="m-subHead-A"><span>dogs</span>-いろいろな犬種-</h1>
   <ul class="m-sideArchives clearfix">
@@ -46,10 +58,13 @@ $customPosts = get_posts($args);
 wp_reset_postdata(); //クエリのリセット ?>
 
 <?php
+if ( function_exists( 'is_multi_device' ) ):
+  if ( is_singular('dogs') && (is_multi_device('smart') || is_multi_device('tablet')) ): //犬種ページの場合、かつ、スマホかタブレットの場合
+  else:
+    get_template_part('popular');  //人気記事呼び出し
   endif;
 endif;
 ?>
 
-<?php get_template_part('popular');  //人気記事呼び出し ?>
 
 </div><!-- /#sub -->

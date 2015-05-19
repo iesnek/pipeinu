@@ -180,6 +180,29 @@
   }
 }
 
+// サイド
+#fixed_sns {
+  position: fixed;
+  top: 50px;
+  text-align: center;
+}
+.m-articleSns-C{
+  width: 100px;
+  position: absolute;
+  top: 0;
+  left: -120px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1rem 0;
+  li{
+    margin-top: 1.1rem;
+    &:first-child{
+      margin-top: 0;
+    }
+  }
+}
+
 // 各SNS配色
 .m-like a{
   background-color: $fb;
@@ -273,7 +296,9 @@
 ////////// footerのページプラグイン //////////
 
 .m-pagePlugin{
+  display: -webkit-flex;
   display: flex;
+  -webkit-justify-content: space-between;
   justify-content: space-between;
   .m-snsBox{
     width: 48%;

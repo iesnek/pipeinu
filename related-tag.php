@@ -1,15 +1,15 @@
 <?php // ここから関連記事の表示
-// カテゴリーIDの取得
-$categories = get_the_category($post->ID);
-$category_ID = array();
-foreach($categories as $category):
-  array_push( $category_ID, $category -> cat_ID);
+// タグIDの取得
+$tags = wp_get_post_tags($post->ID);
+$tag_ids = array();
+foreach($tags as $tag):
+  array_push( $tag_ids, $tag -> term_id);
 endforeach ;
 
 // WordPressオブジェクトの作成
 $args = array(
   'post__not_in' => array($post -> ID),
-  'category__in' => $category_ID,
+  'tag__in' => $tag_ids,
   'posts_per_page'=> 6,
   'post_type' => array('post','mov'),    //投稿タイプの指定
   'orderby' => 'rand',
@@ -19,13 +19,13 @@ $my_query = new WP_Query($args); ?>
 <section class="l-mainBlocks">
   <h1 class="m-subHead-A"><span>related</span>-関連記事-</h1>
   <?php
-  if( $my_query -> have_posts() ): // サブループ ?>
+  if( $my_query -> have_posts() && !empty($tag_ids) ): // サブループ ?>
   <ul class="m-subArchives clearfix">
     <?php
     while ($my_query -> have_posts()) : $my_query -> the_post(); // 繰り返し処理 ?>
     <li class="m-subArchiveList">
       <a href="<?php the_permalink() ?>" title = "「<?php the_title(); ?>」を読む" class="clearfix">
-        <div class="m-subArchiveTxt">
+        <div class="m-subArchiveTxt arrangeHeight">
           <h2><?php the_title(); ?></h2>
           <ul class="m-subArchiveMeta">
             <li>

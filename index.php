@@ -7,13 +7,6 @@
 
     <div class="m-archives clearfix">
 
-<?php //カスタム投稿タイプ「mov」の投稿を取得する
-global $wp_query;
-query_posts(array_merge(
-    array( 'post_type' => array('post','mov') ),
-    $wp_query->query
-));
-?>
 
 <?php
 if (have_posts()) :
@@ -22,7 +15,7 @@ if (have_posts()) :
 
       <article id="post-<?php the_ID(); ?>" class="m-archiveList">
         <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
-          <div class="m-archiveTxt">
+          <div class="m-archiveTxt arrangeHeight">
             <h1><?php the_title(); ?></h1>
             <ul class="m-archiveMeta">
               <li>
@@ -101,6 +94,27 @@ else :
 endif;
 ?>
 
+<?php // 2ページ目以降のラストに広告を表示する
+if (is_paged()) :
+  if ( function_exists( 'is_multi_device' ) ):
+    if ( !is_multi_device('smart')): //スマホじゃない場合
+?>
+      <aside class="m-archiveList">
+        <p>Sponsords Link</p>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- レクタングル（中） -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:300px;height:250px"
+             data-ad-client="ca-pub-1514095329243590"
+             data-ad-slot="6455402662"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </aside>
+<?php
+    endif;
+  endif;
+endif;
+?>
+
     </div><!-- /.m-archives -->
 
     <aside class="m-pager"> <!-- ページャー -->
@@ -130,13 +144,7 @@ endif;
   </div><!-- /#main -->
 
 
-<?php
-if ( function_exists( 'is_multi_device' ) ):
-  if ( !is_multi_device('smart') && !is_multi_device('tablet') ): //スマホでもタブレットでも無い場合
-  get_sidebar();
-  endif;
-endif;
-?>
+<?php get_sidebar(); ?>
 
 </div><!-- /#contentswrap -->
 

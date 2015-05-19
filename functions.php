@@ -1,12 +1,38 @@
 <?php
 
-////////// 初期設定 //////////
+////////// 目次 //////////
+//基本設定
+//アーカイブページで現在のカテゴリー・タグ・タームを取得する
+//ログイン画面のロゴ変更
+//条件分岐タグ「is_first_post」を定義
+//最初の</p>のあとに広告を表示
+//いろいろな犬種アーカイブページの表示変更
+//カスタム投稿タイプ-いろいろな犬種
+//カスタムフィールド-いろいろな犬種
+//カスタム投稿タイプ-動画紹介
+//カスタムフィールド-動画紹介
+
+
+////////// 基本設定 //////////
 
 // メインカラムの幅を指定
 if ( ! isset( $content_width ) ) $content_width = 750;
 
 // <head>内に RSSフィードのリンクを表示
 add_theme_support( 'automatic-feed-links' );
+
+// カスタム投稿タイプをRSS配信する
+function mysite_feed_request($vars) {
+  if ( isset($vars['feed']) && !isset($vars['post_type']) ){
+    $vars['post_type'] = array(
+      'post',
+      'mov',
+      'dogs'
+    );
+  }
+  return $vars;
+}
+add_filter( 'request', 'mysite_feed_request' );
 
 // アイキャッチ画像を有効化する
 add_theme_support( 'post-thumbnails' );
@@ -22,6 +48,59 @@ function new_excerpt_more($more){
 }
 add_filter( 'excerpt_more', 'new_excerpt_more' );
 
+// アーカイブページに「link rel="prev"」,「link rel="next"」を追加
+function add_rel_link() {
+  if(is_home() || is_archive()) {
+    global $wp_query;
+    $max_page  = $wp_query->max_num_pages;
+    if($max_page > 1) {
+      if(get_query_var('paged')) {
+        echo '<link rel="prev" href="'.previous_posts(false).'" />'."\n";
+      }
+      if(get_query_var('paged') < $max_page) {
+        echo '<link rel="next" href="'.next_posts($max_page, false).'" />'."\n";
+      }
+    }
+  }
+}
+add_action('wp_head', 'add_rel_link');
+
+
+////////// アーカイブページで現在のカテゴリー・タグ・タームを取得する //////////
+function get_current_term(){
+
+  $id;
+  $tax_slug;
+
+  if(is_category()){
+    $tax_slug = "category";
+    $id = get_query_var('cat'); 
+  }else if(is_tag()){
+    $tax_slug = "post_tag";
+    $id = get_query_var('tag_id');  
+  }else if(is_tax()){
+    $tax_slug = get_query_var('taxonomy');  
+    $term_slug = get_query_var('term'); 
+    $term = get_term_by("slug",$term_slug,$tax_slug);
+    $id = $term->term_id;
+  }
+
+  return get_term($id,$tax_slug);
+}
+
+
+////////// ログイン画面のロゴ変更 //////////
+function login_logo() {
+echo '<style type="text/css">
+#login h1 a {
+background: url('.get_template_directory_uri().'/svg/logo-h.png) no-repeat;
+width: 250px;
+height: 50px;
+background-size:100% auto;
+}
+</style>';
+}
+add_action('login_head', 'login_logo');
 
 
 ////////// 条件分岐タグ「is_first_post」を定義 //////////
@@ -31,8 +110,21 @@ function is_first_post(){
 }
 
 
-////////// 最初の</p>のあとに広告を表示 //////////
+////////// アーカイブにカスタム投稿タイプを表示 //////////
+function set_post_per_page( $query ) {
+  if ( is_admin() || !$query->is_main_query() )
+    return;
 
+  if ( $query->is_post_type_archive( 'dogs' ) ) {
+    return;
+  }
+
+  if ( $query->is_home() || $query->is_archive() ) {
+    $query->set( 'post_type', array( 'post', 'mov' ) );
+    return;
+  }
+}
+add_action( 'pre_get_posts', 'set_post_per_page' );
 
 
 ////////// いろいろな犬種アーカイブページの表示変更 //////////
@@ -40,8 +132,8 @@ function change_posts_per_page($query) {
     if ( is_admin() || ! $query->is_main_query() )
         return;
 
-    if ( $query->is_archive('dogs') ) {
-        $query->set( 'posts_per_page', '18' );
+    if ( $query->is_post_type_archive( 'dogs' ) ) {
+        $query->set( 'posts_per_page', '12' );
         $query->set( 'orderby', 'meta_value' );
         $query->set( 'meta_key', 'dogs_yomi' );
         $query->set( 'order', 'asc' );
@@ -76,6 +168,7 @@ function register_cpt_dogs() {
     'hierarchical' => false,  //階層ありならtrue（固定ページぽく） or 階層無しならfalse（投稿ぽく）
 
     'supports' => array( 'title', 'editor', 'thumbnail' ),
+    'taxonomies' => array( 'post_tag' ),  //通常のタグを使う
 
     'public'       => true,
     'show_ui'      => true,
@@ -178,7 +271,7 @@ function register_cpt_mov() {
     'labels'       => $labels,
     'hierarchical' => false,  //階層ありならtrue（固定ページぽく） or 階層無しならfalse（投稿ぽく）
 
-    'supports'   => array( 'title', 'thumbnail', 'comments' ),
+    'supports'   => array( 'title', 'editor', 'thumbnail', 'comments' ),
     'taxonomies' => array( 'category', 'post_tag' ),  //通常のカテゴリーとタグを使う
 
     'public'       => true,
@@ -244,7 +337,7 @@ function mov_note_form() {  //「コピペ用HTMLタグ」メタボックスに�
 
 ///// 管理画面に任意のCSSを読み込ませる
 function wp_custom_admin_css() {
-  echo "\n" . '<link href="' .get_bloginfo('template_directory'). '/article.css' . '" rel="stylesheet" type="text/css" />' . "\n";
+  echo "\n" . '<link href="' .get_bloginfo('template_directory'). '/admin.css' . '" rel="stylesheet" type="text/css" />' . "\n";
 }
 add_action('admin_head', 'wp_custom_admin_css', 100);
 

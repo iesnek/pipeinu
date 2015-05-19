@@ -4,14 +4,61 @@
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-    <?php
-    if( !is_front_page() ) :
-      wp_title('|', true, 'right');
-    endif;
-    bloginfo('name');
-    ?>
-  </title>
+
+<?php //metaキーワードとディスクリプション
+$term = get_current_term(); //カテゴリー・タグ・タームの取得
+  if (is_front_page()) { //トップページの場合
+    echo '<meta name="keyword" content="犬,いぬ,pipeinu,ピペイヌ">';echo "\n";
+    echo '<meta name="description" content="'; bloginfo('description'); echo '">';echo "\n";
+  } elseif (is_post_type_archive('dogs')) { //犬種アーカイブの場合
+    echo '<meta name="keyword" content="犬種,ピペイヌ">';echo "\n";
+    echo '<meta name="description" content="犬種ごとの性格や特徴、注意点などを掲載しているページです。">';echo "\n";
+  } elseif (is_category()) { //カテゴリーアーカイブの場合
+    echo '<meta name="keyword" content="犬,いぬ,'; echo $term->name; echo '">';echo "\n";
+    echo '<meta name="description" content="カテゴリー「'; echo $term->name; echo '」の記事一覧ページです。">';echo "\n";
+  } elseif (is_tag()) { //タグアーカイブの場合
+    echo '<meta name="keyword" content="犬,いぬ,'; echo $term->name; echo '">';echo "\n";
+    echo '<meta name="description" content="タグ「'; echo $term->name; echo '」の記事一覧ページです。">';echo "\n";
+  } elseif (is_search()) { //検索結果ページの場合
+    echo '<meta name="keyword" content="犬,いぬ,'; the_search_query(); echo '">';echo "\n";
+    echo '<meta name="description" content="「'; the_search_query(); echo '」の検索結果一覧ページです。">';echo "\n";
+  } elseif (is_single()) { //各投稿ページの場合
+    echo '<meta name="keyword" content="犬,いぬ,';
+    $posttags = get_the_tags();
+    $count = count($posttags);
+    $loop = 0;
+    if ($posttags) { foreach ($posttags as $tag) {
+      $loop++;
+      if ($count == $loop){ echo $tag->name . ''; }
+      else { echo $tag->name . ','; }
+    } }
+    echo '">';echo "\n";
+    echo '<meta name="description" content="';
+    $digest = strip_tags($post->post_content); //記事内の余計なタグを取り除く
+    $digest = ereg_replace('(rn|r|n)', '', $digest); //正規表現による置換
+    $digest = mb_substr($digest, 0, 100). '…'; //マルチバイトに対応した文字数をカウント
+    echo $digest;
+    echo '">';echo "\n";
+  } elseif (is_page()) { //各固定ページの場合
+    echo '<meta name="keyword" content="犬,いぬ,pipeinu,ピペイヌ">';echo "\n";
+    echo '<meta name="description" content="';
+    $digest = strip_tags($post->post_content); //記事内の余計なタグを取り除く
+    $digest = ereg_replace('(rn|r|n)', '', $digest); //正規表現による置換
+    $digest = mb_substr($digest, 0, 100). '…'; //マルチバイトに対応した文字数をカウント
+    echo $digest;
+    echo '">';echo "\n";
+  } elseif (is_404()) { //404ページの場合
+    echo '<meta name="keyword" content="犬,いぬ,pipeinu,ピペイヌ">';echo "\n";
+    echo '<meta name="description" content="404エラー　お探しのページはみつかりませんでした。">';echo "\n";
+  } else { //その他
+    echo '<meta name="keyword" content="犬,いぬ,pipeinu,ピペイヌ">';echo "\n";
+    echo '<meta name="description" content="'; bloginfo('description'); echo '">';echo "\n";
+  }
+?>
+
+  <title><?php //タイトル
+  if( !is_front_page() ) { wp_title('|', true, 'right'); } bloginfo('name');
+  ?></title>
 
   <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico" type="image/x-icon" />
@@ -36,11 +83,11 @@ if ( function_exists( 'is_multi_device' ) ):
 <!-- FBみたいなナビゲーションmmenu -->
 <script type="text/javascript">
   jQuery(document).ready(function() {
-    jQuery("nav#gnav").mmenu({
+    jQuery("#gnav").mmenu({
     });
   });
   jQuery(document).ready(function() {
-    jQuery("div#follow").mmenu({
+    jQuery("#follow").mmenu({
       "offCanvas": { "position": "right" },
       "classes": "mm-light"
     });
@@ -54,6 +101,7 @@ if ( function_exists( 'is_multi_device' ) ):
   endif;
 endif;
 ?>
+<!-- /jQuery呼び出しとスクリプト -->
 
 <?php get_template_part('ogp');?>
 </head>

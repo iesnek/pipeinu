@@ -1,0 +1,87 @@
+@charset "UTF-8";
+/*!
+ * ダッシュボード用CSS
+ * Version: 1.0
+*/
+.m-articleHead { margin-bottom: 1rem; }
+.m-articleHead h1 { font-weight: bold; font-size: 1.5rem; margin-bottom: 0.5rem; }
+@media only screen and (min-width: 481px) { .m-articleHead h1 { font-size: 2rem; } }
+
+.m-articleMeta li { font-size: 0.8rem; color: #61c1bd; }
+.m-articleMeta li:first-child { float: left; }
+.m-articleMeta li:nth-child(2) { float: right; }
+.m-articleMeta li:nth-child(3) { clear: both; }
+.m-articleMeta li a { text-decoration: none; color: inherit; }
+.m-articleMeta li a:hover { text-decoration: underline; }
+.m-articleMeta li svg { fill: #61c1bd; width: 0.8rem; height: 0.8rem; margin-right: 0.4rem; }
+
+.m-eyecatch { width: 100%; margin: 0 auto; text-align: center; }
+
+.m-articleBody { font-size: 1rem; margin-bottom: 3rem; }
+
+.m-articleBody p { font-size: 1rem; line-height: 1.6; margin: 1.5rem 0; }
+@media only screen and (min-width: 481px) { .m-articleBody p { line-height: 1.8; } }
+@media only screen and (min-width: 1150px) { .m-articleBody p { line-height: 2; } }
+
+.m-articleBody img + p { margin-top: 0; }
+
+.m-articleBody img { max-width: 100%; margin: 0.5rem 0; }
+
+.m-articleBody .m-umekomi { position: relative; margin-top: 2em; margin-bottom: 2em; padding-bottom: 50%; padding-top: 69px; overflow: hidden; }
+.m-articleBody .m-umekomi iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+.m-articleBody h2 { margin: 3rem 0 1rem; padding-left: 0.3rem; font-size: 1.3rem; font-weight: bold; }
+.m-articleBody h2:before { content: ''; position: relative; left: -0.3rem; display: inline-block; vertical-align: middle; width: 0.7rem; height: 1.5rem; background: url(img/bg-polygon.png) right center; }
+@media only screen and (min-width: 481px) { .m-articleBody h2 { font-size: 1.6rem; }
+  .m-articleBody h2:before { width: 0.8rem; height: 1.8rem; } }
+
+.m-articleBody h3 { margin: 2rem 0 0.7rem; padding-left: 0.3rem; font-size: 1.2rem; font-weight: bold; }
+.m-articleBody h3:before { content: ''; position: relative; left: -0.3rem; display: inline-block; vertical-align: middle; width: 1rem; height: 1rem; background: #fabe00; }
+@media only screen and (min-width: 481px) { .m-articleBody h3 { font-size: 1.4rem; } }
+.m-articleBody h3:before { width: 1.2rem; height: 1.2rem; }
+
+.m-articleBody h4 { margin: 0.7rem 0; font-weight: bold; font-size: 1.1rem; }
+@media only screen and (min-width: 481px) { .m-articleBody h4 { font-size: 1.2rem; } }
+
+.m-articleBody strong, .m-articleBody .b { font-weight: bold; }
+
+.m-articleBody .bred { font-weight: bold; color: #f66; }
+
+.m-articleBody .bb { font-weight: bold; font-size: 1.4rem; }
+@media only screen and (min-width: 481px) { .m-articleBody .bb { font-size: 1.8rem; } }
+
+.m-articleBody .bm { font-weight: bold; background: #fbb; }
+
+.m-articleBody em, .m-articleBody .m { background: #ffe677; }
+
+.m-articleBody small { font-size: 0.7rem; }
+
+.m-articleBody p a, .m-articleBody li a { color: #c04d97; }
+.m-articleBody p a:hover, .m-articleBody li a:hover { color: #61c1bd; text-decoration: none; }
+.m-articleBody p a:after, .m-articleBody li a:after { content: ''; display: inline-block; width: 1rem; height: 1rem; background: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22200px%22%20height%3D%22200px%22%20viewBox%3D%220%200%20200%20200%22%3E%3Cpath%20fill%3D%22%23c04d97%22%20d%3D%22M85.6%2C124.8c-2.7%2C0-5.3-1-7.4-3c-19-19-19-50%2C0-69l38.4-38.4C125.9%2C5.1%2C138.2%2C0%2C151.2%2C0s25.3%2C5.1%2C34.5%2C14.3c19%2C19%2C19%2C50%2C0%2C69l-17.6%2C17.6c-4.1%2C4.1-10.6%2C4.1-14.7%2C0c-4.1-4.1-4.1-10.6%2C0-14.7L171%2C68.6c10.9-10.9%2C10.9-28.7%2C0-39.6c-5.3-5.3-12.3-8.2-19.8-8.2c-7.5%2C0-14.5%2C2.9-19.8%2C8.2L93%2C67.4C82.1%2C78.3%2C82.1%2C96.1%2C93%2C107c4.1%2C4.1%2C4.1%2C10.6%2C0%2C14.7C91%2C123.7%2C88.3%2C124.8%2C85.6%2C124.8zM83.3%2C185.7l38.4-38.4c19-19%2C19-50%2C0-69c-4.1-4.1-10.7-4.1-14.7%2C0s-4.1%2C10.6%2C0%2C14.7c10.9%2C10.9%2C10.9%2C28.7%2C0%2C39.6L68.6%2C171c-5.3%2C5.3-12.3%2C8.2-19.8%2C8.2c-7.5%2C0-14.5-2.9-19.8-8.2c-10.9-10.9-10.9-28.7%2C0-39.6l17.6-17.6c4.1-4.1%2C4.1-10.6%2C0-14.7c-4.1-4.1-10.6-4.1-14.7%2C0l-17.6%2C17.6c-19%2C19-19%2C50%2C0%2C69c9.2%2C9.2%2C21.5%2C14.3%2C34.5%2C14.3S74.1%2C194.9%2C83.3%2C185.7z%22/%3E%3C/svg%3E") no-repeat bottom center; background-size: 0.9em 0.9em; }
+
+.m-articleBody p a[target="_blank"]:after, .m-articleBody li a[target="_blank"]:after { content: ''; display: inline-block; width: 1rem; height: 1rem; background: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22200px%22%20height%3D%22200px%22%20viewBox%3D%220%200%20200%20200%22%3E%3Cpath%20fill%3D%22%23c04d97%22%20d%3D%22M28.6%2C0v171.4H200V0H28.6zM185.7%2C157.1H42.9V14.3h142.9V157.1zM14.3%2C185.7v-150L0%2C21.4V200h178.6l-14.3-14.3H14.3zM157.1%2C42.9v92.9L121.4%2C100l-42.9%2C42.9l-21.4-21.4L100%2C78.6L64.3%2C42.9H157.1z%22/%3E%3C/svg%3E") no-repeat bottom center; background-size: 0.9em 0.9em; }
+
+.m-articleBody ul { padding: 1.5rem 1rem; }
+.m-articleBody ul li { padding-left: 1.3rem; background: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22200px%22%20height%3D%22200px%22%20viewBox%3D%220%200%20200%20200%22%3E%3Cpolygon%20fill%3D%22%23ee7700%22%20points%3D%22200%2C40%2070%2C180%200%2C90%2025.6%2C68.1%2070%2C114.4%20180%2C20%20%22/%3E%3C/svg%3E") no-repeat left center; background-size: 1rem 1rem; }
+
+.m-articleBody ol { list-style: decimal; padding: 1.5rem 2rem; }
+
+.m-articleBody blockquote { position: relative; padding: 0 0.5rem; margin-bottom: 1rem; text-align: center; background-color: rgba(250, 190, 0, 0.05); border-radius: 10px; }
+.m-articleBody blockquote p { margin: 0; }
+.m-articleBody blockquote:before { position: relative; top: -0.6rem; left: 0.6rem; content: ''; display: block; width: 1.5rem; height: 1.5rem; background: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22200px%22%20height%3D%22200px%22%20viewBox%3D%220%200%20200%20200%22%3E%3Cpath%20fill%3D%22%23aaa%22%20d%3D%22M43.9%2C81.3c24.1%2C0%2C43.7%2C19.6%2C43.7%2C43.7S68%2C168.7%2C43.9%2C168.7c-24.1%2C0-43.7-19.6-43.7-43.7L0%2C118.7c0-48.3%2C39.1-87.4%2C87.4-87.4v25c-16.7%2C0-32.4%2C6.5-44.1%2C18.3c-2.3%2C2.3-4.3%2C4.7-6.2%2C7.2C39.3%2C81.5%2C41.6%2C81.3%2C43.9%2C81.3zM156.3%2C81.3c24.1%2C0%2C43.7%2C19.6%2C43.7%2C43.7s-19.6%2C43.7-43.7%2C43.7c-24.1%2C0-43.7-19.6-43.7-43.7l-0.2-6.2c0-48.3%2C39.1-87.4%2C87.4-87.4v25c-16.7%2C0-32.4%2C6.5-44.1%2C18.3c-2.3%2C2.3-4.3%2C4.7-6.2%2C7.2C151.7%2C81.5%2C154%2C81.3%2C156.3%2C81.3L156.3%2C81.3z%22/%3E%3C/svg%3E") no-repeat bottom right; background-size: 1.5rem 1.5rem; }
+.m-articleBody blockquote:after { position: relative; bottom: -0.6rem; right: 0.6rem; content: ''; margin-left: auto; display: block; width: 1.5rem; height: 1.5rem; background: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22200px%22%20height%3D%22200px%22%20viewBox%3D%220%200%20200%20200%22%3E%3Cpath%20fill%3D%22%23aaa%22%20d%3D%22M156.1%2C118.7c-24.1%2C0-43.7-19.6-43.7-43.7s19.6-43.7%2C43.7-43.7s43.7%2C19.6%2C43.7%2C43.7l0.2%2C6.2c0%2C48.3-39.1%2C87.4-87.4%2C87.4v-25c16.7%2C0%2C32.4-6.5%2C44.1-18.3c2.3-2.3%2C4.3-4.7%2C6.2-7.2C160.7%2C118.5%2C158.4%2C118.7%2C156.1%2C118.7zM43.7%2C118.7C19.6%2C118.7%2C0%2C99.2%2C0%2C75s19.6-43.7%2C43.7-43.7S87.4%2C50.9%2C87.4%2C75l0.2%2C6.2c0%2C48.3-39.1%2C87.4-87.4%2C87.4v-25c16.7%2C0%2C32.4-6.5%2C44.1-18.3c2.3-2.3%2C4.3-4.7%2C6.2-7.2C48.3%2C118.5%2C46%2C118.7%2C43.7%2C118.7z%22/%3E%3C/svg%3E") no-repeat bottom right; background-size: 1.5rem 1.5rem; }
+
+.m-dogsStates { padding: 1rem; background-color: rgba(250, 190, 0, 0.1); border-radius: 3%; }
+.m-dogsStates dl { margin-bottom: 0.5rem; padding-left: 1.3rem; background: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22200px%22%20height%3D%22200px%22%20viewBox%3D%220%200%20200%20200%22%3E%3Cpath%20fill%3D%22%23ee7700%22%20d%3D%22M200%2C81.2c0%2C17.7-9.7%2C32.1-21.8%2C32.1c-12%2C0-21.8-14.4-21.8-32.1c0-17.7%2C9.7-32.1%2C21.8-32.1C190.3%2C49.2%2C200%2C63.5%2C200%2C81.2zM133.1%2C0c-12%2C0-21.8%2C14.4-21.8%2C32.1s9.7%2C32.1%2C21.8%2C32.1c12%2C0%2C21.8-14.4%2C21.8-32.1S145.2%2C0%2C133.1%2C0zM0%2C81.2c0%2C17.7%2C9.7%2C32.1%2C21.8%2C32.1S43.5%2C99%2C43.5%2C81.2c0-17.7-9.7-32.1-21.8-32.1S0%2C63.5%2C0%2C81.2zM45.1%2C32.1c0%2C17.7%2C9.7%2C32.1%2C21.8%2C32.1s21.8-14.4%2C21.8-32.1S78.9%2C0%2C66.9%2C0S45.1%2C14.4%2C45.1%2C32.1zM99.6%2C96.5c-4.3%2C0-9.5%2C4.1-13.8%2C10.9l-33.6%2C53.5c-4.7%2C7.4-5.1%2C12.6-4.3%2C14.1c0.8%2C1.5%2C5.4%2C3.9%2C14.2%2C3.9H137c8.8%2C0%2C13.4-2.4%2C14.2-3.9c0.8-1.5%2C0.4-6.7-4.3-14.1l-33.6-53.5C109.1%2C100.5%2C103.9%2C96.5%2C99.6%2C96.5M99.6%2C75.3c11.5%2C0%2C23%2C6.9%2C31.7%2C20.8l33.6%2C53.5c17.4%2C27.7%2C4.9%2C50.4-27.9%2C50.4H62.2c-32.7%2C0-45.3-22.7-27.9-50.4l33.6-53.5C76.6%2C82.2%2C88.1%2C75.3%2C99.6%2C75.3L99.6%2C75.3z%22/%3E%3C/svg%3E") no-repeat left 0.25rem; background-size: 1rem 1rem; }
+.m-dogsStates dl dt { font-weight: bold; font-size: 1.1rem; margin-bottom: 0.2rem; }
+@media only screen and (min-width: 481px) { .m-dogsStates dl dt { font-size: 1.2rem; } }
+.m-dogsStates dl dd svg { display: block; width: 12rem; height: 2rem; }
+@media only screen and (min-width: 481px) { .m-dogsStates dl dd svg { width: 15rem; height: 2.5rem; } }
+@media only screen and (min-width: 769px) { .m-dogsStates dl dd svg { width: 18rem; height: 3rem; } }
+
+@media only screen and (min-width: 481px) { .m-statesBox { float: left; width: 50%; min-width: 17rem; }
+  .m-statesBox dl { width: 17rem; margin: 0 auto 0.75rem; } }
+@media only screen and (min-width: 481px) and (min-width: 769px) { .m-statesBox dl { width: 20rem; margin: 0 auto 1rem; } }
+
+.smart-cf-upload-image img { max-width: 100%; width: 100%; }

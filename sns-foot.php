@@ -52,11 +52,6 @@ if ( function_exists( 'is_multi_device' ) ):
     <p><svg><title>Line@</title><use xlink:href="#line"/></svg>&nbsp;QRコードをスマホで読み込んでね！<br>↓↓↓</p>
     <svg><title>LINE@ QRコード</title><use xlink:href="#lineQR"/></svg>
   </div>
-<?php
-  endif;
-endif;
-?>
-</div><!-- /.m-articleFollow -->
 
 <script type="text/javascript">
 jQuery(function() {
@@ -66,3 +61,9 @@ jQuery(function() {
   });
 }); 
 </script>
+
+<?php
+  endif;
+endif;
+?>
+</div><!-- /.m-articleFollow -->
