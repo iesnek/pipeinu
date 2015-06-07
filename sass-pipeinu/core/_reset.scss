@@ -39,3 +39,8 @@ a:focus {
 .defs {
   display: none;
 }
+
+//iOS Safariでのinputボタンスタイルリセット
+input[type="submit"] {
+  -webkit-appearance: none;
+}

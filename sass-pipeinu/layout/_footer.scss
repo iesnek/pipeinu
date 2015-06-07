@@ -19,14 +19,17 @@
 
 .l-footLogo{
   float: right;
-  width: 35%;
+  width: 40%;
+  @include media(sl_tp) {
+    width: 25%;
+  }
   @include media(sl_tp) {
     width: 20%;
   }
+  @include media(pc) {
+    max-width: 170px;
+  }
   img{
     width: 100%;
-  }
-  @include media(pc) {
-    max-width: 150px;
   }
 }

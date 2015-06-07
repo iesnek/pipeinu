@@ -25,8 +25,8 @@ $my_query = new WP_Query($args); ?>
     while ($my_query -> have_posts()) : $my_query -> the_post(); // 繰り返し処理 ?>
     <li class="m-subArchiveList">
       <a href="<?php the_permalink() ?>" title = "「<?php the_title(); ?>」を読む" class="clearfix">
-        <div class="m-subArchiveTxt arrangeHeight">
-          <h2><?php the_title(); ?></h2>
+        <div class="m-subArchiveTxt">
+          <h2 class="arrangeHeight"><?php the_title(); ?></h2>
           <ul class="m-subArchiveMeta">
             <li>
               <svg><title>カテゴリー</title><desc>カテゴリーのアイコン</desc><use xlink:href="#cat"/></svg>

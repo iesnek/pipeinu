@@ -81,6 +81,10 @@
 .m-archiveImg{
   margin: 0 auto;
   width: 95%;
+  img{
+    width: 100%;
+    height: auto;
+  }
   @include media(sl_tp) {
     width: 100%;
   }
@@ -252,6 +256,10 @@
 .m-subArchiveImg{
   float: left;
   width: 37%;
+  img{
+    width: 100%;
+    height: auto;
+  }
   @include media(sl_tp) {
     float: none;
     width: 100%;

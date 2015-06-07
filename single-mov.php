@@ -2,6 +2,10 @@
 
 <div id="contentswrap" class="clearfix">
 
+<div class="m-breadcrumb">
+<?php if(function_exists('bcn_display')) { bcn_display(); } ?>
+</div><!-- .m-breadcrumb -->
+
 <div id="main">
 <div class="l-mainInner">
 
@@ -67,12 +71,11 @@ if (have_posts()) :
   <?php get_template_part('adsense');  //アドセンス呼び出し ?>
 
   <?php  //埋め込み動画
-    global $wp_embed;
     if(get_post_meta($post->ID, 'mov_path', true)):
     $youtube = get_post_meta($post->ID, 'mov_path', true);
-    $post_embed = $wp_embed->run_shortcode('[embed]' . $youtube . '[/embed]');
+    $post_embed = str_replace('https://youtu.be/', '', $youtube);
     ?>
-    <div class="m-umekomi"><?php echo $post_embed; ?></div>
+    <div class="m-umekomi"><div id="ytPlayer1"></div></div>
     <?php
     endif;
   ?>
@@ -91,19 +94,83 @@ if (have_posts()) :
                      <?php echo $large_ss[0]; ?> 1500w"
              sizes="(min-width: 769px) 750px, (min-width: 481px) 90vw, 95vw"
              alt="<?php echo strip_tags( $repeat_field[mov_txt] ); ?>">
-        <p><?php echo $repeat_field[mov_txt]; ?></p>
+        <p><?php echo nl2br($repeat_field[mov_txt]); ?></p>
       <?php
       }
     endif;
   ?>
 
   <?php  //埋め込み動画
-    global $wp_embed;
     if(get_post_meta($post->ID, 'mov_path', true)):
     $youtube = get_post_meta($post->ID, 'mov_path', true);
-    $post_embed = $wp_embed->run_shortcode('[embed]' . $youtube . '[/embed]');
+    $post_embed = str_replace('https://youtu.be/', '', $youtube);
     ?>
-    <div class="m-umekomi"><?php echo $post_embed; ?></div>
+    <div class="m-umekomi"><div id="ytPlayer2"></div></div>
+    <script>
+    // YouTubeのウェブサイト上にある「IFrameプレーヤーAPI」のコードを非同期的に読み込む。
+    var tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    var movieScriptTag = document.getElementsByTagName('script')[0];
+    movieScriptTag.parentNode.insertBefore(tag, movieScriptTag);
+
+    var ytplayer1;
+    var ytplayer2;
+    function onYouTubeIframeAPIReady() {
+      //<div id="ytPlayer1"></div>を<iframe>に置き換え。
+      ytplayer1 = new YT.Player('ytPlayer1', {
+        width: '750',
+        height: '422',
+        videoId: '<?php echo $post_embed; ?>', //表示させるYouTube動画の「動画ID」
+
+        playerVars: { //動画プレーヤーの設定をおこなう「パラメータ」
+          'rel': 0, //rel=0 再生後の関連動画を非表示
+          'autohide': 1, //autohide=1 コントロールバーのフェードアウト
+          'modestbranding': 1, //modestbranding=1 YouTubeロゴの非表示
+          'wmode': 'transparent' //wmode=transparent z-indexが効くようにする
+        },
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+
+      //<div id="ytPlayer2"></div>を<iframe>に置き換え。
+      ytplayer2 = new YT.Player('ytPlayer2', {
+        width: '750',
+        height: '422',
+        videoId: '<?php echo $post_embed; ?>', //表示させるYouTube動画の「動画ID」
+
+        playerVars: { //動画プレーヤーの設定をおこなう「パラメータ」
+          'rel': 0, //rel=0 再生後の関連動画を非表示
+          'autohide': 1, //autohide=1 コントロールバーのフェードアウト
+          'modestbranding': 1, //modestbranding=1 YouTubeロゴの非表示
+          'wmode': 'transparent' //wmode=transparent z-indexが効くようにする
+        },
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+
+    }
+
+    function onPlayerReady(){ //動画を再生する準備が整ったときに実行される関数
+    }
+
+    function onPlayerStateChange(event) { //動画の再生状態が変わったときに実行される関数
+      if (event.data == YT.PlayerState.ENDED) {
+        jQuery(".m-fixedFollow a").trigger('click')
+      }
+    }
+    </script>
+    <?php
+    endif;
+  ?>
+
+  <?php  //クロージング
+    if(get_post_meta($post->ID, 'closing', true)):
+    ?>
+    <?php echo (get_post_meta($post->ID,'closing',true)); ?>
     <?php
     endif;
   ?>
@@ -112,7 +179,7 @@ if (have_posts()) :
     $repeat_group = SCF::get( 'mov_source' );
     if($repeat_group):
     ?>
-      <p><small>参照元：</small><br>
+      <p class="m-slh"><small>参照元：</small><br>
       <?php
       foreach ( $repeat_group as $repeat_field ) {
       ?>

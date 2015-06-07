@@ -2,6 +2,10 @@
 
 <div id="contentswrap" class="clearfix">
 
+<div class="m-breadcrumb">
+<?php if(function_exists('bcn_display')) { bcn_display(); } ?>
+</div><!-- .m-breadcrumb -->
+
 <div id="main">
 <div class="l-mainInner">
 

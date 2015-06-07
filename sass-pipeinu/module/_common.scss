@@ -12,6 +12,7 @@
 // コピーライト
 // PCグローバルナビゲーション
 // PC検索フォーム
+// パンくずリスト Breadcrumb NavXT
 
 
 ////////// 広告 //////////
@@ -278,12 +279,9 @@
 ////////// PC検索フォーム //////////
 .m-search{
   form{
-    display: none;
-    @include media(pc) {
-      display: block;
-      position: relative;
-      width: 100%;
-    }
+    display: block;
+    position: relative;
+    width: 100%;
   }
   #s{
     padding-left: 10px;
@@ -292,6 +290,7 @@
     border: 2px solid #888;
     outline: none;
     box-sizing: border-box;
+    border-radius: 0;
   }
   #searchsubmit{
     position: absolute;
@@ -309,11 +308,78 @@
     background-position: 5px 5px;
     transition: 0.3s;
     cursor: pointer;
+    border-radius: 0;
     &:hover{
       background-color: $color4;
     }
   }
   *:first-child + html #searchsubmit{
     top: 1px;
+  }
+}
+
+
+////////// パンくずリスト Breadcrumb NavXT //////////
+.m-breadcrumb{
+  display: none;
+  @include media(pc) {
+    display: block;
+    margin: 1rem 0;
+    font-size: 0.75rem;
+    > span{
+      display: inline-block;
+      margin: 0 1em 0 1.5em;
+      a,span{
+        display: inline-block;
+        background: $color7;
+        padding: 0.5em 2em;
+        text-decoration: none;
+        color: #fff;
+        position: relative;
+        &:hover{
+          background: $color2;
+        }
+      }
+    }
+    > span{
+      span::before,a::before,
+      span::after,a::after{
+        content:'';
+        position:absolute;
+        top: 0;
+        bottom: 0;
+        width: 2em;
+        background: $color7;
+        -webkit-transform: skew(-20deg);
+        transform: skew(-20deg);
+      }
+      span::before,a::before{
+        left: -1em;
+        border-radius: 5px 0 0 5px;
+      }
+      span:hover::before,a:hover::before{
+        background: $color2;
+      }
+      span::after,a::after{
+        right: -1em;
+        border-radius: 0 5px 5px 0;
+      }
+      span:hover::after,a:hover::after{
+        background: $color2;
+      }
+    }
+    > span:last-child{
+      span,span:hover,
+      a,a:hover{
+        color: $color1;
+        font-weight: bold;
+        background: #ddd;
+        pointer-events: none; //クリック出来ないようにする（モダンブラウザはサポート済み。IEは11以降）
+      }
+      span::after,a::after,
+      span::before,a::before{
+        background: #ddd;
+      }
+    }
   }
 }

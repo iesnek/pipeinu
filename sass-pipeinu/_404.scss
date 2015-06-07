@@ -1,6 +1,9 @@
 @charset "utf-8";
 
 ////////// 404とコンテントノーン //////////
+.contentNone{
+  letter-spacing: 0;
+}
 .contentNone .m-subArchives{
   padding: 0;
 }
@@ -48,37 +51,7 @@
   }
 }
 
-.contentNone ul.category li{
-  margin-bottom: 1rem;
-  padding-left: 0.3rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  &:before{
-    content: '';
-    position: relative;
-    left: -0.3rem;
-    display: inline-block;
-    vertical-align: middle;
-    width: 1rem;
-    height: 1rem;
-    background: $color5;
-  }
-  @include media(sl_tp) {
-    font-size: 1.3rem;
-  }
-  &:before{
-    width: 1.1rem;
-    height: 1.1rem;
-  }
-  a{
-    color: $color1;
-    text-decoration: none;
-    &:after{
-      display: none;
-    }
-    &:hover{
-      color: $color5;
-      text-decoration: underline;
-    }
-  }
+.contentNone .m-categoryList{
+  padding: 1rem 0;
+  font-size: 1.3rem;
 }

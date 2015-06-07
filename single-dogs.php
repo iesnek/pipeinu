@@ -3,6 +3,10 @@
 <div id="contentswrap" class="clearfix">
 <?php include_once("svg/sprite-rate.svg"); ?>
 
+<div class="m-breadcrumb">
+<?php if(function_exists('bcn_display')) { bcn_display(); } ?>
+</div><!-- .m-breadcrumb -->
+
 <div id="main">
 <div class="l-mainInner">
 
@@ -54,7 +58,7 @@ if (have_posts()) :
   ?>
 
     <h3><?php echo get_post_meta($post->ID,'dogs_note_title',true); ?></h3>
-    <p><?php echo get_post_meta($post->ID,'dogs_note',true); ?></p>
+    <p><?php echo nl2br(get_post_meta($post->ID,'dogs_note',true)); ?></p>
 
     <h3><?php the_title(); ?>の特徴</h3>
     <div class="m-dogsStates clearfix">

@@ -1,6 +1,15 @@
 <article class="l-article contentNone">
   <header class="m-articleHead">
-    <h1>ごめんなさい。あなたがアクセスしようとしたページは見つかりませんでした。</h1>
+    <h1>
+<?php if( is_404() ){
+  // 404ページの場合
+  echo 'ごめんなさい。あなたがアクセスしようとしたページは見つかりませんでした。';
+}elseif( is_search() ){
+  // 検索結果ページの場合
+  $r = get_search_query();
+  echo 'ごめんなさい。「' . $r . '」で検索しましたがページが見つかりませんでした。';
+} ?>
+    </h1>
   </header><!-- .m-articleHead -->
 
   <div class="m-articleBody">
@@ -12,7 +21,16 @@
        sizes="(min-width: 769px) 750px, (min-width: 481px) 90vw, 95vw"
        alt="<?php the_title(); ?>">
 
-  <p>piepinu（ピペイヌ）ご覧頂きありがとうございます。大変申し訳ないのですが、お求めのページは見つかりませんでした。お手数をおかけしますが、以下の方法からもう一度目的のページをお探し下さい。</p>
+  <p>
+<?php if( is_404() ){
+  // 404ページの場合
+  echo 'いつもpiepinu（ピペイヌ）ご覧頂きありがとうございます。大変申し訳ないのですが、あなたがアクセスしようとしたページは削除されたかURLが変更されています。お手数をおかけしますが、以下の方法からもう一度目的のページをお探し下さい。';
+}elseif( is_search() ){
+  // 検索結果ページの場合
+  $r = get_search_query();
+  echo 'いつもpiepinu（ピペイヌ）ご覧頂きありがとうございます。「' . $r . '」で検索しましたがページが見つかりませんでした。お手数をおかけしますが、以下の方法からもう一度目的のページをお探し下さい。';
+} ?>
+  </p>
 
   <h2>検索して見つける</h2>
   <p>検索ボックスにお探しのコンテンツに該当するキーワードを入力して下さい。それに近しいページのリストが表示されます。</p>
@@ -21,13 +39,14 @@
   </div>
 
   <h2>カテゴリーから見つける</h2>
-  <ul class="category">
-    <?php //カテゴリー
-      $cats = wp_list_categories('echo=0&orderby=ID&order=DESC&title_li=');
-      $cats = preg_replace('/ title=\"(.*?)\"/','',$cats);
-      echo $cats;
-    ?>
-  </ul>
+  <ul class="m-subArchives clearfix">
+    <?php
+      $cat_all = get_terms( "category", "fields=all&get=all&exclude=1" );
+      foreach($cat_all as $value):
+     ?>
+    <li class="m-subArchiveList m-categoryList"><a href="<?php echo get_category_link($value->term_id); ?>"><span class="b"><?php echo $value->name;?></span></a></li>
+    <?php endforeach; ?>
+  </ul><!-- /.m-subArchives -->
 
   <h2>人気の記事から見つける</h2>
 <?php // ここから人気記事の表示

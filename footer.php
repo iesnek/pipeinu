@@ -87,15 +87,18 @@ endif;
       <li class="home"><a href="<?php echo home_url('/'); ?>">
         <svg><title>ホーム</title><use xlink:href="#home"/></svg>
       ホーム</a></li>
-      <li class="dogs"><a href="<?php echo home_url('/'); ?>dogs/">
+      <li class="dogs"><a href="<?php echo home_url('/'); ?>dogs">
         <svg><title>犬種</title><use xlink:href="#dogs"/></svg>
       いろいろな犬種</a></li>
-      <li class="about"><a href="<?php echo home_url('/'); ?>about/">
+      <li class="about"><a href="<?php echo home_url('/'); ?>about">
         <svg><title>pipeinuとは</title><use xlink:href="#pipeinu"/></svg>
       pipeinuとは</a></li>
-      <li class="contact"><a href="<?php echo home_url('/'); ?>contact/">
+      <li class="contact"><a href="<?php echo home_url('/'); ?>contact">
         <svg><title>問合せ</title><use xlink:href="#mail"/></svg>
       お問い合わせ</a></li>
+      <li class="sitemap"><a href="<?php echo home_url('/'); ?>sitemap">
+        <svg><title>サイトマップ</title><use xlink:href="#link1"/></svg>
+      サイトマップ</a></li>
     </ul><!-- /.footNav -->
     <div class="l-footLogo"><a href="<?php echo home_url('/'); ?>">
       <img src="<?php echo get_template_directory_uri(); ?>/svg/logo-v.svg" width="200" height="190" alt="ピペイヌ">
@@ -111,7 +114,7 @@ if ( function_exists( 'is_multi_device' ) ):
   if ( is_multi_device('smart') || is_multi_device('tablet') ): //スマホかタブレットの場合
 ?>
 
-<ul class="m-fixedBtn">
+<ul id="m-fixedBtn" class="m-fixedBtn">
   <li class="m-fixedMenu"><a href="#gnav">
     <svg><title>メニューボタン</title><use xlink:href="#menu"/></svg>
   </a></li>

@@ -25,7 +25,9 @@
 
 .m-articleBody img + p { margin-top: 0; }
 
-.m-articleBody img { max-width: 100%; margin: 0.5rem 0; }
+.m-articleBody p.m-slh { line-height: 1; }
+
+.m-articleBody img { width: 100%; margin: 0.5rem 0; }
 
 .m-articleBody .m-umekomi { position: relative; margin-top: 2em; margin-bottom: 2em; padding-bottom: 50%; padding-top: 69px; overflow: hidden; }
 .m-articleBody .m-umekomi iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
@@ -85,3 +87,5 @@
 @media only screen and (min-width: 481px) and (min-width: 769px) { .m-statesBox dl { width: 20rem; margin: 0 auto 1rem; } }
 
 .smart-cf-upload-image img { max-width: 100%; width: 100%; }
+
+textarea { resize: vertical; }

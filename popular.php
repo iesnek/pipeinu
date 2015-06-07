@@ -19,8 +19,8 @@ $my_query = new WP_Query( $args ); ?>
     ?>
     <li class="m-subArchiveList">
       <a href="<?php the_permalink() ?>" title = "「<?php the_title(); ?>」を読む" class="clearfix">
-        <div class="m-subArchiveTxt arrangeHeight2">
-          <h2>
+        <div class="m-subArchiveTxt">
+          <h2 class="arrangeHeight2">
             <?php if(function_exists('is_multi_device')): if(is_multi_device('tablet')): ?>
             <span class="m-subArchiveNum"><?php echo $my_query->current_post+1; ?></span>
             <?php endif; endif; ?>

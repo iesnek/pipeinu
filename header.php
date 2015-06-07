@@ -75,12 +75,15 @@ if ( is_singular() ) {
 <!-- jQuery呼び出しとスクリプト -->
 <?php
 if ( function_exists( 'is_multi_device' ) ):
-  if ( is_multi_device('smart') || is_multi_device('tablet') ):
+  if ( is_multi_device('smart') || is_multi_device('tablet') ): //スマホかタブレットの場合
     wp_enqueue_script('jquery');
-    wp_enqueue_script('sp', get_bloginfo('template_url') . '/js/sp.js',array(jquery),'1.0',true); //スマホかタブレットの場合
+    wp_enqueue_script('sp', get_bloginfo('template_url') . '/js/sp.js',array(jquery),'1.0',true);
+    if ( is_multi_device('tablet') ): //その中でタブレットのみ
+      wp_enqueue_script('tablet', get_bloginfo('template_url') . '/js/tablet.js',array(jquery),'1.0',true);
+    endif;
     wp_head();
 ?>
-<!-- FBみたいなナビゲーションmmenu -->
+<!-- MMENU -->
 <script type="text/javascript">
   jQuery(document).ready(function() {
     jQuery("#gnav").mmenu({
@@ -94,9 +97,9 @@ if ( function_exists( 'is_multi_device' ) ):
   });
 </script>
 <?php
-  else:
+  else: //PC・その他の場合
     wp_enqueue_script('jquery');
-    wp_enqueue_script('pc', get_bloginfo('template_url') . '/js/pc.js',array(jquery),'1.0',true); //PC・その他の場合
+    wp_enqueue_script('pc', get_bloginfo('template_url') . '/js/pc.js',array(jquery),'1.0',true);
     wp_head();
   endif;
 endif;
